@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1276849515610" clover="3.0.2" xmlns="http://schemas.atlassian.com/clover3/report">
+   <project timestamp="1276849490408" name="qualitydashboard 1.0-SNAPSHOT">
+      <metrics coveredelements="8784" packages="130" coveredconditionals="824" ncloc="32307" statements="13176" loc="60454" complexity="6650" files="429" conditionals="2634" coveredstatements="5731" coveredmethods="2229" methods="4666" classes="440" elements="20476"/>
+      <package name="com.nhn.nsiq.external.api.action">
+         <metrics coveredelements="6" coveredconditionals="0" ncloc="253" statements="118" loc="395" complexity="35" files="3" conditionals="10" coveredstatements="3" coveredmethods="3" methods="22" classes="3" elements="150"/>
+         <file path="/home1/irteam/.hudson/jobs/QualityDashboard_Main/workspace/trunk/src/main/java/com/nhn/nsiq/external/api/action/ProjectQualityApiAction.java" name="ProjectQualityApiAction.java">
+            <metrics coveredelements="6" coveredconditionals="0" conditionals="2" ncloc="170" statements="88" coveredmethods="3" coveredstatements="3" loc="252" methods="12" classes="1" complexity="19" elements="102"/>
+            <class name="ProjectQualityApiAction">
+               <metrics coveredelements="6" coveredconditionals="0" conditionals="2" statements="88" coveredmethods="3" coveredstatements="3" methods="12" complexity="19" elements="102"/>
+            </class>
+            <line num="70" signature="execute() : String" type="method" complexity="2" count="0"/>
+            <line num="72" type="stmt" count="0"/>
+           </file>
+      </package>
+   </project>
+</coverage>

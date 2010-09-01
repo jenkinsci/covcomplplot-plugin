@@ -1,0 +1,43 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define"
+	xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form"
+	xmlns:i="jelly:fmt" xmlns:local="local">
+	<j:set var="buildAction" value="${from.lastBuildAction}" />
+	
+	<j:if test="${buildAction != null}">
+		<script><![CDATA[
+			YAHOO.util.Event.onDOMReady(function() {
+				resizeCloverBar();
+				var element = YAHOO.util.Dom.get("covComplPlot");
+				var parentNode = element.parentNode;
+				if (parentNode.firstChild !== undefined) {
+					parentNode.removeChild(element);
+					YAHOO.util.Dom.insertBefore(element, parentNode.firstChild);
+				}
+			}); 
+			
+			function resizeCloverBar()
+			{
+			        if (navigator.appVersion.indexOf(("MSIE")) > -1)
+			        {
+			                var barEmpty = document.getElementsByClassName('barEmpty');
+			                var barNegative = document.getElementsByClassName('barNegative');
+			                var barPositive = document.getElementsByClassName('barPositive');
+			                if (barEmpty.length == 1)
+			                {
+			                        document.getElementsByClassName("barNegative ")[0].style.width="500";
+			                }
+			                if (barNegative.length == 1)
+			                {
+			                        document.getElementsByClassName("barNegative ")[0].style.width="500";
+			                }
+			                if (barPositive.length == 1)
+			                {
+			                }
+			        }
+			}
+		]]>
+		</script>
+		<j:set var="withBuildNo" value="true"/>
+		<st:include it="${buildAction}" page="graph.jelly"/>
+	</j:if>
+</j:jelly>

@@ -1,0 +1,13 @@
+/*NHN page Navigation template (reference http://html.nhndesign.com)*/
+table.Nnavi{height:13px;border-collapse:collapse;margin:0 auto}
+table.Nnavi td{padding:0;border-right:1px solid #dddddd}
+table.Nnavi td.pgRR{border-right:0}
+table.Nnavi a{font-size:12px;font-family:;text-decoration:none;display:block;padding:2px 8px 0 7px;color:#333333;font-weight:bold}
+table.Nnavi a:hover{background-color:#F7F7F7;}
+table.Nnavi .pgLL a, table.Nnavi .pgL a, table.Nnavi .pgR a, table.Nnavi .pgRR a{font-weight:normal}
+table.Nnavi .pgLL a:hover, table.Nnavi .pgL a:hover, table.Nnavi .pgR a:hover, table.Nnavi .pgRR a:hover{background-color:#ffffff}
+table.Nnavi .pgLL img, table.Nnavi .pgL img, table.Nnavi .pgR img, table.Nnavi .pgRR img{border:0;margin-bottom:1px;}
+table.Nnavi .pgLL img, table.Nnavi .pgL img{margin:0 5px 2px 0;}
+table.Nnavi .pgRR img, table.Nnavi .pgR img{margin:0 0  2px 5px}
+table.Nnavi .on, table.Nnavi .on a, table.Nnavi .on a:visited{color:#FF8400}
+*html body table.Nnavi a{width:1em} table.Nnavi .pgLL a, table.Nnavi .pgL a, table.Nnavi .pgR a, table.Nnavi .pgRR a{width:auto}	

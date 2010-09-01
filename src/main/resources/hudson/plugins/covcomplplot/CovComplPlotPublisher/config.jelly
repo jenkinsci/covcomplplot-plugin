@@ -1,0 +1,15 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+	<f:entry title="Code coverage plugin used" description="Assgin code coverage plugin from which Cov/Compl scatter plot gets data."
+		field="analyzer">
+		<f:enum>${it.pluginName}</f:enum>
+	</f:entry>
+	<f:entry title="Exclude getter/setter" description="Exclude methods which are only 1 line, 1 complexity, and get~/set~ method name"
+		field="excludeGetterSetter">
+		<f:checkbox value="${instance.excludeGetterSetter}" />
+	</f:entry>
+	<f:entry title="Verbose" description="check if you want see detailed messages for diagnosis."
+		field="verbose">
+		<f:checkbox value="${instance.verbose}" />
+	</f:entry>
+</j:jelly>

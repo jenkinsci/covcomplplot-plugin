@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>&lt;div align=&quot;right&quot;&gt;&#xd;
+ &lt;div style=&quot;width:500px&quot; align=&quot;center&quot;&gt;&#xd;
+   &lt;div class=&quot;test-trend-caption&quot; style=&quot;width:305px;&quot;&gt;Class Complexity Chart&lt;/div&gt;&#xd;
+   &lt;img src=&quot;clover/img/classComplexityChart.png&quot; alt=&quot;classComplexityChart&quot; usemap=&quot;#classComplexityChart.png&quot; /&gt;&#xd;
+   &lt;map id=&quot;classComplexityChart.png&quot; name=&quot;classComplexityChart.png&quot;&gt;&lt;/map&gt;&#xd;
+ &lt;/div&gt;&#xd;
+&lt;/div&gt;&#xd;
+&lt;iframe name=&quot;cloverReport&quot; id=&quot;cloverReport&quot; src=&quot;./clover/dashboard.html&quot; width=&quot;0&quot; height=&quot;0&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;&#xd;
+&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;&#xd;
+function renderChart() {&#xd;
+   document.getElementById(&quot;classComplexityChart.png&quot;).innerHTML = window.frames[&quot;cloverReport&quot;].document.getElementById(&quot;classComplexityChart.png&quot;).innerHTML;&#xd;
+    var areas = document.getElementById(&quot;classComplexityChart.png&quot;).areas;&#xd;
+    for(i=0;i&lt;areas.length;i++){&#xd;
+       areas[i].href = &quot;./clover/&quot;+areas[i].href.replace(document.URL,&quot;&quot;);&#xd;
+    }&#xd;
+}&#xd;
+&lt;/script&gt;&#xd;
+&#xd;
+&#xd;
+&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;&#xd;
+onload = function() {&#xd;
+   renderChart();&#xd;
+   resizeBar();&#xd;
+}&#xd;
+&#xd;
+function resizeBar()&#xd;
+{&#xd;
+        if (navigator.appVersion.indexOf((&quot;MSIE&quot;)) &gt; -1)&#xd;
+        {&#xd;
+                var barEmpty = document.getElementsByClassName(&apos;barEmpty&apos;);&#xd;
+                var barNegative = document.getElementsByClassName(&apos;barNegative&apos;);&#xd;
+                var barPositive = document.getElementsByClassName(&apos;barPositive&apos;);&#xd;
+                if (barEmpty.length == 1)&#xd;
+                {&#xd;
+                        document.getElementsByClassName(&quot;barNegative &quot;)[0].style.width=&quot;500&quot;;&#xd;
+                }&#xd;
+                if (barNegative.length == 1)&#xd;
+                {&#xd;
+                        document.getElementsByClassName(&quot;barNegative &quot;)[0].style.width=&quot;500&quot;;&#xd;
+                }&#xd;
+                if (barPositive.length == 1)&#xd;
+                {&#xd;
+                }&#xd;
+        }&#xd;
+}&#xd;
+&lt;/script&gt;&#xd;
+</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.jiraapi.JiraProjectKeyJobProperty>
+      <key>QD</key>
+    </hudson.plugins.jiraapi.JiraProjectKeyJobProperty>
+  </properties>
+  <scm class="hudson.scm.SubversionSCM">
+    <locations>
+      <hudson.scm.SubversionSCM_-ModuleLocation>
+        <remote>http://svn.bds.nhncorp.com/qualitydashboard/main/trunk</remote>
+      </hudson.scm.SubversionSCM_-ModuleLocation>
+    </locations>
+    <useUpdate>true</useUpdate>
+    <doRevert>false</doRevert>
+    <excludedRegions></excludedRegions>
+    <includedRegions></includedRegions>
+    <excludedUsers></excludedUsers>
+    <excludedRevprop></excludedRevprop>
+    <excludedCommitMessages></excludedCommitMessages>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers class="vector">
+    <hudson.triggers.SCMTrigger>
+      <spec>10 10-23 * * *</spec>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.plugins.klocwork.KlocworkBuilder>
+      <buildspec class="hudson.plugins.klocwork.model.BuildSpec">maven</buildspec>
+      <encoding>UTF-8</encoding>
+      <buildconf>pom.xml</buildconf>
+      <buildparam>clean compile -P klocwork</buildparam>
+      <projectname></projectname>
+    </hudson.plugins.klocwork.KlocworkBuilder>
+    <hudson.plugins.nsiq.NSiqBuilder>
+      <srcDir>.</srcDir>
+      <fileFilter></fileFilter>
+    </hudson.plugins.nsiq.NSiqBuilder>
+    <hudson.tasks.Maven>
+      <targets>clean nhnstyle:checkstyle pmd:cpd clover2:setup test clover2:clover -P dev,clover -DskipTest=false </targets>
+      <mavenName>(Default)</mavenName>
+      <usePrivateRepository>false</usePrivateRepository>
+    </hudson.tasks.Maven>
+  </builders>
+  <publishers>
+    <hudson.plugins.dry.DryPublisher>
+      <threshold></threshold>
+      <newThreshold></newThreshold>
+      <failureThreshold></failureThreshold>
+      <newFailureThreshold></newFailureThreshold>
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <pluginName>[DRY] </pluginName>
+      <thresholdLimit>low</thresholdLimit>
+      <defaultEncoding></defaultEncoding>
+      <useDeltaValues>false</useDeltaValues>
+      <canRunOnFailed>false</canRunOnFailed>
+      <pattern>trunk/target/cpd.xml</pattern>
+      <highThreshold>50</highThreshold>
+      <normalThreshold>25</normalThreshold>
+    </hudson.plugins.dry.DryPublisher>
+    <hudson.plugins.checkstyle.CheckStylePublisher>
+      <threshold></threshold>
+      <newThreshold></newThreshold>
+      <failureThreshold></failureThreshold>
+      <newFailureThreshold></newFailureThreshold>
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <pluginName>[CHECKSTYLE] </pluginName>
+      <thresholdLimit>low</thresholdLimit>
+      <defaultEncoding></defaultEncoding>
+      <useDeltaValues>false</useDeltaValues>
+      <canRunOnFailed>false</canRunOnFailed>
+      <pattern>**/checkstyle-result.xml</pattern>
+    </hudson.plugins.checkstyle.CheckStylePublisher>
+    <hudson.tasks.junit.JUnitResultArchiver>
+      <testResults>**/target/surefire-reports/*.xml</testResults>
+      <keepLongStdio>false</keepLongStdio>
+      <testDataPublishers/>
+    </hudson.tasks.junit.JUnitResultArchiver>
+    <hudson.plugins.clover.CloverPublisher>
+      <cloverReportDir>trunk/target/site/clover</cloverReportDir>
+      <cloverReportFileName>clover.xml</cloverReportFileName>
+      <healthyTarget>
+        <methodCoverage>50</methodCoverage>
+        <conditionalCoverage>50</conditionalCoverage>
+        <statementCoverage>50</statementCoverage>
+      </healthyTarget>
+      <unhealthyTarget/>
+      <failingTarget/>
+    </hudson.plugins.clover.CloverPublisher>
+    <hudson.plugins.klocwork.KlocworkPublisher/>
+    <hudson.plugins.nhnstyle.NhnStylePublisher>
+      <filename>**/checkstyle-result.xml</filename>
+    </hudson.plugins.nhnstyle.NhnStylePublisher>
+    <hudson.plugins.nsiq.NSiqPublisher>
+      <lowRatio>10.0</lowRatio>
+      <highRatio>0.5</highRatio>
+      <locView>true</locView>
+      <complexityView>true</complexityView>
+      <overView>true</overView>
+      <dailyView>true</dailyView>
+    </hudson.plugins.nsiq.NSiqPublisher>
+  </publishers>
+  <buildWrappers/>
+</project>
