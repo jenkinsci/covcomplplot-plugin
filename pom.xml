@@ -11,7 +11,7 @@
 	<version>0.9.8</version>
 	<name>Hudson Coverage/Complexity Scatter Plot PlugIn</name>
 	<packaging>hpi</packaging>
-	<url>http://wiki.hudson-ci.org/display/HUDSON/CoverageComplexityScatterPlotPlugIn</url>
+	<url>http://wiki.hudson-ci.org/display/HUDSON/Coverage+Complexity+Scatter+Plot+PlugIn</url>
 
 	<developers>
 		<developer>
