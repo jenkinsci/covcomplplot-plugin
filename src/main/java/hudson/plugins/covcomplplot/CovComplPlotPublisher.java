@@ -28,13 +28,19 @@ import org.kohsuke.stapler.DataBoundConstructor;
  * after other coverage plugin is performed
  */
 public class CovComplPlotPublisher extends Notifier {
-
+	/** Analyzer to be used in performing the publisher */
 	public final Analyzer analyzer;
+	/** Verbose logging mode */
 	public final boolean verbose;
+	/** Exclude the getter / setter methods */
 	public final boolean excludeGetterSetter;
 
-	// Fields in config.jelly must match the parameter names in the
-	// "DataBoundConstructor"
+	/**
+	 * Constructor
+	 * @param analyzer analyzer to be used
+	 * @param excludeGetterSetter true if getter/setter methods are excluded.
+	 * @param verbose true if verbose logging mode is on
+	 */
 	@DataBoundConstructor
 	public CovComplPlotPublisher(Analyzer analyzer, boolean excludeGetterSetter, boolean verbose) {
 		this.analyzer = analyzer;
@@ -85,7 +91,7 @@ public class CovComplPlotPublisher extends Notifier {
 	 */
 	public CovComplPlotBuildAction createCovComplScatterPlotBuildAction(AbstractBuild<?, ?> build, List<MethodInfo> methods) throws IOException {
 		CovComplPlotTaget cloverScatterPlotTaget = new CovComplPlotTaget(build, methods, analyzer, build.getTimestamp());
-		CovComplPlotTaget.saveCloverScatterPlotTarget(build, cloverScatterPlotTaget);
+		CovComplPlotTaget.saveCovComplScatterPlotTarget(cloverScatterPlotTaget);
 		CovComplPlotBuildAction buildAction = new CovComplPlotBuildAction(build, cloverScatterPlotTaget);
 		return buildAction;
 	}

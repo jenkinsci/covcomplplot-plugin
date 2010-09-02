@@ -10,7 +10,6 @@ import java.util.Calendar;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
 
-import org.jfree.chart.ChartRenderingInfo;
 import org.jfree.chart.JFreeChart;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.StaplerResponse;
@@ -60,10 +59,19 @@ public abstract class CustomGraph {
 	}
 
 	/**
-	 * Actually render a chart.
+	 * Prepare {@link JFreeChart} instance to render image
+	 * 
+	 * @return chart prepared {@link JFreeChart} instance
 	 */
 	protected abstract JFreeChart createGraph();
 
+	/**
+	 * Actually render a chart.
+	 * 
+	 * @param req
+	 *            the {@link StaplerRequest} instance from which the width and
+	 *            height attributes are extracted.
+	 */
 	protected BufferedImage render(StaplerRequest req) {
 		String w = null;
 		String h = null;
@@ -85,6 +93,14 @@ public abstract class CustomGraph {
 
 	/**
 	 * Renders a graph.
+	 * 
+	 * @param req
+	 *            request from which the some attribute is extracted (width /
+	 *            height)
+	 * @param rsp
+	 *            response to which the image is written.
+	 * @throws IOException
+	 *             occurs when there is IO problems
 	 */
 	public void doPng(StaplerRequest req, StaplerResponse rsp) throws IOException {
 		if (req.checkIfModified(timestamp, rsp))

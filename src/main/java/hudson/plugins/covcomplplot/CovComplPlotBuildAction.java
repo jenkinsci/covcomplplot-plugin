@@ -81,7 +81,7 @@ public class CovComplPlotBuildAction implements Action, StaplerProxy {
 
 		synchronized (this) {
 			try {
-				cloverTarget = CovComplPlotTaget.loadCloverScatterPlotTarget(owner);
+				cloverTarget = CovComplPlotTaget.loadCovComplScatterPlotTarget(owner);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

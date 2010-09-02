@@ -78,6 +78,10 @@ public class CovComplPlotMethods implements Serializable {
 		this.totalCount = totalCount;
 	}
 
+	/**
+	 * Get the title shown in the detailed page
+	 * @return title string
+	 */
 	public String getTitle() {
 		int covLowerBound = cov * Constant.DOMAIN_AXIS_TICK_UNIT;
 		int covUpperBound = (cov + 1) * Constant.DOMAIN_AXIS_TICK_UNIT - 1;
@@ -133,14 +137,26 @@ public class CovComplPlotMethods implements Serializable {
 		return new Pagination(this.page, this.getTotalCount(), Constant.PAGING_SIZE, String.format("?cov=%d&compl=%d&page=", cov, compl));
 	}
 
+	/**
+	 * Set owner
+	 * @param owner owner to be set
+	 */
 	public void setOwner(AbstractBuild<?, ?> owner) {
 		this.owner = owner;
 	}
 
+	/**
+	 * Get method list containing this range and this page
+	 * @return {@link MethodInfo} list
+	 */
 	public List<MethodInfo> getMethodInfoList() {
 		return methodInfoList;
 	}
 
+	/**
+	 * Get total item count
+	 * @return total item count
+	 */
 	public int getTotalCount() {
 		return totalCount;
 	}

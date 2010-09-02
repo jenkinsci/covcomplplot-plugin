@@ -192,14 +192,37 @@ public class CovComplPlotTaget implements Serializable {
 		return this.methodOccuranceMatrix;
 	}
 
+	/**
+	 * Get the description of the graph. The description is
+	 * 
+	 * @return description
+	 */
 	public String getDescription() {
 		return analyzer.getHandler().getDescription();
 	}
 
+	/**
+	 * Get the snap value of the passed x. For example, if the snap is 5, the
+	 * value returned for 6 is 5. In case that x is 11, the snap value is 10.
+	 * 
+	 * @param x
+	 *            value to be converted
+	 * @param snap
+	 *            snap to be applied
+	 * @return snaped value
+	 */
 	private int getSnapValue(double x, int snap) {
 		return ((int) (x / snap)) * snap;
 	}
 
+	/**
+	 * Create {@link MethodInfo} list per each grid cell. {@link MethodInfo}
+	 * list is subject to be cached. So there is synchronized block inside.
+	 * 
+	 * @param methodInfoList
+	 *            all {@link MethodInfo} list to be reorganized/
+	 * @return 2 dimensional array of {@link MethodInfo} instances.
+	 */
 	@SuppressWarnings("unchecked")
 	private List[][] createMapGridMatrix(List<MethodInfo> methodInfoList) {
 		synchronized (lock) {
@@ -230,15 +253,18 @@ public class CovComplPlotTaget implements Serializable {
 				this.methodMapMatrix = matrix;
 			}
 		}
-
 		return this.methodMapMatrix;
 	}
 
+	/**
+	 * Create {@link DefaultXYZDataset} instance from methodOccurenceMatrix
+	 * 
+	 * @return {@link DefaultXYZDataset} instance.
+	 */
 	public DefaultXYZDataset generateXYDataset() {
 		this.methodOccuranceMatrix = createMatrix(this.getMethodInfoList());
 		DefaultXYZDataset dataSet = new DefaultXYZDataset();
-
-		// At first check the total count of point.
+		// At first check the total count of point to create dataset array.
 		int totalPoint = 0;
 		for (int[] eachRow : methodOccuranceMatrix) {
 			for (int eachValue : eachRow) {
@@ -249,8 +275,7 @@ public class CovComplPlotTaget implements Serializable {
 		}
 		double[][] eachPoint = new double[3][totalPoint];
 		int count = 0;
-
-		// 
+		// Create the dataset
 		for (int eachRowCount = 0; eachRowCount < methodOccuranceMatrix.length; eachRowCount++) {
 			for (int eachColumCount = 0; eachColumCount < methodOccuranceMatrix[eachRowCount].length; eachColumCount++) {
 				int methodCount = methodOccuranceMatrix[eachRowCount][eachColumCount];
@@ -263,45 +288,78 @@ public class CovComplPlotTaget implements Serializable {
 			}
 		}
 		dataSet.addSeries(1, eachPoint);
-
 		return dataSet;
 	}
 
+	/**
+	 * Implementation of scatter plot graph
+	 * 
+	 * @author JunHo Yoon
+	 */
 	public class GraphImpl extends CustomGraph {
+		/** Renderer to be used */
 		XYDotRenderer renderer = null;
+		/** Timestamp */
 		public final long timeInMillis;
 
+		/**
+		 * Default constructor
+		 */
 		protected GraphImpl() {
 			super(ownerTimestamp, 500, 200);
 			timeInMillis = ownerTimestamp.getTimeInMillis();
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see
+		 * hudson.plugins.covcomplplot.util.CustomGraph#doPng(org.kohsuke.stapler
+		 * .StaplerRequest, org.kohsuke.stapler.StaplerResponse)
+		 */
 		@Override
 		public void doPng(StaplerRequest req, StaplerResponse rsp) throws IOException {
 			this.renderer = new ScatterPlotPointRenderer();
 			super.doPng(req, rsp);
 		}
 
+		/**
+		 * Create image map string. This method uses caching inside.
+		 * 
+		 * @param withBuildNo
+		 *            "true" if URL should contains build NO.
+		 * @return Image Map String
+		 */
 		public synchronized String getMapString(String withBuildNo) {
 			if ("true".equals(withBuildNo)) {
 				if (graphMapWithBuildNo == null) {
-					graphMapWithBuildNo = getMapString(withBuildNo, null);
+					graphMapWithBuildNo = getMapStringInternal(withBuildNo);
 				}
 				return graphMapWithBuildNo;
 			} else {
 				if (graphMap == null) {
-					graphMap = getMapString(withBuildNo, null);
+					graphMap = getMapStringInternal(withBuildNo);
 				}
 				return graphMap;
 			}
 		}
 
-		private String getMapString(String withBuildNo, StaplerRequest req) {
+		/**
+		 * Create image map string
+		 * 
+		 * @param withBuildNo
+		 *            true if URL should contains build NO.
+		 * @return Image Map String
+		 */
+		private String getMapStringInternal(String withBuildNo) {
+			// To be minimize the rendering processing, assign an almost empty
+			// renderer.
 			this.renderer = new ScatterPlotPointMapRenderer();
-			ChartRenderingInfo info = new ChartRenderingInfo();
-			render(req);
+			// Only reason why rendering here is to get the dataArea.
+			render(null);
 			Rectangle2D dataArea = ((ScatterPlotPointMapRenderer) this.renderer).dataArea;
 
+			ChartRenderingInfo info = new ChartRenderingInfo();
 			XYPlot xyPlot = this.graph.getXYPlot();
 			ValueAxis domainAxis = xyPlot.getDomainAxis();
 			ValueAxis rangeAxis = xyPlot.getRangeAxis();
@@ -311,6 +369,7 @@ public class CovComplPlotTaget implements Serializable {
 			RectangleEdge rangeAxisEdge = xyPlot.getRangeAxisEdge();
 			int buildNo = owner.number;
 			List<?>[][] mapGridMatrix = createMapGridMatrix(getMethodInfoList());
+			// Create mapString per each grid cell
 			for (int x = 0; x < Constant.DOMAIN_AXIS_COUNT; x++) {
 				for (int y = 0; y < Constant.RANGE_AXIS_COUNT; y++) {
 					if (mapGridMatrix[y][x] != null) {
@@ -340,6 +399,11 @@ public class CovComplPlotTaget implements Serializable {
 			return mapString;
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see hudson.plugins.covcomplplot.util.CustomGraph#createGraph()
+		 */
 		@Override
 		protected JFreeChart createGraph() {
 			final XYZDataset dataset = generateXYDataset();
@@ -375,25 +439,60 @@ public class CovComplPlotTaget implements Serializable {
 		}
 	}
 
+	/**
+	 * Set owner
+	 * 
+	 * @param owner
+	 *            owner
+	 */
 	public void setOwner(AbstractBuild<?, ?> owner) {
 		this.owner = owner;
 	}
 
+	/**
+	 * Get datafile in the {@link AbstractBuild} root.
+	 * 
+	 * @param build
+	 *            build
+	 * @return {@link XmlFile}
+	 */
 	private static XmlFile getDataFile(AbstractBuild<?, ?> build) {
 		File dir = build == null ? new File(System.getProperty("java.io.tmpdir")) : build.getRootDir();
 		return new XmlFile(new XStream2(), new File(dir, Constant.RESULT_FILENAME));
 	}
 
-	public static CovComplPlotTaget loadCloverScatterPlotTarget(AbstractBuild<?, ?> build) throws IOException {
+	/**
+	 * Load {@link CovComplPlotTaget} instance from datafile
+	 * 
+	 * @param build
+	 *            the build where the datafile is located.
+	 * @return {@link CovComplPlotTaget} instance
+	 * @throws IOException
+	 *             occurs if there is file system failure.
+	 */
+	public static CovComplPlotTaget loadCovComplScatterPlotTarget(AbstractBuild<?, ?> build) throws IOException {
 		CovComplPlotTaget target = (CovComplPlotTaget) getDataFile(build).read();
 		target.setOwner(build);
 		return target;
 	}
 
-	public static void saveCloverScatterPlotTarget(AbstractBuild<?, ?> build, CovComplPlotTaget target) throws IOException {
-		getDataFile(build).write(target);
+	/**
+	 * Save {@link CovComplPlotTaget} in the datafile named.
+	 * 
+	 * @param target
+	 *            {@link CovComplPlotTaget} instance to be saved.
+	 * @throws IOException
+	 *             occurs if there is file system failure.
+	 */
+	public static void saveCovComplScatterPlotTarget(CovComplPlotTaget target) throws IOException {
+		getDataFile(target.getOwner()).write(target);
 	}
 
+	/**
+	 * Get all {@link MethodInfo} list.
+	 * 
+	 * @return {@link MethodInfo} list
+	 */
 	public List<MethodInfo> getMethodInfoList() {
 		return methodInfoList;
 	}
