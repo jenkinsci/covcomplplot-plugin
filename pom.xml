@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>org.jvnet.hudson.plugins</groupId>
 		<artifactId>plugin</artifactId>
-		<version>1.321</version>
+		<version>1.325</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>covcomplplot</artifactId>

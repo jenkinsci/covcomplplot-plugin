@@ -24,7 +24,8 @@ import org.apache.commons.io.FilenameUtils;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 /**
- *
+ * CovComplPlot Notifier It uses Notifier beacuse CovCompPlot should be created
+ * after other coverage plugin is performed
  */
 public class CovComplPlotPublisher extends Notifier {
 
@@ -41,6 +42,9 @@ public class CovComplPlotPublisher extends Notifier {
 		this.verbose = verbose;
 	}
 
+	/* (non-Javadoc)
+	 * @see hudson.tasks.BuildStepCompatibilityLayer#perform(hudson.model.AbstractBuild, hudson.Launcher, hudson.model.BuildListener)
+	 */
 	@Override
 	public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener) {
 
@@ -51,7 +55,7 @@ public class CovComplPlotPublisher extends Notifier {
 			try {
 				this.analyzer.getHandler().checkBuild(build);
 			} catch (InvalidHudsonProjectException e) {
-				logger.printError(e.getScreenMessage());
+				logger.printError(e.getLogMessage());
 				return true;
 			}
 			String remoteDir = FilenameUtils.normalize(filePath.getRemote());
@@ -69,11 +73,14 @@ public class CovComplPlotPublisher extends Notifier {
 	}
 
 	/**
-	 * Build Action 만든다.
+	 * Create {@link CovComplPlotBuildAction}
 	 * 
 	 * @param build
+	 *            Build against build action
 	 * @param methods
-	 * @return
+	 *            method list which will be contained in
+	 *            {@link CovComplPlotBuildAction}
+	 * @return {@link CovComplPlotBuildAction}
 	 * @throws IOException
 	 */
 	public CovComplPlotBuildAction createCovComplScatterPlotBuildAction(AbstractBuild<?, ?> build, List<MethodInfo> methods) throws IOException {
@@ -84,35 +91,51 @@ public class CovComplPlotPublisher extends Notifier {
 	}
 
 	/**
-	 * Clover 에서 MethodInfo 객체 리스트를 가져온다.
-	 * @param excludeGetterSetter2 
+	 * Create {@link MethodInfo} list from analyzer.
 	 * 
-	 * @param analyzer2
-	 * 
-	 * @param hudsonProject
+	 * @param analyzer
+	 *            analyzer
+	 * @param build
+	 *            current build
+	 * @param excludeGetterSetter
+	 *            true if getter/setter methods are excluded.
 	 * @param remoteDir
 	 * @param logger
-	 * @return
+	 *            logger
+	 * @return {@link MethodInfo} list
 	 * @throws InvalidHudsonProjectException
+	 *             occurs when the data extracting is failed by some problem in
+	 *             project.
 	 */
-	public List<MethodInfo> getCovComplMethodInfoList(Analyzer analyzer, AbstractBuild<?, ?> build, boolean excludeGetterSetter, String remoteDir, LoggerWrapper logger)
-			throws InvalidHudsonProjectException {
+	public List<MethodInfo> getCovComplMethodInfoList(Analyzer analyzer, AbstractBuild<?, ?> build, boolean excludeGetterSetter, String remoteDir,
+			LoggerWrapper logger) throws InvalidHudsonProjectException {
 		List<MethodInfo> methods = analyzer.getHandler().process(build, excludeGetterSetter, remoteDir, logger, analyzer);
 		if (methods.size() == 0) {
-			throw new InvalidHudsonProjectException(InvalidHudsonProjectType.INTERNAL, "모든 플러그인 처리기를 사용하더라도 처리할 수 없습니다.");
+			throw new InvalidHudsonProjectException(InvalidHudsonProjectType.INTERNAL, "Method size is 0.");
 		}
 		return methods;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * hudson.tasks.BuildStepCompatibilityLayer#getProjectAction(hudson.model
+	 * .AbstractProject)
+	 */
 	@Override
 	public Action getProjectAction(AbstractProject<?, ?> project) {
 		return new CovComplPlotProjectAction(project);
 	}
 
-	protected void addBuildAction(AbstractBuild<?, ?> build, CovComplPlotBuildAction buildAction) {
-
-	}
-
+	/**
+	 * Get {@link LoggerWrapper} instance from build listener. This method is
+	 * subject to be override for test
+	 * 
+	 * @param listener
+	 *            listener from which the logger is extracted.
+	 * @return {@link LoggerWrapper} instance
+	 */
 	protected LoggerWrapper getLoggerWrapper(BuildListener listener) {
 		return new LoggerWrapper(listener.getLogger(), verbose);
 	}
@@ -151,10 +174,20 @@ public class CovComplPlotPublisher extends Notifier {
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see hudson.tasks.BuildStep#getRequiredMonitorService()
+	 */
 	public BuildStepMonitor getRequiredMonitorService() {
 		return BuildStepMonitor.NONE;
 	}
 
+	/**
+	 * Get analyzer set
+	 * 
+	 * @return analyzer
+	 */
 	public Analyzer getAnalyzer() {
 		return analyzer;
 	}

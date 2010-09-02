@@ -4,7 +4,7 @@ import hudson.model.AbstractBuild;
 import hudson.plugins.covcomplplot.model.MethodInfo;
 import hudson.plugins.covcomplplot.stub.InvalidHudsonProjectException;
 import hudson.plugins.covcomplplot.stub.LoggerWrapper;
-import hudson.plugins.covcomplplot.util.QDUtil;
+import hudson.plugins.covcomplplot.util.CovComplPlotUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,16 +12,23 @@ import java.util.List;
 import org.dom4j.Document;
 import org.dom4j.Element;
 
+/**
+ * Clover result handler. This class is responsible to read the clover result
+ * and make the {@link MethodInfo} list. In addition, some clover specific
+ * actions.
+ * 
+ * @author JunHo Yoon
+ */
 public class CloverMethodHandler extends AbstractMethodInfoHandler {
-	
+
 	@Override
-	public List<MethodInfo> process(AbstractBuild<?, ?> build, boolean excludeGetterSetter, String remoteDir, LoggerWrapper logger,
-			Analyzer analyzer) throws InvalidHudsonProjectException {
+	public List<MethodInfo> process(AbstractBuild<?, ?> build, boolean excludeGetterSetter, String remoteDir, LoggerWrapper logger, Analyzer analyzer)
+			throws InvalidHudsonProjectException {
 		Document clover = super.getBuildArtifact(build, "clover.xml", Analyzer.Clover);
 		List<Element> domElement = null;
-		domElement = QDUtil.getXPathNodeList(clover, "/coverage/project/package");
+		domElement = CovComplPlotUtil.getXPathNodeList(clover, "/coverage/project/package");
 		if (domElement.size() == 0) {
-			domElement = QDUtil.getXPathNodeList(clover, "/cl:coverage/cl:project/cl:package");
+			domElement = CovComplPlotUtil.getXPathNodeList(clover, "/cl:coverage/cl:project/cl:package");
 		}
 		int maxComplexity = 0;
 		ArrayList<MethodInfo> methods = new ArrayList<MethodInfo>();
@@ -37,11 +44,12 @@ public class CloverMethodHandler extends AbstractMethodInfoHandler {
 					String eachType = eachLine.attributeValue("type");
 					if ("method".equals(eachType)) {
 						// Remove the invalid method
-						// I put this here to minimize the array search and array memory reallocation.
+						// I put this here to minimize the array search and
+						// array memory reallocation.
 						if (!isMethodValid(cloverMethod, excludeGetterSetter)) {
 							methods.remove(methods.size() - 1);
 						}
-						
+
 						String signature = eachLine.attributeValue("signature");
 						int complexity = Integer.parseInt(eachLine.attributeValue("complexity"));
 						int lineno = Integer.parseInt(eachLine.attributeValue("num"));
@@ -53,7 +61,8 @@ public class CloverMethodHandler extends AbstractMethodInfoHandler {
 					}
 				}
 				// Remove last method of this file if it's not valid.
-				// I put this here to minimize the array search and array memory reallocation.
+				// I put this here to minimize the array search and array memory
+				// reallocation.
 				if (methods.size() > 0) {
 					MethodInfo lastMehodInfo = methods.get(methods.size() - 1);
 					if (!isMethodValid(lastMehodInfo, excludeGetterSetter)) {
@@ -65,8 +74,6 @@ public class CloverMethodHandler extends AbstractMethodInfoHandler {
 
 		return methods;
 	}
-
-
 
 	@Override
 	public String getCustomJavaScript() {
@@ -83,8 +90,6 @@ public class CloverMethodHandler extends AbstractMethodInfoHandler {
 		return String.format("%s/clover-report/%s#%d", owner.getUrl(), hudson.Functions.encode(cloverPath), methodInfo.line);
 	}
 
-
-	
 	@Override
 	public void checkBuild(AbstractBuild<?, ?> build) throws InvalidHudsonProjectException {
 		checkBuildContainningBuildAction(build, "clover");

@@ -18,23 +18,22 @@ import org.jfree.data.xy.XYZDataset;
 import org.jfree.ui.RectangleEdge;
 
 /**
- * Bubble chart renderer.
+ * Renderer for scatter chart with various point size.
  * 
- * @author junoyoon@gmail.com
+ * @author JunHo Yoon
  */
 public class ScatterPlotPointRenderer extends XYDotRenderer {
+	/** UUID */
 	private static final long serialVersionUID = 1L;
 
-	public int calcPointSize(int size) {
-		return Math.max((int) Math.sqrt(Constant.GRAPH_POINT_SIZE * size), 3);
-	}
-
-	public int getDotHeight(int size) {
-		return calcPointSize(size);
-	}
-
-	public int getDotWidth(int size) {
-		return calcPointSize(size);
+	/**
+	 * Get Point size
+	 * 
+	 * @param count
+	 * @return
+	 */
+	public int getPointSize(int count) {
+		return Math.max((int) Math.sqrt(Constant.GRAPH_POINT_SIZE * count), 3);
 	}
 
 	@Override
@@ -45,14 +44,14 @@ public class ScatterPlotPointRenderer extends XYDotRenderer {
 		double x = dataset.getXValue(series, item);
 		double y = dataset.getYValue(series, item);
 		int z = ((int) dataset.getZValue(series, item));
-		int dotSize = getDotHeight(z);
-		double adjx = ((double)dotSize) / 2.0;
-		double adjy = ((double)dotSize) / 2.0;
+		int dotSize = getPointSize(z);
+		double adjx = ((double) dotSize) / 2.0;
+		double adjy = ((double) dotSize) / 2.0;
 		if (!Double.isNaN(y)) {
 			RectangleEdge xAxisLocation = plot.getDomainAxisEdge();
 			RectangleEdge yAxisLocation = plot.getRangeAxisEdge();
 			if (y >= Constant.RANGE_AXIS_UPPERBOUND - 1) {
-				g2.setPaint(Color.RED);		
+				g2.setPaint(Color.RED);
 				dotSize += 3;
 				dotSize += 3;
 			} else {

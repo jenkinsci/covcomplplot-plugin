@@ -6,7 +6,7 @@ import hudson.plugins.covcomplplot.model.MethodInfo;
 import hudson.plugins.covcomplplot.stub.InvalidHudsonProjectException;
 import hudson.plugins.covcomplplot.stub.InvalidHudsonProjectType;
 import hudson.plugins.covcomplplot.stub.LoggerWrapper;
-import hudson.plugins.covcomplplot.util.QDUtil;
+import hudson.plugins.covcomplplot.util.CovComplPlotUtil;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -62,7 +62,7 @@ public abstract class AbstractMethodInfoHandler {
 		InputStream is = null;
 		try {
 			is = new FileInputStream(artifactFile);
-			document = QDUtil.getXmlFileDocument(is);
+			document = CovComplPlotUtil.getXmlFileDocument(is);
 		} catch (Exception e) {
 			throw new InvalidHudsonProjectException(InvalidHudsonProjectType.INVALID_PLUGIN_RESULT, e, forWhat.getPluginName());
 		} finally {
@@ -95,7 +95,7 @@ public abstract class AbstractMethodInfoHandler {
 		return true;
 	}
 
-	private boolean isGetterSetter(MethodInfo method) {
+	protected boolean isGetterSetter(MethodInfo method) {
 		if (method.st == 1 && method.compl == 1) {
 			return StringUtils.startsWithIgnoreCase(method.sig, "get") || StringUtils.startsWithIgnoreCase(method.sig, "set");
 		}

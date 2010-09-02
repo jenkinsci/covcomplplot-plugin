@@ -8,23 +8,20 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Target containing coverage and complexity methods. This class handles graph
- * and map generation in default and This class handles method list output when
- * it is used in the detailed view. {@link CovComplPlotMethods} is used as a top
- * level information holder and detailed information holder as well.
+ * Class containing coverage and complexity methods with paging. This class
+ * handles detailed list of methods.
  * 
- * @author nhn
+ * @author JunHo Yoon
  */
-
 public class CovComplPlotMethods implements Serializable {
 
-	/**
-	 * 
-	 */
+	/** UID */
 	private static final long serialVersionUID = 1L;
 
+	/** Method list on current page of methods */
 	private final List<MethodInfo> methodInfoList;
 
+	/** owner */
 	private transient AbstractBuild<?, ?> owner;
 
 	/** Coverage Lower Bound */
@@ -33,10 +30,13 @@ public class CovComplPlotMethods implements Serializable {
 	/** Complexity Lower Bound */
 	public final int compl;
 
+	/** Analyzer used to generate graph */
 	private final Analyzer analyzer;
 
+	/** Current Page */
 	private final int page;
 
+	/** Total Item count */
 	private final int totalCount;
 
 	/**
@@ -48,6 +48,13 @@ public class CovComplPlotMethods implements Serializable {
 		return owner;
 	}
 
+	/**
+	 * Return the Hudson URL in which the source code is viewed.
+	 * 
+	 * @param methodInfo
+	 *            current
+	 * @return
+	 */
 	public String getUrl(MethodInfo methodInfo) {
 		return analyzer.getHandler().getMethodUrlLocation(owner, methodInfo);
 	}
@@ -72,22 +79,22 @@ public class CovComplPlotMethods implements Serializable {
 	}
 
 	public String getTitle() {
-		
-		
 		int covLowerBound = cov * Constant.DOMAIN_AXIS_TICK_UNIT;
-		int covUpperBound = (cov+1) * Constant.DOMAIN_AXIS_TICK_UNIT - 1;
-		if (covUpperBound == Constant.DOMAIN_AXIS_UPPERBOUND-1) {
+		int covUpperBound = (cov + 1) * Constant.DOMAIN_AXIS_TICK_UNIT - 1;
+		if (covUpperBound == Constant.DOMAIN_AXIS_UPPERBOUND - 1) {
 			covUpperBound = Constant.DOMAIN_AXIS_UPPERBOUND;
 		}
-		
+
 		int complLowerBound = compl * Constant.RANGE_AXIS_TICK_UNIT;
-		int complUpperBound = (compl+1) * Constant.RANGE_AXIS_TICK_UNIT - 1;
+		int complUpperBound = (compl + 1) * Constant.RANGE_AXIS_TICK_UNIT - 1;
 		// when it's topmost complexity range.
-		if (complUpperBound == Constant.RANGE_AXIS_UPPERBOUND-1) {
-			return String.format("%d method(s) in the range of coverage (%d%%~%d%%) and complexity (%d~)", totalCount, covLowerBound, covUpperBound, complLowerBound);
+		if (complUpperBound == Constant.RANGE_AXIS_UPPERBOUND - 1) {
+			return String.format("%d method(s) in the range of coverage (%d%%~%d%%) and complexity (%d~)", totalCount, covLowerBound, covUpperBound,
+					complLowerBound);
 		}
-		
-		return String.format("%d method(s) in the range of coverage (%d%%~%d%%) and complexity (%d~%d)", totalCount, covLowerBound, covUpperBound, complLowerBound, complUpperBound);
+
+		return String.format("%d method(s) in the range of coverage (%d%%~%d%%) and complexity (%d~%d)", totalCount, covLowerBound, covUpperBound,
+				complLowerBound, complUpperBound);
 	}
 
 	/**
@@ -105,10 +112,23 @@ public class CovComplPlotMethods implements Serializable {
 		this(owner, methodInfoList, analyzer, 0, 0, 1, 0);
 	}
 
+	/**
+	 * Return the Url to show passed method. Url scheme is different from which
+	 * analyzer is used.
+	 * 
+	 * @param methodInfo
+	 *            method info
+	 * @return Url
+	 */
 	public String getMethodUrlLocation(MethodInfo methodInfo) {
 		return analyzer.getHandler().getMethodUrlLocation(owner, methodInfo);
 	}
 
+	/**
+	 * Get pagination object so that jelly can render the pagination.
+	 * 
+	 * @return pagination
+	 */
 	public Pagination getPagination() {
 		return new Pagination(this.page, this.getTotalCount(), Constant.PAGING_SIZE, String.format("?cov=%d&compl=%d&page=", cov, compl));
 	}

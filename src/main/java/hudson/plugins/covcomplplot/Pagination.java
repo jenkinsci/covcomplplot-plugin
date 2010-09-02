@@ -5,7 +5,7 @@ import hudson.model.Hudson;
 /**
  * Class for rendering paging information in jelly script.
  * 
- * @author nhn
+ * @author JunHo Yoon
  */
 public class Pagination {
 	private static final long serialVersionUID = 116765475669773985L;
@@ -20,14 +20,13 @@ public class Pagination {
 	private String rootUrl = "";
 
 	/**
-	 * 
+	 * Contructor
 	 * @param currentPage
-	 *            현재 페이지
+	 *            Current Page
 	 * @param totalCount
-	 *            총 개수
-	 * @param pagingSize
-	 *            페이지 사이즈
-	 * @param string
+	 *            total Count
+	 * @param pagingSize Page Size
+	 * @param moveLink  
 	 */
 	public Pagination(int currentPage, int totalCount, int pagingSize, String moveLink) {
 		this.currentPage = currentPage;
@@ -41,6 +40,10 @@ public class Pagination {
 		}
 	}
 
+	/**
+	 * Get paging tag
+	 * @return tag string
+	 */
 	public String getTag() {
 		if (pageSize == 0)
 			pageSize = 10;
@@ -101,24 +104,40 @@ public class Pagination {
 		totalPage = ((totalCount - 1) / pageSize) + 1;
 	}
 
+	/**
+	 * Get total item count
+	 * @return total tem count
+	 */
 	public int getTotalCount() {
 		return totalCount;
 	}
 
+	/**
+	 * Set total item count
+	 * @param totalCount total item count
+	 */
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
 	}
 
+	/**
+	 * Get current page
+	 * @return current page
+	 */
 	public int getCurrentPage() {
 		return currentPage;
 	}
 
+	/**
+	 * Set current page
+	 * @param currentPage current page
+	 */
 	public void setCurrentPage(int currentPage) {
 		this.currentPage = currentPage;
 	}
 
 	/**
-	 * 
+	 * Get each page size
 	 * @return the pageSize
 	 */
 
@@ -127,7 +146,7 @@ public class Pagination {
 	}
 
 	/**
-	 * 
+	 * Set page size
 	 * @param pageSize
 	 *            the pageSize to set
 	 */

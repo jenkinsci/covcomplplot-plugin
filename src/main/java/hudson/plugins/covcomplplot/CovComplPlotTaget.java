@@ -48,29 +48,42 @@ import org.kohsuke.stapler.StaplerResponse;
  * level information holder. It defers the detailed information to
  * {@link CovComplPlotMethods}.
  * 
- * @author nhn
+ * @author JunHo Yoon
  */
 
 public class CovComplPlotTaget implements Serializable {
 
-	/**
-	 * UID
-	 */
+	/** UID */
 	private static final long serialVersionUID = 1L;
 
+	/** Method occurrence count matrix */
 	private transient int[][] methodOccuranceMatrix;
+
+	/** Method list per each cell */
 	@SuppressWarnings("unchecked")
 	private transient List[][] methodMapMatrix;
+
+	/** Cache for graph map shown each build page */
 	private transient String graphMapWithBuildNo = null;
+
+	/** Cache for graph map shown in project page */
 	private transient String graphMap = null;
 
+	/** Timestamp */
 	private final Calendar ownerTimestamp;
+
+	/** Method list in total */
 	private final List<MethodInfo> methodInfoList;
 
+	/** Owner */
 	private transient AbstractBuild<?, ?> owner;
 
+	/** Analyzer from which this object is created */
 	private final Analyzer analyzer;
-	public Object lock = new Object(); 
+
+	/** Synchronization lock */
+	public Object lock = new Object();
+
 	/**
 	 * Get the build which owns this information.
 	 * 
@@ -84,8 +97,11 @@ public class CovComplPlotTaget implements Serializable {
 	 * Constructor for detailed level information holder
 	 * 
 	 * @param owner
+	 *            owner
 	 * @param methodInfoList
+	 *            method list
 	 * @param ownersTimeStamp
+	 *            timestamp
 	 */
 	public CovComplPlotTaget(AbstractBuild<?, ?> owner, List<MethodInfo> methodInfoList, Analyzer analyzer, Calendar ownersTimeStamp) {
 		this.owner = owner;
@@ -94,6 +110,14 @@ public class CovComplPlotTaget implements Serializable {
 		this.ownerTimestamp = ownersTimeStamp;
 	}
 
+	/**
+	 * Return the Url to show passed method. Url scheme is different from which
+	 * analyzer is used.
+	 * 
+	 * @param methodInfo
+	 *            method info
+	 * @return Url
+	 */
 	public String getMethodUrlLocation(MethodInfo methodInfo) {
 		return analyzer.getHandler().getMethodUrlLocation(owner, methodInfo);
 	}
@@ -108,15 +132,20 @@ public class CovComplPlotTaget implements Serializable {
 	}
 
 	/**
+	 * Dynamic handling of Stapler request. This method create appropriate
+	 * {@link CovComplPlotMethods} object based on the paramter passed and
+	 * redirect the req to the created object.
 	 * 
-	 * @param token
 	 * @param req
+	 *            stapler request
 	 * @param rsp
+	 *            stapler response
 	 * @param cov
+	 *            coverage range start value
 	 * @param compl
-	 * @param start
-	 * @param size
-	 * @return
+	 *            complexity range start value
+	 * @param page
+	 *            page
 	 * @throws ServletException
 	 * @throws IOException
 	 */
@@ -140,7 +169,14 @@ public class CovComplPlotTaget implements Serializable {
 		req.getView(new CovComplPlotMethods(owner, (List<MethodInfo>) obj, analyzer, cov, compl, page, totalSize), "index.jelly").forward(req, rsp);
 	}
 
-
+	/**
+	 * Create method occurrence matrix. To save memory it uses very simple 2
+	 * dimensional array.
+	 * 
+	 * @param methodInfoList
+	 *            method list from which method occurrence matrix
+	 * @return matrix created
+	 */
 	private int[][] createMatrix(List<MethodInfo> methodInfoList) {
 		synchronized (lock) {
 			if (this.methodOccuranceMatrix == null) {
@@ -153,7 +189,6 @@ public class CovComplPlotTaget implements Serializable {
 				this.methodOccuranceMatrix = matrix;
 			}
 		}
-
 		return this.methodOccuranceMatrix;
 	}
 
@@ -203,7 +238,7 @@ public class CovComplPlotTaget implements Serializable {
 		this.methodOccuranceMatrix = createMatrix(this.getMethodInfoList());
 		DefaultXYZDataset dataSet = new DefaultXYZDataset();
 
-		// 먼저 전체 데이터 개수를 확인한다.
+		// At first check the total count of point.
 		int totalPoint = 0;
 		for (int[] eachRow : methodOccuranceMatrix) {
 			for (int eachValue : eachRow) {
@@ -264,7 +299,7 @@ public class CovComplPlotTaget implements Serializable {
 		private String getMapString(String withBuildNo, StaplerRequest req) {
 			this.renderer = new ScatterPlotPointMapRenderer();
 			ChartRenderingInfo info = new ChartRenderingInfo();
-			render(req, info);
+			render(req);
 			Rectangle2D dataArea = ((ScatterPlotPointMapRenderer) this.renderer).dataArea;
 
 			XYPlot xyPlot = this.graph.getXYPlot();

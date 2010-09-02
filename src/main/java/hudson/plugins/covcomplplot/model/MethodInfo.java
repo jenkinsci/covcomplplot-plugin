@@ -2,34 +2,38 @@ package hudson.plugins.covcomplplot.model;
 
 import java.text.DecimalFormat;
 
-import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
+/**
+ * Value class which contains each method info.
+ * @author JunHo Yoon
+ */
 public class MethodInfo implements Comparable<MethodInfo> {
 
 	/** Signature */
-	@XStreamAsAttribute
 	public final String sig;
 
 	/** Complexity */
-	@XStreamAsAttribute
 	public final int compl;
 
 	/** Line no */
-	@XStreamAsAttribute
 	public final int line;
 
 	/** Covered Statement */
-	@XStreamAsAttribute
 	public int cst;
 
 	/** Statement */
-	@XStreamAsAttribute
 	public int st;
 
 	/** File path */
-	@XStreamAsAttribute
 	public final String path;
 
+	/**
+	 * Constructor
+	 * @param path file path in which this method exists
+	 * @param signature method signature
+	 * @param complexity method complexity
+	 * @param lineno method lines
+	 */
 	public MethodInfo(String path, String signature, int complexity, int lineno) {
 		this.path = path;
 		this.sig = signature;
@@ -37,6 +41,10 @@ public class MethodInfo implements Comparable<MethodInfo> {
 		this.line = lineno;
 	}
 
+	/**
+	 * Get coverage ratio.
+	 * @return Coverage ratio
+	 */
 	public float getCoverageRatio() {
 		if (this.st == 0) {
 			return Float.NaN;
@@ -44,13 +52,21 @@ public class MethodInfo implements Comparable<MethodInfo> {
 		return ((float) cst) / st * 100;
 	}
 
-	public static DecimalFormat formatter = new DecimalFormat("#.##");
+	private static DecimalFormat formatter = new DecimalFormat("#.##");
 
+	/**
+	 * Get coverage ratio formatted by "#.##"
+	 * @return formatted coverage ratio.
+	 */
 	public String getFormattedCoverageRatio() {
 		float ratio = getCoverageRatio();
 		return (ratio == Float.NaN) ? "0" : formatter.format(ratio);
 	}
 
+	/**
+	 * Return signature string cutting off more than 80 characters.
+	 * @return signature
+	 */
 	public String getDisplaySignature() {
 		if (sig.length() > 80) {
 			return sig.substring(0, 77) + "...";
@@ -58,6 +74,11 @@ public class MethodInfo implements Comparable<MethodInfo> {
 		return sig;
 	}
 
+	/**
+	 * Increase lines of code in this method.
+	 * If the true is passed, the covered line is increased as well.
+	 * @param covered true if the line is covered.
+	 */
 	public void increaseLine(boolean covered) {
 		if (covered) {
 			cst++;
@@ -69,7 +90,11 @@ public class MethodInfo implements Comparable<MethodInfo> {
 	public String toString() {
 		return String.format("%s -- %s, %d, %d / %d, %d", path, sig, line, cst, st, (int) ((float) cst / st * 100));
 	}
-
+	
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
 	public int compareTo(MethodInfo o) {
 		int compare = o.compl - compl;
 		if (compare == 0) {

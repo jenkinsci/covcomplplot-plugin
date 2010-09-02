@@ -1,7 +1,6 @@
 package hudson.plugins.covcomplplot.util;
 
 import hudson.FilePath;
-import hudson.model.Hudson;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,7 +11,6 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.StringUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentFactory;
@@ -21,14 +19,12 @@ import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
 import org.springframework.core.io.ClassPathResource;
 
-public class QDUtil {
+/**
+ * Utility Class for various data process
+ * @author JunHo Yoon
+ */
+public class CovComplPlotUtil {
 	static Pattern pattern = Pattern.compile("\\.(java|c|cpp|hpp|h|hxx|cxx)$");
-
-	public static boolean isKlocworkRecognizedFile(String file) {
-		if (file == null)
-			return false;
-		return pattern.matcher(file).find();
-	}
 
 	public static DocumentFactory factory = new DocumentFactory();
 	static {
@@ -41,7 +37,6 @@ public class QDUtil {
 		});
 	}
 
-
 	public static String getXPathNodeText(Node node, String xpathStr) throws NoXPathContentException {
 		return getXPathNode(node, xpathStr).getText();
 	}
@@ -51,36 +46,13 @@ public class QDUtil {
 		List selectNodes = node.selectNodes(xpathStr);
 		return (List<Element>) selectNodes;
 	}
-
-	public static int compareVersion(String v1, String v2) {
-		String s1 = normalisedVersion(v1);
-		String s2 = normalisedVersion(v2);
-		return s1.compareTo(s2);
-	}
-
-	public static String normalisedVersion(String version) {
-		return normalisedVersion(version, ".", 4);
-	}
-
-	public static String normalisedVersion(String version, String sep, int maxWidth) {
-		String[] split = Pattern.compile(sep, Pattern.LITERAL).split(version);
-		StringBuilder sb = new StringBuilder();
-		for (String s : split) {
-			sb.append(String.format("%" + maxWidth + 's', s));
-		}
-		return sb.toString();
-	}
-
-	public static String getClassResourcePath(Class<?> clazz, String extension) {
-		return clazz.getCanonicalName().replace(".", "/").concat(".").concat(extension);
-	}
-
+	
 	public static Map<String, MessageFormat> templateCache = new HashMap<String, MessageFormat>();
 
 	public synchronized static MessageFormat getTemplate(String location) {
 		if (!templateCache.containsKey(location)) {
 			try {
-				ClassPathResource resource = new ClassPathResource(location, QDUtil.class.getClassLoader());
+				ClassPathResource resource = new ClassPathResource(location, CovComplPlotUtil.class.getClassLoader());
 				InputStream inputStream = resource.getInputStream();
 				String template = IOUtils.toString(inputStream, "UTF-8");
 				MessageFormat stringTemplate = new MessageFormat(template);
@@ -110,7 +82,7 @@ public class QDUtil {
 	}
 
 	public static Document getXmlFileDocument(InputStream stream) throws DocumentException {
-		return getXmlFileDocument(stream, QDUtil.factory);
+		return getXmlFileDocument(stream, CovComplPlotUtil.factory);
 	}
 
 	public static FilePath[] findFile(FilePath basePath, String pattern) {
@@ -122,21 +94,5 @@ public class QDUtil {
 			e.printStackTrace();
 		}
 		return null;
-	}
-
-	public static String getIcons(String iconName) {
-		if (StringUtils.isEmpty(iconName)) {
-			iconName = "blank";
-		}
-		return getPlugInDir() + "icons/" + iconName.toUpperCase() + ".gif";
-	}
-
-	public static String getPlugInDir() {
-		String rootDir = "http://localhost:8080";
-		try {
-			rootDir = Hudson.getInstance().getRootUrlFromRequest();
-		} catch (Exception e) {
-		}
-		return rootDir + "plugin/qd/";
 	}
 }
