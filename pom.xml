@@ -7,7 +7,7 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>covcomplplot</artifactId>
-	<version>1.0.4-SNAPSHOT</version>
+	<version>1.0.4</version>
 	<name>Hudson Coverage/Complexity Scatter Plot PlugIn</name>
 	<packaging>hpi</packaging>
 	<url>http://wiki.hudson-ci.org/display/HUDSON/Coverage+Complexity+Scatter+Plot+PlugIn</url>
@@ -99,8 +99,8 @@
 	</build>
 
   <scm>
-    <connection>scm:svn:https://guest@svn.dev.java.net/svn/hudson/tags/covcomplplot-1.0.1</connection>
-    <developerConnection>scm:svn:https://svn.dev.java.net/svn/hudson/tags/covcomplplot-1.0.1</developerConnection>
-    <url>https://hudson.dev.java.net/source/browse/hudson/hudson/plugins/covcomplplot/tags/covcomplplot-1.0.1</url>
+    <connection>scm:svn:https://guest@svn.dev.java.net/svn/hudson/tags/covcomplplot-1.0.4</connection>
+    <developerConnection>scm:svn:https://svn.dev.java.net/svn/hudson/tags/covcomplplot-1.0.4</developerConnection>
+    <url>https://hudson.dev.java.net/source/browse/hudson/hudson/plugins/covcomplplot/tags/covcomplplot-1.0.4</url>
   </scm>
 </project>
