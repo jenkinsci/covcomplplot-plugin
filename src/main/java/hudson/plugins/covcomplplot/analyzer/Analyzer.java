@@ -1,4 +1,4 @@
-package hudson.plugins.covcomplplot.annalyzer;
+package hudson.plugins.covcomplplot.analyzer;
 
 /**
  * Enum containing each hudson plugin to be used by this plugin. If you want to

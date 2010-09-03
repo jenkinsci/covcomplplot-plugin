@@ -1,4 +1,4 @@
-package hudson.plugins.covcomplplot.annalyzer;
+package hudson.plugins.covcomplplot.analyzer;
 
 import hudson.model.AbstractBuild;
 import hudson.model.Action;
@@ -18,20 +18,20 @@ import org.apache.commons.lang.StringUtils;
 import org.dom4j.Document;
 
 /**
- * Abstract handler which is the superclass of all real hudson plugin handlers.
+ * Abstract handler which is the superclass of Hudson plugin handlers.
  * 
  * @author junoyoon@gmail.com
  */
 public abstract class AbstractMethodInfoHandler {
 
 	/**
-	 * Parse the hudson plugin info and return the {@link MethodInfo} list.
+	 * Parse the Hudson plugin result and return the {@link MethodInfo} list.
 	 * 
 	 * @param build
 	 *            build info
 	 * @param excludeGetterSetter
 	 *            whether getter/setter methods are included or not.
-	 * @param remoteDir
+	 * @param rootDir
 	 *            base directory of build.
 	 * @param logger
 	 *            logger to be used
@@ -41,7 +41,7 @@ public abstract class AbstractMethodInfoHandler {
 	 * @throws InvalidHudsonProjectException
 	 */
 
-	public abstract List<MethodInfo> process(AbstractBuild<?, ?> build, boolean excludeGetterSetter, String workspaceDir, LoggerWrapper logger,
+	public abstract List<MethodInfo> process(AbstractBuild<?, ?> build, boolean excludeGetterSetter, String rootDir, LoggerWrapper logger,
 			Analyzer analyzer) throws InvalidHudsonProjectException;
 
 	/**
@@ -72,12 +72,12 @@ public abstract class AbstractMethodInfoHandler {
 	}
 
 	/**
-	 * Check the method is valid or not.
+	 * Check if the method is valid.
 	 * 
 	 * @param method
 	 *            method to checked. if it's null, it's valid.
 	 * @param excludeGetterSetter
-	 *            whether the getter/setter is excluded of not.
+	 *            true if the getter/setter should be excluded.
 	 * @return true if the method is valid
 	 */
 	protected boolean isMethodValid(MethodInfo method, boolean excludeGetterSetter) {
@@ -95,6 +95,13 @@ public abstract class AbstractMethodInfoHandler {
 		return true;
 	}
 
+	/**
+	 * Check if the give method is valid
+	 * 
+	 * @param method
+	 *            method to be checked
+	 * @return true if given method is valid
+	 */
 	protected boolean isGetterSetter(MethodInfo method) {
 		if (method.st == 1 && method.compl == 1) {
 			return StringUtils.startsWithIgnoreCase(method.sig, "get") || StringUtils.startsWithIgnoreCase(method.sig, "set");
@@ -111,16 +118,17 @@ public abstract class AbstractMethodInfoHandler {
 	 * the appropriate URL for each method source code.
 	 * 
 	 * @param build
-	 *            build against each methodInfo.
+	 *            {@link AbstractBuild} instance against each methodInfo.
 	 * @param methodInfo
-	 *            methodInfo.
-	 * @return URL statign from each hudson job URL.
+	 *            method.
+	 * @return URL string from each hudson job URL base.
 	 */
 	abstract public String getMethodUrlLocation(AbstractBuild<?, ?> build, MethodInfo methodInfo);
 
 	/**
-	 * Check if passed build contains valid result for this handler processing.
-	 * This method is invoked before the process method is called.
+	 * Check if passed {@link AbstractBuild} contains valid hudson plugin result
+	 * for this handler processing. This method is invoked before the process
+	 * method is called.
 	 * 
 	 * @param build
 	 * @throws InvalidHudsonProjectException
@@ -128,10 +136,9 @@ public abstract class AbstractMethodInfoHandler {
 	abstract public void checkBuild(AbstractBuild<?, ?> build) throws InvalidHudsonProjectException;
 
 	/**
-	 * Get the description of hudson plugin which this handler get information
-	 * from.
+	 * Get the description of Hudson plugin from which this handler get information
 	 * 
-	 * @return
+	 * @return description string
 	 */
 	abstract public String getDescription();
 

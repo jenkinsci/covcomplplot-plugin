@@ -11,15 +11,16 @@ import org.kohsuke.stapler.StaplerRequest;
 
 /**
  * Build Action. This redirects {@link StaplerRequest} to
- * {@link CovComplPlotTaget} by {@link StaplerProxy}
- * 
+ * {@link CovComplPlotTaget} by {@link StaplerProxy}.<br/>
+ * The reason why uses this scheme is to minimize the memory usage.
  * @author JunHo Yoon
  */
 public class CovComplPlotBuildAction implements Action, StaplerProxy {
 
-	/** Weak reference to {@link CovComplPlotTaget} to be gabage collected */
+	/** Weak reference to {@link CovComplPlotTaget} to be garbage collected */
 	public transient WeakReference<CovComplPlotTaget> target = null;
-	/** owner */
+
+	/** {@link AbstractBuild} instance which owns this Action */
 	private final AbstractBuild<?, ?> owner;
 
 	/**
@@ -68,6 +69,7 @@ public class CovComplPlotBuildAction implements Action, StaplerProxy {
 	 * @see org.kohsuke.stapler.StaplerProxy#getTarget()
 	 */
 	public Object getTarget() {
+		// If it's in the memory, use it.
 		if (this.target != null) {
 			CovComplPlotTaget cloverTarget = this.target.get();
 
@@ -77,6 +79,7 @@ public class CovComplPlotBuildAction implements Action, StaplerProxy {
 			}
 		}
 
+		// If not load from file.
 		CovComplPlotTaget cloverTarget = null;
 
 		synchronized (this) {
@@ -97,9 +100,9 @@ public class CovComplPlotBuildAction implements Action, StaplerProxy {
 	}
 
 	/**
-	 * Get owner
+	 * Get the owner
 	 * 
-	 * @return owner
+	 * @return corresponding build
 	 */
 	public AbstractBuild<?, ?> getOwner() {
 		return this.owner;

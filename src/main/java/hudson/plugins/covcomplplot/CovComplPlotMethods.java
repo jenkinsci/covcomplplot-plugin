@@ -1,15 +1,15 @@
 package hudson.plugins.covcomplplot;
 
 import hudson.model.AbstractBuild;
-import hudson.plugins.covcomplplot.annalyzer.Analyzer;
+import hudson.plugins.covcomplplot.analyzer.Analyzer;
 import hudson.plugins.covcomplplot.model.MethodInfo;
 
 import java.io.Serializable;
 import java.util.List;
 
 /**
- * Class containing coverage and complexity methods with paging. This class
- * handles detailed list of methods.
+ * Class containing coverage and complexity methods in the given value range and
+ * corresponding paging. This class handles detailed list of methods.
  * 
  * @author JunHo Yoon
  */
@@ -21,16 +21,19 @@ public class CovComplPlotMethods implements Serializable {
 	/** Method list on current page of methods */
 	private final List<MethodInfo> methodInfoList;
 
-	/** owner */
+	/** {@link AbstractBuild} which owns this instance */
 	private transient AbstractBuild<?, ?> owner;
 
-	/** Coverage Lower Bound */
+	/** Coverage lower bound value */
 	public final int cov;
 
-	/** Complexity Lower Bound */
+	/** Complexity lower bound value */
 	public final int compl;
 
-	/** Analyzer used to generate graph */
+	/**
+	 * Analyzer used to generate graph. This is used for generating some data
+	 * which depends on the analyzer type
+	 */
 	private final Analyzer analyzer;
 
 	/** Current Page */
@@ -40,7 +43,7 @@ public class CovComplPlotMethods implements Serializable {
 	private final int totalCount;
 
 	/**
-	 * Get the build which owns this information.
+	 * Get the {@link AbstractBuild} instance which owns this information.
 	 * 
 	 * @return build object
 	 */
@@ -49,23 +52,16 @@ public class CovComplPlotMethods implements Serializable {
 	}
 
 	/**
-	 * Return the Hudson URL in which the source code is viewed.
-	 * 
-	 * @param methodInfo
-	 *            current
-	 * @return
-	 */
-	public String getUrl(MethodInfo methodInfo) {
-		return analyzer.getHandler().getMethodUrlLocation(owner, methodInfo);
-	}
-
-	/**
 	 * Constructor for detailed level information holder
 	 * 
 	 * @param owner
+	 *            {@link AbstractBuild} owning this instance.
 	 * @param methodInfoList
+	 *            {@link MethodInfo} list
 	 * @param cov
+	 *            coverage lower bound value
 	 * @param compl
+	 *            complexity lower bound value
 	 */
 	public CovComplPlotMethods(AbstractBuild<?, ?> owner, List<MethodInfo> methodInfoList, Analyzer analyzer, int cov, int compl, int page,
 			int totalCount) {
@@ -79,7 +75,8 @@ public class CovComplPlotMethods implements Serializable {
 	}
 
 	/**
-	 * Get the title shown in the detailed page
+	 * Get the title shown in the detailed method list page.
+	 * 
 	 * @return title string
 	 */
 	public String getTitle() {
@@ -101,52 +98,41 @@ public class CovComplPlotMethods implements Serializable {
 				complLowerBound, complUpperBound);
 	}
 
-	/**
-	 * Constructor for top level information holder.
-	 * 
-	 * @param owner
-	 * @param methodInfoList
-	 * @param totalSize
-	 * @param page
-	 * @param compl2
-	 * @param cov2
-	 * @param ownersTimeStamp
-	 */
-	public CovComplPlotMethods(AbstractBuild<?, ?> owner, List<MethodInfo> methodInfoList, Analyzer analyzer) {
-		this(owner, methodInfoList, analyzer, 0, 0, 1, 0);
-	}
+	
 
 	/**
-	 * Return the Url to show passed method. Url scheme is different from which
-	 * analyzer is used.
+	 * Return the Hudson URL in which the source code is viewed.
 	 * 
 	 * @param methodInfo
-	 *            method info
-	 * @return Url
+	 *            {@link MethodInfo} instance to be resolved
+	 * @return Source code URL
 	 */
-	public String getMethodUrlLocation(MethodInfo methodInfo) {
+	public String getMethodUrl(MethodInfo methodInfo) {
 		return analyzer.getHandler().getMethodUrlLocation(owner, methodInfo);
 	}
 
 	/**
 	 * Get pagination object so that jelly can render the pagination.
 	 * 
-	 * @return pagination
+	 * @return {@link Pagination} instance
 	 */
 	public Pagination getPagination() {
 		return new Pagination(this.page, this.getTotalCount(), Constant.PAGING_SIZE, String.format("?cov=%d&compl=%d&page=", cov, compl));
 	}
 
 	/**
-	 * Set owner
-	 * @param owner owner to be set
+	 * Set {@link AbstractBuild} which owns this build
+	 * 
+	 * @param owner
+	 *            {@link AbstractBuild}
 	 */
 	public void setOwner(AbstractBuild<?, ?> owner) {
 		this.owner = owner;
 	}
 
 	/**
-	 * Get method list containing this range and this page
+	 * Get {@link MethodInfo} list contained this object
+	 * 
 	 * @return {@link MethodInfo} list
 	 */
 	public List<MethodInfo> getMethodInfoList() {
@@ -155,10 +141,10 @@ public class CovComplPlotMethods implements Serializable {
 
 	/**
 	 * Get total item count
+	 * 
 	 * @return total item count
 	 */
 	public int getTotalCount() {
 		return totalCount;
 	}
-
 }

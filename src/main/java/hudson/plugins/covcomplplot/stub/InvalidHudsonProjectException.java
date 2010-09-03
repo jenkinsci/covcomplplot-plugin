@@ -1,11 +1,9 @@
 package hudson.plugins.covcomplplot.stub;
 
 /**
- * Invalid Hudson Project Exception. This exception is used to minimize the
- * count of exception classes which shows diffrent message. When the contructor
- * is invoked, the appropriate enum value is passed to specify the error
- * exactly.
- * 
+ * Invalid Hudson Project Exception.<br/> 
+ * This exception is used to minimize the count of exception classes which shows different message. 
+ * When the constructor is invoked, the appropriate enum value is passed to specify the exact error.
  * @author JunHo Yoon
  */
 public class InvalidHudsonProjectException extends Exception {

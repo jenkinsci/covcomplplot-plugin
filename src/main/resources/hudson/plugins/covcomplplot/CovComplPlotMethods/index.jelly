@@ -11,8 +11,8 @@
 
 
 		<l:main-panel>
-			<h1>Coverage / Complexity Scatter Plot</h1>
-			<h2>${it.title}</h2>
+			<h2>Coverage / Complexity Scatter Plot</h2>
+			<h3>${it.title}</h3>
 			<j:set var="methodInfoList" value="${it.methodInfoList}" />
 			<table class="pane sortable">
 				<colgroup>
@@ -36,7 +36,7 @@
 						<tr style="border-top:0px;">
 							<td style="word-wrap:break-word;">
 								<div tooltip="${methodInfo.path}:${methodInfo.line}" style="cursor:pointer"
-									onclick='javascript:showCode(this, "${rootURL}/${it.getUrl(methodInfo)}");'>${h.escape(methodInfo.displaySignature)}</div>
+									onclick='javascript:showCode(this, "${rootURL}/${it.getMethodUrl(methodInfo)}");'>${h.escape(methodInfo.displaySignature)}</div>
 							</td>
 							<td>${methodInfo.compl}</td>
 							<td>${methodInfo.formattedCoverageRatio}</td>

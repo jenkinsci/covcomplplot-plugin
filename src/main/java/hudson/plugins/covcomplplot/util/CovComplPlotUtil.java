@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 import org.apache.commons.io.IOUtils;
 import org.dom4j.Document;
@@ -14,6 +16,7 @@ import org.dom4j.DocumentFactory;
 import org.dom4j.Element;
 import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
+import org.springframework.core.io.ClassPathResource;
 
 /**
  * Utility Class for various data process
@@ -132,5 +135,76 @@ public class CovComplPlotUtil {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	/**
+	 * get corresponding class resource file path from the folder where the class is in.
+	 * @param clazz class
+	 * @param extension file extension to be added
+	 * @return resource path
+	 */
+	public static String getClassResourcePath(Class<?> clazz, String extension) {
+		return clazz.getCanonicalName().replace(".", "/").concat(".").concat(extension);
+	}
+	
+	/**
+	 * Compare version string
+	 * @param v1 version1
+	 * @param v2 version2
+	 * @return -1 if less, 0 if same, 1 if more
+	 */
+	public static int compareVersion(String v1, String v2) {
+		String s1 = normalisedVersion(v1);
+		String s2 = normalisedVersion(v2);
+		return s1.compareTo(s2);
+	}
+
+	/**
+	 * Normalize version string
+	 * @param version verion string
+	 * @return normalized version string
+	 */
+	private static String normalisedVersion(String version) {
+		return normalisedVersion(version, ".", 4);
+	}
+
+	/**
+	 * Normalize version string
+	 * @param version version string
+	 * @param sep version separator
+	 * @param maxWidth max version width
+	 * @return normalized version string
+	 */
+	private static String normalisedVersion(String version, String sep, int maxWidth) {
+		String[] split = Pattern.compile(sep, Pattern.LITERAL).split(version);
+		StringBuilder sb = new StringBuilder();
+		for (String s : split) {
+			sb.append(String.format("%" + maxWidth + 's', s));
+		}
+		return sb.toString();
+	}
+
+	public static Map<String, String> templateCache = new HashMap<String, String>();
+
+	/**
+	 * Read file from given location and return string.
+	 * In this method, the cache is used if more than 1 time.
+	 * @param location file location
+	 * @return file content as string
+	 */
+	public synchronized static String getFileAsString(String location) {
+		if (!templateCache.containsKey(location)) {
+			try {
+				ClassPathResource resource = new ClassPathResource(location, CovComplPlotUtil.class.getClassLoader());
+				InputStream inputStream = resource.getInputStream();
+				String template = IOUtils.toString(inputStream, "UTF-8");
+				templateCache.put(location, template);
+				IOUtils.closeQuietly(inputStream);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		String template = templateCache.get(location);
+		return template;
 	}
 }

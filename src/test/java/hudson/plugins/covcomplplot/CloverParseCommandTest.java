@@ -1,10 +1,5 @@
 package hudson.plugins.covcomplplot;
 
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.powermock.api.mockito.PowerMockito.doAnswer;
-import static org.powermock.api.mockito.PowerMockito.when;
 import hudson.FilePath;
 import hudson.model.AbstractBuild;
 import hudson.model.Action;
@@ -12,8 +7,8 @@ import hudson.model.BuildListener;
 import hudson.model.FreeStyleBuild;
 import hudson.model.FreeStyleProject;
 import hudson.plugins.covcomplplot.CovComplPlotTaget.GraphImpl;
-import hudson.plugins.covcomplplot.annalyzer.Analyzer;
-import hudson.plugins.covcomplplot.annalyzer.CloverMethodHandler;
+import hudson.plugins.covcomplplot.analyzer.Analyzer;
+import hudson.plugins.covcomplplot.analyzer.CloverMethodHandler;
 import hudson.plugins.covcomplplot.model.MethodInfo;
 import hudson.plugins.covcomplplot.stub.InvalidHudsonProjectException;
 import hudson.plugins.covcomplplot.stub.LoggerWrapper;
@@ -41,6 +36,16 @@ import org.mockito.stubbing.Answer;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.startsWith;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.powermock.api.mockito.PowerMockito.doAnswer;
+import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest( { FreeStyleBuild.class, BuildListener.class })
@@ -91,7 +96,7 @@ public class CloverParseCommandTest {
 	@Test
 	public void testCloverWithValidProject() throws InterruptedException, IOException, ClassNotFoundException, InstantiationException,
 			IllegalAccessException, UnsupportedLookAndFeelException {
-		CovComplPlotPublisher publisher = new CovComplPlotPublisher(Analyzer.Clover, false, true);
+		CovComplPlotPublisher publisher = new CovComplPlotPublisher(Analyzer.Clover, false, true, false);
 		AddAction addAction = prepareValidSample1("src/test/resources/sample_valid/", 500, 200);
 
 		publisher.perform((AbstractBuild<?, ?>) mockBuild, null, mockListener);
@@ -200,7 +205,7 @@ public class CloverParseCommandTest {
 
 	@Test
 	public void testPlotWithOneElement2() throws IOException {
-		CovComplPlotPublisher publisher = new CovComplPlotPublisher(Analyzer.Clover, true, false);
+		CovComplPlotPublisher publisher = new CovComplPlotPublisher(Analyzer.Clover, true, false, false);
 		when(mockBuild.getModuleRoot()).thenReturn(new FilePath(new File("src/test/resources/sample_valid/")));
 		AddAction addAction = new AddAction();
 		doAnswer(addAction).when(mockBuild).addAction(org.mockito.Matchers.any(Action.class));

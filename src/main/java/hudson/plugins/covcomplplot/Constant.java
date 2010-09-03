@@ -14,23 +14,24 @@ public class Constant {
 	public static final int RANGE_AXIS_TICK_UNIT = 5;
 	/** Horizontal tick unit*/
 	public static final int DOMAIN_AXIS_TICK_UNIT = 10;
-	/** Upper bound of vertical line */
+	/** Upper bound value of vertical line */
 	public static final int RANGE_AXIS_UPPERBOUND = 35;
-	/** Upper bound of horizontal line */
+	/** Upper bound value of horizontal line */
 	public static final int DOMAIN_AXIS_UPPERBOUND = 100;
-	/** The count of how many ticks exists in horizontal line */
+	/** The count of how many ticks exists in the horizontal line */
 	public static final int DOMAIN_AXIS_COUNT = DOMAIN_AXIS_UPPERBOUND / DOMAIN_AXIS_TICK_UNIT;
-	/** The count of how many ticks exists in vertical line */
+	/** The count of how many ticks exists in the vertical line */
 	public static final int RANGE_AXIS_COUNT = RANGE_AXIS_UPPERBOUND / RANGE_AXIS_TICK_UNIT;
-	/** Miminum graph point size */
+	/** Minimum graph point size */
 	public static final int GRAPH_POINT_SIZE = 5;
-	/** Each data file name */
+	/** Each data file name containing covcomplplot data */
 	public static final String RESULT_FILENAME = "covcomplplot.xml";
-	/** Detailed page size */
+	/** Page size of detailed list of methods */
 	public static final int PAGING_SIZE = 20;
-	/** How many pages are shown in pagination tag */
+	/** Constants indicating how many pages are shown in pagination tag */
 	public static final int PAGING_RANGE = 10;
-	/** How much outlier in the graph should be exaggerated. */
+	
+	/** Constants indicating how many times bigger the outliers in the graph should be drawn. */
 	public static final int OUTLIER_MAXIMIZE_RATE = 15;
 
 }

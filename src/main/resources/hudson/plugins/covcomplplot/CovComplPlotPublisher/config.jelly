@@ -8,8 +8,13 @@
 		field="excludeGetterSetter">
 		<f:checkbox value="${instance.excludeGetterSetter}" />
 	</f:entry>
-	<f:entry title="Verbose" description="check if you want see detailed messages for diagnosis."
+	<f:entry title="Verbose" description="check if you want to see detailed messages for diagnosis."
 		field="verbose">
 		<f:checkbox value="${instance.verbose}" />
 	</f:entry>
+	<f:entry title="Locate the graph at the topmost of hudson project page" description="check if you want to locate the graph at the topmost side of hudson project page."
+		field="locateTopMost">
+		<f:checkbox value="${instance.locateTopMost}" checked="${h.defaultToTrue(instance.locateTopMost)}" />
+	</f:entry>
+
 </j:jelly>

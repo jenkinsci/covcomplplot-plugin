@@ -20,7 +20,7 @@ public class Pagination {
 	private String rootUrl = "";
 
 	/**
-	 * Contructor
+	 * Constructor
 	 * @param currentPage
 	 *            Current Page
 	 * @param totalCount

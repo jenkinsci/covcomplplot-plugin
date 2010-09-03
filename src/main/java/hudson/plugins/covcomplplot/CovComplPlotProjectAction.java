@@ -3,7 +3,9 @@ package hudson.plugins.covcomplplot;
 import hudson.model.AbstractBuild;
 import hudson.model.AbstractProject;
 import hudson.model.Actionable;
+import hudson.model.Hudson;
 import hudson.model.ProminentProjectAction;
+import hudson.plugins.covcomplplot.CovComplPlotPublisher.DescriptorImpl;
 
 /**
  * Project Action. This action just passes the request to the latest
@@ -12,7 +14,7 @@ import hudson.model.ProminentProjectAction;
  * @author JunHo Yoon
  */
 public class CovComplPlotProjectAction extends Actionable implements ProminentProjectAction {
-	/** Owner */
+	/** {@link AbstractProject} which owns this action */
 	private transient AbstractProject<?, ?> owner;
 
 	/**
@@ -53,8 +55,7 @@ public class CovComplPlotProjectAction extends Actionable implements ProminentPr
 	}
 
 	/**
-	 * Get Last Build Action which contains {@link CovComplPlotBuildAction} and
-	 * not failed.
+	 * Get the Last {@link CovComplPlotBuildAction} whose owner is completed and not failed
 	 * 
 	 * @return Last Build Action
 	 */
@@ -68,7 +69,15 @@ public class CovComplPlotProjectAction extends Actionable implements ProminentPr
 		}
 		return null;
 	}
-
+	
+	public boolean isTopMostSectionInProjectPage() {
+		CovComplPlotPublisher publisher = owner.getPublishersList().get(CovComplPlotPublisher.class);
+		if (publisher != null) {
+			return publisher.isLocateTopMost();
+		}
+		return false;
+		//(arg0)owner.getDescriptorByName(DescriptorImpl.class.getName())
+	}
 	/*
 	 * (non-Javadoc)
 	 * 

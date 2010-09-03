@@ -1,8 +1,9 @@
-package hudson.plugins.covcomplplot.annalyzer;
+package hudson.plugins.covcomplplot.analyzer;
 
 import hudson.model.AbstractBuild;
 import hudson.plugins.covcomplplot.model.MethodInfo;
 import hudson.plugins.covcomplplot.stub.InvalidHudsonProjectException;
+import hudson.plugins.covcomplplot.stub.InvalidHudsonProjectType;
 import hudson.plugins.covcomplplot.stub.LoggerWrapper;
 import hudson.plugins.covcomplplot.util.CovComplPlotUtil;
 
@@ -21,19 +22,25 @@ import org.dom4j.Element;
  */
 public class CloverMethodHandler extends AbstractMethodInfoHandler {
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<MethodInfo> process(AbstractBuild<?, ?> build, boolean excludeGetterSetter, String remoteDir, LoggerWrapper logger, Analyzer analyzer)
 			throws InvalidHudsonProjectException {
 		Document clover = super.getBuildArtifact(build, "clover.xml", Analyzer.Clover);
-		List<Element> domElement = null;
-		domElement = CovComplPlotUtil.getXPathNodeList(clover, "/coverage/project/package");
-		if (domElement.size() == 0) {
-			domElement = CovComplPlotUtil.getXPathNodeList(clover, "/cl:coverage/cl:project/cl:package");
+		List<Element> elementList = null;
+		Element eachElement = clover.getRootElement();
+		try {
+			if (CovComplPlotUtil.compareVersion(eachElement.attributeValue("clover"), "3.0.0") < 0) {
+				throw new InvalidHudsonProjectException(InvalidHudsonProjectType.INTERNAL, "Clover version should be over 3.0.0.");
+			}
+			eachElement = eachElement.element("project");
+			elementList = (List<Element>) eachElement.elements("package");
+		} catch (Exception e) {
+			throw new InvalidHudsonProjectException(InvalidHudsonProjectType.INTERNAL, "clover.xml doesn't contain valid result.");
 		}
-		int maxComplexity = 0;
 		ArrayList<MethodInfo> methods = new ArrayList<MethodInfo>();
 
-		for (Element eachPackage : domElement) {
+		for (Element eachPackage : elementList) {
 			String dirPath = eachPackage.attributeValue("name");
 			for (Object eachFileObject : eachPackage.elements("file")) {
 				Element eachFileElement = (Element) eachFileObject;
@@ -53,7 +60,6 @@ public class CloverMethodHandler extends AbstractMethodInfoHandler {
 						String signature = eachLine.attributeValue("signature");
 						int complexity = Integer.parseInt(eachLine.attributeValue("complexity"));
 						int lineno = Integer.parseInt(eachLine.attributeValue("num"));
-						maxComplexity = Math.max(maxComplexity, complexity);
 						cloverMethod = new MethodInfo(path, signature, complexity, lineno);
 						methods.add(cloverMethod);
 					} else if (("stmt").equals(eachType) && cloverMethod != null) {
@@ -77,7 +83,7 @@ public class CloverMethodHandler extends AbstractMethodInfoHandler {
 
 	@Override
 	public String getCustomJavaScript() {
-		return "";
+		return CovComplPlotUtil.getFileAsString(CovComplPlotUtil.getClassResourcePath(getClass(), "js"));
 	}
 
 	@Override
