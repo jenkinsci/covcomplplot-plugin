@@ -7,7 +7,7 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>covcomplplot</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>Hudson Coverage/Complexity Scatter Plot PlugIn</name>
 	<packaging>hpi</packaging>
 	<url>http://wiki.hudson-ci.org/display/HUDSON/Coverage+Complexity+Scatter+Plot+PlugIn</url>
