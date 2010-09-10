@@ -42,12 +42,9 @@ import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.StaplerResponse;
 
 /**
- * Target containing coverage and complexity methods. This class y mostlhandles graph
- * and map generation. This class handles detailed method list generation when
- * the detailed view is shown. 
- * {@link CovComplPlotTaget} is a top level information holder. 
- * It defers the detailed method list view responsibility to {@link CovComplPlotMethods}.
- * 
+ * Target containing coverage and complexity of methods. This class mostly handles graph
+ * and map generation. This class also handles detailed method list( {@link CovComplPlotMethods} generation
+ * when the detailed view is shown. 
  * @author JunHo Yoon
  */
 

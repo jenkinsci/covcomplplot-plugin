@@ -20,7 +20,7 @@ import org.dom4j.Element;
  * 
  * @author JunHo Yoon
  */
-public class CloverMethodHandler extends AbstractMethodInfoHandler {
+public class CloverWithBullsHtmlMethodHandler extends AbstractMethodInfoHandler {
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -36,7 +36,7 @@ public class CloverMethodHandler extends AbstractMethodInfoHandler {
 			eachElement = eachElement.element("project");
 			elementList = (List<Element>) eachElement.elements("package");
 		} catch (Exception e) {
-			throw new InvalidHudsonProjectException(InvalidHudsonProjectType.INTERNAL, "clover.xml doesn't contain the detailed result.\n You may use clover 2.X version or summary='true' attribute ant clover report task. Please use clover 3.X and remove summary='true' in the ant clover report task.");
+			throw new InvalidHudsonProjectException(InvalidHudsonProjectType.INTERNAL, "clover.xml doesn't contain valid result.");
 		}
 		ArrayList<MethodInfo> methods = new ArrayList<MethodInfo>();
 
