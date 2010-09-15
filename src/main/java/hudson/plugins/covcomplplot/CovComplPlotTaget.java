@@ -137,7 +137,7 @@ public class CovComplPlotTaget implements Serializable {
 	 * @throws IOException
 	 */
 	@SuppressWarnings("unchecked")
-	public void doDynamic(StaplerRequest req, StaplerResponse rsp, @QueryParameter("cov") int cov, @QueryParameter("compl") int compl,
+	public void doDynamic(StaplerRequest req, StaplerResponse rsp, String type, @QueryParameter("cov") int cov, @QueryParameter("compl") int compl,
 			@QueryParameter("page") int page) throws ServletException, IOException {
 		page = Math.max(page, 1);
 		cov = Math.min(cov, Constant.DOMAIN_AXIS_COUNT - 1);
@@ -171,7 +171,7 @@ public class CovComplPlotTaget implements Serializable {
 			if (this.methodOccuranceMatrix == null) {
 				int[][] matrix = new int[Constant.RANGE_AXIS_UPPERBOUND][Constant.DOMAIN_AXIS_UPPERBOUND];
 				for (MethodInfo methodInfo : methodInfoList) {
-					int complexityIndex = Math.min(methodInfo.compl, Constant.RANGE_AXIS_UPPERBOUND - 1);
+					int complexityIndex = Math.min(methodInfo.getCompl(), Constant.RANGE_AXIS_UPPERBOUND - 1);
 					int coverageIndex = Math.min(Math.round(methodInfo.getCoverageRatio()), Constant.DOMAIN_AXIS_UPPERBOUND - 1);
 					matrix[complexityIndex][coverageIndex]++;
 				}
@@ -225,7 +225,7 @@ public class CovComplPlotTaget implements Serializable {
 			if (this.methodMapMatrix == null) {
 				ArrayList[][] matrix = new ArrayList[Constant.RANGE_AXIS_COUNT][Constant.DOMAIN_AXIS_COUNT];
 				for (MethodInfo methodInfo : methodInfoList) {
-					int complexityIndex = Math.min(getSnapValue(methodInfo.compl, Constant.RANGE_AXIS_TICK_UNIT), Constant.RANGE_AXIS_UPPERBOUND
+					int complexityIndex = Math.min(getSnapValue(methodInfo.getCompl(), Constant.RANGE_AXIS_TICK_UNIT), Constant.RANGE_AXIS_UPPERBOUND
 							- Constant.RANGE_AXIS_TICK_UNIT)
 							/ Constant.RANGE_AXIS_TICK_UNIT;
 					int coverageIndex = Math.min(getSnapValue(methodInfo.getCoverageRatio(), Constant.DOMAIN_AXIS_TICK_UNIT),

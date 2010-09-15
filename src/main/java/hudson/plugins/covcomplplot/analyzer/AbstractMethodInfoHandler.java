@@ -103,8 +103,8 @@ public abstract class AbstractMethodInfoHandler {
 	 * @return true if given method is valid
 	 */
 	protected boolean isGetterSetter(MethodInfo method) {
-		if (method.st == 1 && method.compl == 1) {
-			return StringUtils.startsWithIgnoreCase(method.sig, "get") || StringUtils.startsWithIgnoreCase(method.sig, "set");
+		if (method.st == 1 && method.getCompl() == 1) {
+			return StringUtils.startsWithIgnoreCase(method.getSig(), "get") || StringUtils.startsWithIgnoreCase(method.getSig(), "set");
 		}
 		return false;
 	}
@@ -149,5 +149,9 @@ public abstract class AbstractMethodInfoHandler {
 			}
 		}
 		throw new InvalidHudsonProjectException(InvalidHudsonProjectType.INVALID_PLUGIN_RESULT, Analyzer.Clover);
+	}
+
+	public Action getCustomSourceViewBuildAction(AbstractBuild<?, ?> build) {
+		return null;
 	}
 }

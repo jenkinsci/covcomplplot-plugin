@@ -1,0 +1,3112 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+
+<coverage line-rate="0.6297872340425532" branch-rate="0.5330188679245284" lines-covered="444" lines-valid="705" branches-covered="113" branches-valid="212" complexity="1.9794520547945205" version="1.9.4.1" timestamp="1284390495451">
+	<sources>
+		<source>D:/Project/nsiq/covcomplplot/src/main/java</source>
+		<source>--source</source>
+		<source>D:/Project/nsiq/covcomplplot/target/generated-sources/localizer</source>
+	</sources>
+	<packages>
+		<package name="hudson.plugins.covcomplplot" line-rate="0.6911764705882353" branch-rate="0.6794871794871795" complexity="1.7761194029850746">
+			<classes>
+				<class name="hudson.plugins.covcomplplot.Constant" filename="hudson/plugins/covcomplplot/Constant.java" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="12" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="8" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="8" hits="0" branch="false"/>
+						<line number="12" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.CovComplPlotBuildAction" filename="hudson/plugins/covcomplplot/CovComplPlotBuildAction.java" line-rate="0.4230769230769231" branch-rate="0.3333333333333333" complexity="2.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lhudson/model/AbstractBuild;Lhudson/plugins/covcomplplot/CovComplPlotTaget;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="21" hits="6" branch="false"/>
+								<line number="34" hits="6" branch="false"/>
+								<line number="35" hits="6" branch="false"/>
+								<line number="36" hits="6" branch="false"/>
+								<line number="37" hits="6" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDisplayName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="45" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getIconFileName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="54" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getOwner" signature="()Lhudson/model/AbstractBuild;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="108" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getTarget" signature="()Ljava/lang/Object;" line-rate="0.29411764705882354" branch-rate="0.3333333333333333">
+							<lines>
+								<line number="73" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="74" hits="2" branch="false"/>
+								<line number="76" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="77" hits="2" branch="false"/>
+								<line number="78" hits="2" branch="false"/>
+								<line number="83" hits="0" branch="false"/>
+								<line number="85" hits="0" branch="false"/>
+								<line number="87" hits="0" branch="false"/>
+								<line number="88" hits="0" branch="false"/>
+								<line number="89" hits="0" branch="false"/>
+								<line number="90" hits="0" branch="false"/>
+								<line number="92" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="93" hits="0" branch="false"/>
+								<line number="94" hits="0" branch="false"/>
+								<line number="95" hits="0" branch="false"/>
+								<line number="97" hits="0" branch="false"/>
+								<line number="99" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getUrlName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="63" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="21" hits="6" branch="false"/>
+						<line number="34" hits="6" branch="false"/>
+						<line number="35" hits="6" branch="false"/>
+						<line number="36" hits="6" branch="false"/>
+						<line number="37" hits="6" branch="false"/>
+						<line number="45" hits="0" branch="false"/>
+						<line number="54" hits="0" branch="false"/>
+						<line number="63" hits="0" branch="false"/>
+						<line number="73" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="74" hits="2" branch="false"/>
+						<line number="76" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="77" hits="2" branch="false"/>
+						<line number="78" hits="2" branch="false"/>
+						<line number="83" hits="0" branch="false"/>
+						<line number="85" hits="0" branch="false"/>
+						<line number="87" hits="0" branch="false"/>
+						<line number="88" hits="0" branch="false"/>
+						<line number="89" hits="0" branch="false"/>
+						<line number="90" hits="0" branch="false"/>
+						<line number="92" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="93" hits="0" branch="false"/>
+						<line number="94" hits="0" branch="false"/>
+						<line number="95" hits="0" branch="false"/>
+						<line number="97" hits="0" branch="false"/>
+						<line number="99" hits="0" branch="false"/>
+						<line number="108" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.CovComplPlotMethods" filename="hudson/plugins/covcomplplot/CovComplPlotMethods.java" line-rate="0.0" branch-rate="0.0" complexity="1.375">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lhudson/model/AbstractBuild;Ljava/util/List;Lhudson/plugins/covcomplplot/analyzer/Analyzer;IIII)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="67" hits="0" branch="false"/>
+								<line number="68" hits="0" branch="false"/>
+								<line number="69" hits="0" branch="false"/>
+								<line number="70" hits="0" branch="false"/>
+								<line number="71" hits="0" branch="false"/>
+								<line number="72" hits="0" branch="false"/>
+								<line number="73" hits="0" branch="false"/>
+								<line number="74" hits="0" branch="false"/>
+								<line number="75" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMethodInfoList" signature="()Ljava/util/List;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="139" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMethodUrl" signature="(Lhudson/plugins/covcomplplot/model/MethodInfo;)Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="111" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getOwner" signature="()Lhudson/model/AbstractBuild;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="51" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPagination" signature="()Lhudson/plugins/covcomplplot/Pagination;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="120" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getTitle" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="83" hits="0" branch="false"/>
+								<line number="84" hits="0" branch="false"/>
+								<line number="85" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="86" hits="0" branch="false"/>
+								<line number="89" hits="0" branch="false"/>
+								<line number="90" hits="0" branch="false"/>
+								<line number="92" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="93" hits="0" branch="false"/>
+								<line number="97" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getTotalCount" signature="()I" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="148" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setOwner" signature="(Lhudson/model/AbstractBuild;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="130" hits="0" branch="false"/>
+								<line number="131" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="51" hits="0" branch="false"/>
+						<line number="67" hits="0" branch="false"/>
+						<line number="68" hits="0" branch="false"/>
+						<line number="69" hits="0" branch="false"/>
+						<line number="70" hits="0" branch="false"/>
+						<line number="71" hits="0" branch="false"/>
+						<line number="72" hits="0" branch="false"/>
+						<line number="73" hits="0" branch="false"/>
+						<line number="74" hits="0" branch="false"/>
+						<line number="75" hits="0" branch="false"/>
+						<line number="83" hits="0" branch="false"/>
+						<line number="84" hits="0" branch="false"/>
+						<line number="85" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="86" hits="0" branch="false"/>
+						<line number="89" hits="0" branch="false"/>
+						<line number="90" hits="0" branch="false"/>
+						<line number="92" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="93" hits="0" branch="false"/>
+						<line number="97" hits="0" branch="false"/>
+						<line number="111" hits="0" branch="false"/>
+						<line number="120" hits="0" branch="false"/>
+						<line number="130" hits="0" branch="false"/>
+						<line number="131" hits="0" branch="false"/>
+						<line number="139" hits="0" branch="false"/>
+						<line number="148" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.CovComplPlotProjectAction" filename="hudson/plugins/covcomplplot/CovComplPlotProjectAction.java" line-rate="0.5" branch-rate="0.6666666666666666" complexity="1.7142857142857142">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lhudson/model/AbstractProject;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="26" hits="4" branch="false"/>
+								<line number="27" hits="4" branch="false"/>
+								<line number="28" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDisplayName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="36" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getIconFileName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="45" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLastBuildAction" signature="()Lhudson/plugins/covcomplplot/CovComplPlotBuildAction;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="63" hits="8" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="65" hits="6" branch="false"/>
+								<line number="66" hits="6" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="67" hits="2" branch="false"/>
+								<line number="70" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getSearchUrl" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="87" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getUrlName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="54" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isTopMostSectionInProjectPage" signature="()Z" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="74" hits="0" branch="false"/>
+								<line number="75" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="76" hits="0" branch="false"/>
+								<line number="78" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="26" hits="4" branch="false"/>
+						<line number="27" hits="4" branch="false"/>
+						<line number="28" hits="4" branch="false"/>
+						<line number="36" hits="0" branch="false"/>
+						<line number="45" hits="0" branch="false"/>
+						<line number="54" hits="0" branch="false"/>
+						<line number="63" hits="8" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="65" hits="6" branch="false"/>
+						<line number="66" hits="6" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="67" hits="2" branch="false"/>
+						<line number="70" hits="2" branch="false"/>
+						<line number="74" hits="0" branch="false"/>
+						<line number="75" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="76" hits="0" branch="false"/>
+						<line number="78" hits="0" branch="false"/>
+						<line number="87" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.CovComplPlotPublisher" filename="hudson/plugins/covcomplplot/CovComplPlotPublisher.java" line-rate="0.717391304347826" branch-rate="0.5" complexity="1.4615384615384615">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lhudson/plugins/covcomplplot/analyzer/Analyzer;ZZZ)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="39" hits="4" branch="false"/>
+								<line number="47" hits="4" branch="false"/>
+								<line number="48" hits="4" branch="false"/>
+								<line number="49" hits="4" branch="false"/>
+								<line number="50" hits="4" branch="false"/>
+								<line number="51" hits="4" branch="false"/>
+								<line number="52" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="createCovComplScatterPlotBuildAction" signature="(Lhudson/model/AbstractBuild;Ljava/util/List;)Lhudson/plugins/covcomplplot/CovComplPlotBuildAction;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="106" hits="2" branch="false"/>
+								<line number="107" hits="2" branch="false"/>
+								<line number="108" hits="2" branch="false"/>
+								<line number="109" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getAnalyzer" signature="()Lhudson/plugins/covcomplplot/analyzer/Analyzer;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="209" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCovComplMethodInfoList" signature="(Lhudson/plugins/covcomplplot/analyzer/Analyzer;Lhudson/model/AbstractBuild;ZLjava/lang/String;Lhudson/plugins/covcomplplot/stub/LoggerWrapper;)Ljava/util/List;" line-rate="0.75" branch-rate="0.5">
+							<lines>
+								<line number="131" hits="2" branch="false"/>
+								<line number="132" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="133" hits="0" branch="false"/>
+								<line number="135" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDescriptor" signature="()Lhudson/model/Descriptor;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="31" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDescriptor" signature="()Lhudson/plugins/covcomplplot/CovComplPlotPublisher$DescriptorImpl;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="167" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDescriptor" signature="()Lhudson/tasks/BuildStepDescriptor;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="getLoggerWrapper" signature="(Lhudson/model/BuildListener;)Lhudson/plugins/covcomplplot/stub/LoggerWrapper;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="159" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getProjectAction" signature="(Lhudson/model/AbstractProject;)Lhudson/model/Action;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="147" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getRequiredMonitorService" signature="()Lhudson/tasks/BuildStepMonitor;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="200" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isLocateTopMost" signature="()Z" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="217" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="perform" signature="(Lhudson/model/AbstractBuild;Lhudson/Launcher;Lhudson/model/BuildListener;)Z" line-rate="0.7272727272727273" branch-rate="1.0">
+							<lines>
+								<line number="60" hits="4" branch="false"/>
+								<line number="62" hits="4" branch="false"/>
+								<line number="65" hits="4" branch="false"/>
+								<line number="66" hits="2" branch="false"/>
+								<line number="67" hits="2" branch="false"/>
+								<line number="68" hits="2" branch="false"/>
+								<line number="69" hits="2" branch="false"/>
+								<line number="71" hits="2" branch="false"/>
+								<line number="72" hits="2" branch="false"/>
+								<line number="75" hits="2" branch="false"/>
+								<line number="76" hits="2" branch="false"/>
+								<line number="79" hits="2" branch="false"/>
+								<line number="80" hits="2" branch="false"/>
+								<line number="81" hits="2" branch="false"/>
+								<line number="82" hits="0" branch="false"/>
+								<line number="83" hits="0" branch="false"/>
+								<line number="84" hits="0" branch="false"/>
+								<line number="85" hits="0" branch="false"/>
+								<line number="86" hits="0" branch="false"/>
+								<line number="87" hits="0" branch="false"/>
+								<line number="88" hits="2" branch="false"/>
+								<line number="90" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="setLocateTopMost" signature="(Z)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="213" hits="4" branch="false"/>
+								<line number="214" hits="4" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="31" hits="0" branch="false"/>
+						<line number="39" hits="4" branch="false"/>
+						<line number="47" hits="4" branch="false"/>
+						<line number="48" hits="4" branch="false"/>
+						<line number="49" hits="4" branch="false"/>
+						<line number="50" hits="4" branch="false"/>
+						<line number="51" hits="4" branch="false"/>
+						<line number="52" hits="4" branch="false"/>
+						<line number="60" hits="4" branch="false"/>
+						<line number="62" hits="4" branch="false"/>
+						<line number="65" hits="4" branch="false"/>
+						<line number="66" hits="2" branch="false"/>
+						<line number="67" hits="2" branch="false"/>
+						<line number="68" hits="2" branch="false"/>
+						<line number="69" hits="2" branch="false"/>
+						<line number="71" hits="2" branch="false"/>
+						<line number="72" hits="2" branch="false"/>
+						<line number="75" hits="2" branch="false"/>
+						<line number="76" hits="2" branch="false"/>
+						<line number="79" hits="2" branch="false"/>
+						<line number="80" hits="2" branch="false"/>
+						<line number="81" hits="2" branch="false"/>
+						<line number="82" hits="0" branch="false"/>
+						<line number="83" hits="0" branch="false"/>
+						<line number="84" hits="0" branch="false"/>
+						<line number="85" hits="0" branch="false"/>
+						<line number="86" hits="0" branch="false"/>
+						<line number="87" hits="0" branch="false"/>
+						<line number="88" hits="2" branch="false"/>
+						<line number="90" hits="2" branch="false"/>
+						<line number="106" hits="2" branch="false"/>
+						<line number="107" hits="2" branch="false"/>
+						<line number="108" hits="2" branch="false"/>
+						<line number="109" hits="2" branch="false"/>
+						<line number="131" hits="2" branch="false"/>
+						<line number="132" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="133" hits="0" branch="false"/>
+						<line number="135" hits="2" branch="false"/>
+						<line number="147" hits="0" branch="false"/>
+						<line number="159" hits="4" branch="false"/>
+						<line number="167" hits="0" branch="false"/>
+						<line number="200" hits="0" branch="false"/>
+						<line number="209" hits="0" branch="false"/>
+						<line number="213" hits="4" branch="false"/>
+						<line number="214" hits="4" branch="false"/>
+						<line number="217" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.CovComplPlotPublisher$DescriptorImpl" filename="hudson/plugins/covcomplplot/CovComplPlotPublisher.java" line-rate="0.0" branch-rate="1.0" complexity="1.4615384615384615">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="176" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDisplayName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="189" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isApplicable" signature="(Ljava/lang/Class;)Z" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="182" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="176" hits="0" branch="false"/>
+						<line number="182" hits="0" branch="false"/>
+						<line number="189" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.CovComplPlotTaget" filename="hudson/plugins/covcomplplot/CovComplPlotTaget.java" line-rate="0.7840909090909091" branch-rate="0.875" complexity="2.25">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lhudson/model/AbstractBuild;Ljava/util/List;Lhudson/plugins/covcomplplot/analyzer/Analyzer;Ljava/util/Calendar;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="64" hits="4" branch="false"/>
+								<line number="67" hits="4" branch="false"/>
+								<line number="82" hits="4" branch="false"/>
+								<line number="103" hits="4" branch="false"/>
+								<line number="104" hits="4" branch="false"/>
+								<line number="105" hits="4" branch="false"/>
+								<line number="106" hits="4" branch="false"/>
+								<line number="107" hits="4" branch="false"/>
+								<line number="108" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="access$000" signature="(Lhudson/plugins/covcomplplot/CovComplPlotTaget;)Ljava/util/Calendar;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="access$100" signature="(Lhudson/plugins/covcomplplot/CovComplPlotTaget;)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="access$102" signature="(Lhudson/plugins/covcomplplot/CovComplPlotTaget;Ljava/lang/String;)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="access$200" signature="(Lhudson/plugins/covcomplplot/CovComplPlotTaget;)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="access$202" signature="(Lhudson/plugins/covcomplplot/CovComplPlotTaget;Ljava/lang/String;)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="access$300" signature="(Lhudson/plugins/covcomplplot/CovComplPlotTaget;)Lhudson/model/AbstractBuild;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="access$400" signature="(Lhudson/plugins/covcomplplot/CovComplPlotTaget;Ljava/util/List;)[[Ljava/util/List;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="51" hits="36" branch="false"/>
+							</lines>
+						</method>
+						<method name="createMapGridMatrix" signature="(Ljava/util/List;)[[Ljava/util/List;" line-rate="1.0" branch-rate="0.9166666666666666">
+							<lines>
+								<line number="224" hits="4" branch="false"/>
+								<line number="225" hits="4" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="226" hits="4" branch="false"/>
+								<line number="227" hits="4" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="228" hits="9284" branch="false"/>
+								<line number="231" hits="9284" branch="false"/>
+								<line number="234" hits="9284" branch="false"/>
+								<line number="235" hits="9284" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="236" hits="66" branch="false"/>
+								<line number="238" hits="9284" branch="false"/>
+								<line number="239" hits="9284" branch="false"/>
+								<line number="240" hits="9284" branch="false"/>
+								<line number="242" hits="32" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="243" hits="308" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="244" hits="280" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="245" hits="66" branch="false"/>
+								<line number="249" hits="4" branch="false"/>
+								<line number="251" hits="4" branch="false"/>
+								<line number="252" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="createMatrix" signature="(Ljava/util/List;)[[I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="170" hits="8" branch="false"/>
+								<line number="171" hits="8" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="172" hits="4" branch="false"/>
+								<line number="173" hits="4" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="174" hits="9284" branch="false"/>
+								<line number="175" hits="9284" branch="false"/>
+								<line number="176" hits="9284" branch="false"/>
+								<line number="177" hits="9284" branch="false"/>
+								<line number="178" hits="4" branch="false"/>
+								<line number="180" hits="8" branch="false"/>
+								<line number="181" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="doDynamic" signature="(Lorg/kohsuke/stapler/StaplerRequest;Lorg/kohsuke/stapler/StaplerResponse;III)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="142" hits="0" branch="false"/>
+								<line number="143" hits="0" branch="false"/>
+								<line number="144" hits="0" branch="false"/>
+								<line number="145" hits="0" branch="false"/>
+								<line number="146" hits="0" branch="false"/>
+								<line number="147" hits="0" branch="false"/>
+								<line number="148" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="149" hits="0" branch="false"/>
+								<line number="151" hits="0" branch="false"/>
+								<line number="152" hits="0" branch="false"/>
+								<line number="153" hits="0" branch="false"/>
+								<line number="154" hits="0" branch="false"/>
+								<line number="156" hits="0" branch="false"/>
+								<line number="157" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="generateXYDataset" signature="()Lorg/jfree/data/xy/DefaultXYZDataset;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="261" hits="8" branch="false"/>
+								<line number="262" hits="8" branch="false"/>
+								<line number="264" hits="8" branch="false"/>
+								<line number="265" hits="288" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="266" hits="28280" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="267" hits="28000" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="268" hits="508" branch="false"/>
+								<line number="272" hits="8" branch="false"/>
+								<line number="273" hits="8" branch="false"/>
+								<line number="275" hits="288" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="276" hits="28280" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="277" hits="28000" branch="false"/>
+								<line number="278" hits="28000" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="279" hits="508" branch="false"/>
+								<line number="280" hits="508" branch="false"/>
+								<line number="281" hits="508" branch="false"/>
+								<line number="282" hits="508" branch="false"/>
+								<line number="286" hits="8" branch="false"/>
+								<line number="287" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCustomJavaScript" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="189" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDataFile" signature="(Lhudson/model/AbstractBuild;)Lhudson/XmlFile;" line-rate="1.0" branch-rate="0.5">
+							<lines>
+								<line number="463" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="464" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDescription" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="197" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getGraph" signature="()Lhudson/plugins/covcomplplot/CovComplPlotTaget$GraphImpl;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="118" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMethodInfoList" signature="()Ljava/util/List;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="500" hits="12" branch="false"/>
+							</lines>
+						</method>
+						<method name="getOwner" signature="()Lhudson/model/AbstractBuild;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="90" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getSnapValue" signature="(DI)I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="211" hits="18568" branch="false"/>
+							</lines>
+						</method>
+						<method name="loadCovComplScatterPlotTarget" signature="(Lhudson/model/AbstractBuild;)Lhudson/plugins/covcomplplot/CovComplPlotTaget;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="477" hits="0" branch="false"/>
+								<line number="478" hits="0" branch="false"/>
+								<line number="479" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="saveCovComplScatterPlotTarget" signature="(Lhudson/plugins/covcomplplot/CovComplPlotTaget;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="491" hits="2" branch="false"/>
+								<line number="492" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="setOwner" signature="(Lhudson/model/AbstractBuild;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="452" hits="2" branch="false"/>
+								<line number="453" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="51" hits="36" branch="false"/>
+						<line number="64" hits="4" branch="false"/>
+						<line number="67" hits="4" branch="false"/>
+						<line number="82" hits="4" branch="false"/>
+						<line number="90" hits="2" branch="false"/>
+						<line number="103" hits="4" branch="false"/>
+						<line number="104" hits="4" branch="false"/>
+						<line number="105" hits="4" branch="false"/>
+						<line number="106" hits="4" branch="false"/>
+						<line number="107" hits="4" branch="false"/>
+						<line number="108" hits="4" branch="false"/>
+						<line number="118" hits="8" branch="false"/>
+						<line number="142" hits="0" branch="false"/>
+						<line number="143" hits="0" branch="false"/>
+						<line number="144" hits="0" branch="false"/>
+						<line number="145" hits="0" branch="false"/>
+						<line number="146" hits="0" branch="false"/>
+						<line number="147" hits="0" branch="false"/>
+						<line number="148" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="149" hits="0" branch="false"/>
+						<line number="151" hits="0" branch="false"/>
+						<line number="152" hits="0" branch="false"/>
+						<line number="153" hits="0" branch="false"/>
+						<line number="154" hits="0" branch="false"/>
+						<line number="156" hits="0" branch="false"/>
+						<line number="157" hits="0" branch="false"/>
+						<line number="170" hits="8" branch="false"/>
+						<line number="171" hits="8" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="172" hits="4" branch="false"/>
+						<line number="173" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="174" hits="9284" branch="false"/>
+						<line number="175" hits="9284" branch="false"/>
+						<line number="176" hits="9284" branch="false"/>
+						<line number="177" hits="9284" branch="false"/>
+						<line number="178" hits="4" branch="false"/>
+						<line number="180" hits="8" branch="false"/>
+						<line number="181" hits="8" branch="false"/>
+						<line number="189" hits="0" branch="false"/>
+						<line number="197" hits="0" branch="false"/>
+						<line number="211" hits="18568" branch="false"/>
+						<line number="224" hits="4" branch="false"/>
+						<line number="225" hits="4" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="226" hits="4" branch="false"/>
+						<line number="227" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="228" hits="9284" branch="false"/>
+						<line number="231" hits="9284" branch="false"/>
+						<line number="234" hits="9284" branch="false"/>
+						<line number="235" hits="9284" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="236" hits="66" branch="false"/>
+						<line number="238" hits="9284" branch="false"/>
+						<line number="239" hits="9284" branch="false"/>
+						<line number="240" hits="9284" branch="false"/>
+						<line number="242" hits="32" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="243" hits="308" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="244" hits="280" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="245" hits="66" branch="false"/>
+						<line number="249" hits="4" branch="false"/>
+						<line number="251" hits="4" branch="false"/>
+						<line number="252" hits="4" branch="false"/>
+						<line number="261" hits="8" branch="false"/>
+						<line number="262" hits="8" branch="false"/>
+						<line number="264" hits="8" branch="false"/>
+						<line number="265" hits="288" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="266" hits="28280" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="267" hits="28000" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="268" hits="508" branch="false"/>
+						<line number="272" hits="8" branch="false"/>
+						<line number="273" hits="8" branch="false"/>
+						<line number="275" hits="288" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="276" hits="28280" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="277" hits="28000" branch="false"/>
+						<line number="278" hits="28000" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="279" hits="508" branch="false"/>
+						<line number="280" hits="508" branch="false"/>
+						<line number="281" hits="508" branch="false"/>
+						<line number="282" hits="508" branch="false"/>
+						<line number="286" hits="8" branch="false"/>
+						<line number="287" hits="8" branch="false"/>
+						<line number="452" hits="2" branch="false"/>
+						<line number="453" hits="2" branch="false"/>
+						<line number="463" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="464" hits="2" branch="false"/>
+						<line number="477" hits="0" branch="false"/>
+						<line number="478" hits="0" branch="false"/>
+						<line number="479" hits="0" branch="false"/>
+						<line number="491" hits="2" branch="false"/>
+						<line number="492" hits="2" branch="false"/>
+						<line number="500" hits="12" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.CovComplPlotTaget$GraphImpl" filename="hudson/plugins/covcomplplot/CovComplPlotTaget.java" line-rate="0.9305555555555556" branch-rate="0.625" complexity="2.25">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lhudson/plugins/covcomplplot/CovComplPlotTaget;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="297" hits="8" branch="false"/>
+								<line number="304" hits="8" branch="false"/>
+								<line number="305" hits="8" branch="false"/>
+								<line number="306" hits="8" branch="false"/>
+								<line number="307" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="createGraph" signature="()Lorg/jfree/chart/JFreeChart;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="405" hits="8" branch="false"/>
+								<line number="406" hits="8" branch="false"/>
+								<line number="408" hits="8" branch="false"/>
+								<line number="409" hits="8" branch="false"/>
+								<line number="411" hits="8" branch="false"/>
+								<line number="412" hits="8" branch="false"/>
+								<line number="413" hits="8" branch="false"/>
+								<line number="416" hits="8" branch="false"/>
+								<line number="417" hits="8" branch="false"/>
+								<line number="418" hits="8" branch="false"/>
+								<line number="419" hits="8" branch="false"/>
+								<line number="423" hits="8" branch="false"/>
+								<line number="425" hits="8" branch="false"/>
+								<line number="426" hits="8" branch="false"/>
+								<line number="427" hits="8" branch="false"/>
+								<line number="428" hits="8" branch="false"/>
+								<line number="429" hits="8" branch="false"/>
+								<line number="431" hits="8" branch="false"/>
+								<line number="432" hits="8" branch="false"/>
+								<line number="433" hits="8" branch="false"/>
+								<line number="434" hits="8" branch="false"/>
+								<line number="435" hits="8" branch="false"/>
+								<line number="437" hits="8" branch="false"/>
+								<line number="438" hits="8" branch="false"/>
+								<line number="439" hits="8" branch="false"/>
+								<line number="441" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="doPng" signature="(Lorg/kohsuke/stapler/StaplerRequest;Lorg/kohsuke/stapler/StaplerResponse;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="318" hits="4" branch="false"/>
+								<line number="319" hits="4" branch="false"/>
+								<line number="320" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMapString" signature="(Ljava/lang/String;)Ljava/lang/String;" line-rate="0.5714285714285714" branch-rate="0.3333333333333333">
+							<lines>
+								<line number="330" hits="4" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="331" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="332" hits="0" branch="false"/>
+								<line number="334" hits="0" branch="false"/>
+								<line number="336" hits="4" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="337" hits="4" branch="false"/>
+								<line number="339" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMapStringInternal" signature="(Ljava/lang/String;)Ljava/lang/String;" line-rate="0.9354838709677419" branch-rate="0.8">
+							<lines>
+								<line number="353" hits="4" branch="false"/>
+								<line number="355" hits="4" branch="false"/>
+								<line number="356" hits="4" branch="false"/>
+								<line number="358" hits="4" branch="false"/>
+								<line number="359" hits="4" branch="false"/>
+								<line number="360" hits="4" branch="false"/>
+								<line number="361" hits="4" branch="false"/>
+								<line number="362" hits="4" branch="false"/>
+								<line number="363" hits="4" branch="false"/>
+								<line number="364" hits="4" branch="false"/>
+								<line number="365" hits="4" branch="false"/>
+								<line number="366" hits="4" branch="false"/>
+								<line number="367" hits="4" branch="false"/>
+								<line number="369" hits="44" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="370" hits="320" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="371" hits="280" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="372" hits="66" branch="false"/>
+								<line number="373" hits="66" branch="false"/>
+								<line number="374" hits="66" branch="false"/>
+								<line number="375" hits="66" branch="false"/>
+								<line number="376" hits="66" branch="false"/>
+								<line number="377" hits="66" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="378" hits="0" branch="false"/>
+								<line number="380" hits="66" branch="false"/>
+								<line number="382" hits="66" branch="false"/>
+								<line number="384" hits="66" branch="false"/>
+								<line number="385" hits="66" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="386" hits="0" branch="false"/>
+								<line number="388" hits="66" branch="false"/>
+								<line number="394" hits="4" branch="false"/>
+								<line number="395" hits="4" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="297" hits="8" branch="false"/>
+						<line number="304" hits="8" branch="false"/>
+						<line number="305" hits="8" branch="false"/>
+						<line number="306" hits="8" branch="false"/>
+						<line number="307" hits="8" branch="false"/>
+						<line number="318" hits="4" branch="false"/>
+						<line number="319" hits="4" branch="false"/>
+						<line number="320" hits="4" branch="false"/>
+						<line number="330" hits="4" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="331" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="332" hits="0" branch="false"/>
+						<line number="334" hits="0" branch="false"/>
+						<line number="336" hits="4" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="337" hits="4" branch="false"/>
+						<line number="339" hits="4" branch="false"/>
+						<line number="353" hits="4" branch="false"/>
+						<line number="355" hits="4" branch="false"/>
+						<line number="356" hits="4" branch="false"/>
+						<line number="358" hits="4" branch="false"/>
+						<line number="359" hits="4" branch="false"/>
+						<line number="360" hits="4" branch="false"/>
+						<line number="361" hits="4" branch="false"/>
+						<line number="362" hits="4" branch="false"/>
+						<line number="363" hits="4" branch="false"/>
+						<line number="364" hits="4" branch="false"/>
+						<line number="365" hits="4" branch="false"/>
+						<line number="366" hits="4" branch="false"/>
+						<line number="367" hits="4" branch="false"/>
+						<line number="369" hits="44" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="370" hits="320" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="371" hits="280" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="372" hits="66" branch="false"/>
+						<line number="373" hits="66" branch="false"/>
+						<line number="374" hits="66" branch="false"/>
+						<line number="375" hits="66" branch="false"/>
+						<line number="376" hits="66" branch="false"/>
+						<line number="377" hits="66" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="378" hits="0" branch="false"/>
+						<line number="380" hits="66" branch="false"/>
+						<line number="382" hits="66" branch="false"/>
+						<line number="384" hits="66" branch="false"/>
+						<line number="385" hits="66" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="386" hits="0" branch="false"/>
+						<line number="388" hits="66" branch="false"/>
+						<line number="394" hits="4" branch="false"/>
+						<line number="395" hits="4" branch="false"/>
+						<line number="405" hits="8" branch="false"/>
+						<line number="406" hits="8" branch="false"/>
+						<line number="408" hits="8" branch="false"/>
+						<line number="409" hits="8" branch="false"/>
+						<line number="411" hits="8" branch="false"/>
+						<line number="412" hits="8" branch="false"/>
+						<line number="413" hits="8" branch="false"/>
+						<line number="416" hits="8" branch="false"/>
+						<line number="417" hits="8" branch="false"/>
+						<line number="418" hits="8" branch="false"/>
+						<line number="419" hits="8" branch="false"/>
+						<line number="423" hits="8" branch="false"/>
+						<line number="425" hits="8" branch="false"/>
+						<line number="426" hits="8" branch="false"/>
+						<line number="427" hits="8" branch="false"/>
+						<line number="428" hits="8" branch="false"/>
+						<line number="429" hits="8" branch="false"/>
+						<line number="431" hits="8" branch="false"/>
+						<line number="432" hits="8" branch="false"/>
+						<line number="433" hits="8" branch="false"/>
+						<line number="434" hits="8" branch="false"/>
+						<line number="435" hits="8" branch="false"/>
+						<line number="437" hits="8" branch="false"/>
+						<line number="438" hits="8" branch="false"/>
+						<line number="439" hits="8" branch="false"/>
+						<line number="441" hits="8" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.Pagination" filename="hudson/plugins/covcomplplot/Pagination.java" line-rate="0.7580645161290323" branch-rate="0.6666666666666666" complexity="1.5384615384615385">
+					<methods>
+						<method name="&lt;init&gt;" signature="(IIILjava/lang/String;)V" line-rate="0.9411764705882353" branch-rate="1.0">
+							<lines>
+								<line number="12" hits="2" branch="false"/>
+								<line number="13" hits="2" branch="false"/>
+								<line number="14" hits="2" branch="false"/>
+								<line number="15" hits="2" branch="false"/>
+								<line number="16" hits="2" branch="false"/>
+								<line number="17" hits="2" branch="false"/>
+								<line number="18" hits="2" branch="false"/>
+								<line number="20" hits="2" branch="false"/>
+								<line number="31" hits="2" branch="false"/>
+								<line number="32" hits="2" branch="false"/>
+								<line number="33" hits="2" branch="false"/>
+								<line number="34" hits="2" branch="false"/>
+								<line number="35" hits="2" branch="false"/>
+								<line number="37" hits="2" branch="false"/>
+								<line number="38" hits="2" branch="false"/>
+								<line number="40" hits="0" branch="false"/>
+								<line number="41" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCurrentPage" signature="()I" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="128" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPageSize" signature="()I" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="145" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getTag" signature="()Ljava/lang/String;" line-rate="0.8461538461538461" branch-rate="0.5">
+							<lines>
+								<line number="48" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="49" hits="0" branch="false"/>
+								<line number="50" hits="2" branch="false"/>
+								<line number="51" hits="2" branch="false"/>
+								<line number="52" hits="2" branch="false"/>
+								<line number="53" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="54" hits="0" branch="false"/>
+								<line number="56" hits="2" branch="false"/>
+								<line number="58" hits="2" branch="false"/>
+								<line number="59" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="60" hits="2" branch="false"/>
+								<line number="62" hits="2" branch="false"/>
+								<line number="63" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getTotalCount" signature="()I" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="112" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setBlankTd" signature="(Ljava/lang/StringBuilder;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="81" hits="2" branch="false"/>
+								<line number="82" hits="2" branch="false"/>
+								<line number="83" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="setCurrentPage" signature="(I)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="136" hits="0" branch="false"/>
+								<line number="137" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setIndex" signature="(Ljava/lang/StringBuilder;)V" line-rate="1.0" branch-rate="0.8333333333333334">
+							<lines>
+								<line number="86" hits="22" branch="true" condition-coverage="75% (3/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+										<condition number="1" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="87" hits="20" branch="false"/>
+								<line number="88" hits="20" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="89" hits="2" branch="false"/>
+								<line number="90" hits="2" branch="false"/>
+								<line number="92" hits="18" branch="false"/>
+								<line number="93" hits="18" branch="false"/>
+								<line number="95" hits="20" branch="false"/>
+								<line number="98" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="setNextPage" signature="(Ljava/lang/StringBuilder;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="67" hits="2" branch="false"/>
+								<line number="70" hits="2" branch="false"/>
+								<line number="71" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPageNation" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="101" hits="2" branch="false"/>
+								<line number="102" hits="2" branch="false"/>
+								<line number="103" hits="2" branch="false"/>
+								<line number="104" hits="2" branch="false"/>
+								<line number="105" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPageSize" signature="(I)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="154" hits="0" branch="false"/>
+								<line number="155" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPrePage" signature="(Ljava/lang/StringBuilder;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="74" hits="0" branch="false"/>
+								<line number="77" hits="0" branch="false"/>
+								<line number="78" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setTotalCount" signature="(I)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="120" hits="0" branch="false"/>
+								<line number="121" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="12" hits="2" branch="false"/>
+						<line number="13" hits="2" branch="false"/>
+						<line number="14" hits="2" branch="false"/>
+						<line number="15" hits="2" branch="false"/>
+						<line number="16" hits="2" branch="false"/>
+						<line number="17" hits="2" branch="false"/>
+						<line number="18" hits="2" branch="false"/>
+						<line number="20" hits="2" branch="false"/>
+						<line number="31" hits="2" branch="false"/>
+						<line number="32" hits="2" branch="false"/>
+						<line number="33" hits="2" branch="false"/>
+						<line number="34" hits="2" branch="false"/>
+						<line number="35" hits="2" branch="false"/>
+						<line number="37" hits="2" branch="false"/>
+						<line number="38" hits="2" branch="false"/>
+						<line number="40" hits="0" branch="false"/>
+						<line number="41" hits="2" branch="false"/>
+						<line number="48" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="49" hits="0" branch="false"/>
+						<line number="50" hits="2" branch="false"/>
+						<line number="51" hits="2" branch="false"/>
+						<line number="52" hits="2" branch="false"/>
+						<line number="53" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="54" hits="0" branch="false"/>
+						<line number="56" hits="2" branch="false"/>
+						<line number="58" hits="2" branch="false"/>
+						<line number="59" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="60" hits="2" branch="false"/>
+						<line number="62" hits="2" branch="false"/>
+						<line number="63" hits="2" branch="false"/>
+						<line number="67" hits="2" branch="false"/>
+						<line number="70" hits="2" branch="false"/>
+						<line number="71" hits="2" branch="false"/>
+						<line number="74" hits="0" branch="false"/>
+						<line number="77" hits="0" branch="false"/>
+						<line number="78" hits="0" branch="false"/>
+						<line number="81" hits="2" branch="false"/>
+						<line number="82" hits="2" branch="false"/>
+						<line number="83" hits="2" branch="false"/>
+						<line number="86" hits="22" branch="true" condition-coverage="75% (3/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="87" hits="20" branch="false"/>
+						<line number="88" hits="20" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="89" hits="2" branch="false"/>
+						<line number="90" hits="2" branch="false"/>
+						<line number="92" hits="18" branch="false"/>
+						<line number="93" hits="18" branch="false"/>
+						<line number="95" hits="20" branch="false"/>
+						<line number="98" hits="2" branch="false"/>
+						<line number="101" hits="2" branch="false"/>
+						<line number="102" hits="2" branch="false"/>
+						<line number="103" hits="2" branch="false"/>
+						<line number="104" hits="2" branch="false"/>
+						<line number="105" hits="2" branch="false"/>
+						<line number="112" hits="0" branch="false"/>
+						<line number="120" hits="0" branch="false"/>
+						<line number="121" hits="0" branch="false"/>
+						<line number="128" hits="0" branch="false"/>
+						<line number="136" hits="0" branch="false"/>
+						<line number="137" hits="0" branch="false"/>
+						<line number="145" hits="0" branch="false"/>
+						<line number="154" hits="0" branch="false"/>
+						<line number="155" hits="0" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="hudson.plugins.covcomplplot.analyzer" line-rate="0.4269005847953216" branch-rate="0.42391304347826086" complexity="3.1481481481481484">
+			<classes>
+				<class name="hudson.plugins.covcomplplot.analyzer.AbstractMethodInfoHandler" filename="hudson/plugins/covcomplplot/analyzer/AbstractMethodInfoHandler.java" line-rate="0.8846153846153846" branch-rate="0.95" complexity="2.7777777777777777">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="25" hits="10" branch="false"/>
+							</lines>
+						</method>
+						<method name="checkBuildContainningBuildAction" signature="(Lhudson/model/AbstractBuild;Ljava/lang/String;)V" line-rate="1.0" branch-rate="0.75">
+							<lines>
+								<line number="146" hits="4" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="147" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="148" hits="2" branch="false"/>
+								<line number="151" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getBuildArtifact" signature="(Lhudson/model/AbstractBuild;Ljava/lang/String;Lhudson/plugins/covcomplplot/analyzer/Analyzer;)Lorg/dom4j/Document;" line-rate="0.8" branch-rate="1.0">
+							<lines>
+								<line number="60" hits="8" branch="false"/>
+								<line number="61" hits="8" branch="false"/>
+								<line number="62" hits="8" branch="false"/>
+								<line number="64" hits="8" branch="false"/>
+								<line number="65" hits="8" branch="false"/>
+								<line number="66" hits="0" branch="false"/>
+								<line number="67" hits="0" branch="false"/>
+								<line number="69" hits="8" branch="false"/>
+								<line number="70" hits="8" branch="false"/>
+								<line number="71" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCustomJavaScript" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="113" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isGetterSetter" signature="(Lhudson/plugins/covcomplplot/model/MethodInfo;)Z" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="106" hits="9428" branch="true" condition-coverage="100% (4/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+										<condition number="1" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="107" hits="7274" branch="true" condition-coverage="100% (4/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+										<condition number="1" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="109" hits="2154" branch="false"/>
+							</lines>
+						</method>
+						<method name="isMethodValid" signature="(Lhudson/plugins/covcomplplot/model/MethodInfo;Z)Z" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="84" hits="40760" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="85" hits="2840" branch="false"/>
+								<line number="88" hits="37920" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="89" hits="208" branch="false"/>
+								<line number="92" hits="37712" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="93" hits="9428" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="95" hits="28284" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="25" hits="10" branch="false"/>
+						<line number="60" hits="8" branch="false"/>
+						<line number="61" hits="8" branch="false"/>
+						<line number="62" hits="8" branch="false"/>
+						<line number="64" hits="8" branch="false"/>
+						<line number="65" hits="8" branch="false"/>
+						<line number="66" hits="0" branch="false"/>
+						<line number="67" hits="0" branch="false"/>
+						<line number="69" hits="8" branch="false"/>
+						<line number="70" hits="8" branch="false"/>
+						<line number="71" hits="8" branch="false"/>
+						<line number="84" hits="40760" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="85" hits="2840" branch="false"/>
+						<line number="88" hits="37920" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="89" hits="208" branch="false"/>
+						<line number="92" hits="37712" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="93" hits="9428" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="95" hits="28284" branch="false"/>
+						<line number="106" hits="9428" branch="true" condition-coverage="100% (4/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="107" hits="7274" branch="true" condition-coverage="100% (4/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="109" hits="2154" branch="false"/>
+						<line number="113" hits="0" branch="false"/>
+						<line number="146" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="147" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="148" hits="2" branch="false"/>
+						<line number="151" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.analyzer.Analyzer" filename="hudson/plugins/covcomplplot/analyzer/Analyzer.java" line-rate="0.875" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="9" hits="4" branch="false"/>
+								<line number="10" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;ILjava/lang/String;Lhudson/plugins/covcomplplot/analyzer/AbstractMethodInfoHandler;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="26" hits="4" branch="false"/>
+								<line number="27" hits="4" branch="false"/>
+								<line number="28" hits="4" branch="false"/>
+								<line number="29" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="getHandler" signature="()Lhudson/plugins/covcomplplot/analyzer/AbstractMethodInfoHandler;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="46" hits="9290" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPluginName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="37" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="valueOf" signature="(Ljava/lang/String;)Lhudson/plugins/covcomplplot/analyzer/Analyzer;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="values" signature="()[Lhudson/plugins/covcomplplot/analyzer/Analyzer;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="9" hits="4" branch="false"/>
+						<line number="10" hits="4" branch="false"/>
+						<line number="26" hits="4" branch="false"/>
+						<line number="27" hits="4" branch="false"/>
+						<line number="28" hits="4" branch="false"/>
+						<line number="29" hits="4" branch="false"/>
+						<line number="37" hits="0" branch="false"/>
+						<line number="46" hits="9290" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.analyzer.CloverMethodHandler" filename="hudson/plugins/covcomplplot/analyzer/CloverMethodHandler.java" line-rate="0.9148936170212766" branch-rate="0.8333333333333334" complexity="3.8">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="23" hits="10" branch="false"/>
+							</lines>
+						</method>
+						<method name="checkBuild" signature="(Lhudson/model/AbstractBuild;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="101" hits="4" branch="false"/>
+								<line number="102" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCustomJavaScript" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="86" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDescription" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="106" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMethodUrlLocation" signature="(Lhudson/model/AbstractBuild;Lhudson/plugins/covcomplplot/model/MethodInfo;)Ljava/lang/String;" line-rate="1.0" branch-rate="0.5">
+							<lines>
+								<line number="91" hits="9282" branch="false"/>
+								<line number="92" hits="9282" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="93" hits="9282" branch="false"/>
+								<line number="96" hits="9282" branch="false"/>
+							</lines>
+						</method>
+						<method name="process" signature="(Lhudson/model/AbstractBuild;ZLjava/lang/String;Lhudson/plugins/covcomplplot/stub/LoggerWrapper;Lhudson/plugins/covcomplplot/analyzer/Analyzer;)Ljava/util/List;" line-rate="0.9210526315789473" branch-rate="0.8636363636363636">
+							<lines>
+								<line number="29" hits="8" branch="false"/>
+								<line number="30" hits="8" branch="false"/>
+								<line number="31" hits="8" branch="false"/>
+								<line number="33" hits="8" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="34" hits="0" branch="false"/>
+								<line number="36" hits="8" branch="false"/>
+								<line number="37" hits="8" branch="false"/>
+								<line number="38" hits="0" branch="false"/>
+								<line number="39" hits="0" branch="false"/>
+								<line number="40" hits="8" branch="false"/>
+								<line number="41" hits="8" branch="false"/>
+								<line number="43" hits="8" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="44" hits="1040" branch="false"/>
+								<line number="45" hits="1040" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="46" hits="3432" branch="false"/>
+								<line number="47" hits="3432" branch="false"/>
+								<line number="48" hits="3432" branch="false"/>
+								<line number="49" hits="3432" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="50" hits="153272" branch="false"/>
+								<line number="51" hits="153272" branch="false"/>
+								<line number="52" hits="153272" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="56" hits="37328" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="57" hits="5866" branch="false"/>
+								<line number="60" hits="37328" branch="false"/>
+								<line number="61" hits="37328" branch="false"/>
+								<line number="62" hits="37328" branch="false"/>
+								<line number="63" hits="37328" branch="false"/>
+								<line number="64" hits="37328" branch="false"/>
+								<line number="65" hits="37328" branch="true" condition-coverage="75% (3/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+										<condition number="1" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="66" hits="105408" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="68" hits="153272" branch="false"/>
+								<line number="72" hits="3432" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="73" hits="3432" branch="false"/>
+								<line number="74" hits="3432" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="75" hits="430" branch="false"/>
+								<line number="78" hits="3432" branch="false"/>
+								<line number="79" hits="1040" branch="false"/>
+								<line number="81" hits="8" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="23" hits="10" branch="false"/>
+						<line number="29" hits="8" branch="false"/>
+						<line number="30" hits="8" branch="false"/>
+						<line number="31" hits="8" branch="false"/>
+						<line number="33" hits="8" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="34" hits="0" branch="false"/>
+						<line number="36" hits="8" branch="false"/>
+						<line number="37" hits="8" branch="false"/>
+						<line number="38" hits="0" branch="false"/>
+						<line number="39" hits="0" branch="false"/>
+						<line number="40" hits="8" branch="false"/>
+						<line number="41" hits="8" branch="false"/>
+						<line number="43" hits="8" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="44" hits="1040" branch="false"/>
+						<line number="45" hits="1040" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="46" hits="3432" branch="false"/>
+						<line number="47" hits="3432" branch="false"/>
+						<line number="48" hits="3432" branch="false"/>
+						<line number="49" hits="3432" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="50" hits="153272" branch="false"/>
+						<line number="51" hits="153272" branch="false"/>
+						<line number="52" hits="153272" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="56" hits="37328" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="57" hits="5866" branch="false"/>
+						<line number="60" hits="37328" branch="false"/>
+						<line number="61" hits="37328" branch="false"/>
+						<line number="62" hits="37328" branch="false"/>
+						<line number="63" hits="37328" branch="false"/>
+						<line number="64" hits="37328" branch="false"/>
+						<line number="65" hits="37328" branch="true" condition-coverage="75% (3/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="66" hits="105408" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="68" hits="153272" branch="false"/>
+						<line number="72" hits="3432" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="73" hits="3432" branch="false"/>
+						<line number="74" hits="3432" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="75" hits="430" branch="false"/>
+						<line number="78" hits="3432" branch="false"/>
+						<line number="79" hits="1040" branch="false"/>
+						<line number="81" hits="8" branch="false"/>
+						<line number="86" hits="2" branch="false"/>
+						<line number="91" hits="9282" branch="false"/>
+						<line number="92" hits="9282" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="93" hits="9282" branch="false"/>
+						<line number="96" hits="9282" branch="false"/>
+						<line number="101" hits="4" branch="false"/>
+						<line number="102" hits="2" branch="false"/>
+						<line number="106" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.analyzer.CloverWithBullsHtmlMethodHandler" filename="hudson/plugins/covcomplplot/analyzer/CloverWithBullsHtmlMethodHandler.java" line-rate="0.0" branch-rate="0.0" complexity="3.8">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="23" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="checkBuild" signature="(Lhudson/model/AbstractBuild;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="101" hits="0" branch="false"/>
+								<line number="102" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCustomJavaScript" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="86" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDescription" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="106" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMethodUrlLocation" signature="(Lhudson/model/AbstractBuild;Lhudson/plugins/covcomplplot/model/MethodInfo;)Ljava/lang/String;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="91" hits="0" branch="false"/>
+								<line number="92" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="93" hits="0" branch="false"/>
+								<line number="96" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="process" signature="(Lhudson/model/AbstractBuild;ZLjava/lang/String;Lhudson/plugins/covcomplplot/stub/LoggerWrapper;Lhudson/plugins/covcomplplot/analyzer/Analyzer;)Ljava/util/List;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="29" hits="0" branch="false"/>
+								<line number="30" hits="0" branch="false"/>
+								<line number="31" hits="0" branch="false"/>
+								<line number="33" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="34" hits="0" branch="false"/>
+								<line number="36" hits="0" branch="false"/>
+								<line number="37" hits="0" branch="false"/>
+								<line number="38" hits="0" branch="false"/>
+								<line number="39" hits="0" branch="false"/>
+								<line number="40" hits="0" branch="false"/>
+								<line number="41" hits="0" branch="false"/>
+								<line number="43" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="44" hits="0" branch="false"/>
+								<line number="45" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="46" hits="0" branch="false"/>
+								<line number="47" hits="0" branch="false"/>
+								<line number="48" hits="0" branch="false"/>
+								<line number="49" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="50" hits="0" branch="false"/>
+								<line number="51" hits="0" branch="false"/>
+								<line number="52" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="56" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="57" hits="0" branch="false"/>
+								<line number="60" hits="0" branch="false"/>
+								<line number="61" hits="0" branch="false"/>
+								<line number="62" hits="0" branch="false"/>
+								<line number="63" hits="0" branch="false"/>
+								<line number="64" hits="0" branch="false"/>
+								<line number="65" hits="0" branch="true" condition-coverage="0% (0/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+										<condition number="1" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="66" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="68" hits="0" branch="false"/>
+								<line number="72" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="73" hits="0" branch="false"/>
+								<line number="74" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="75" hits="0" branch="false"/>
+								<line number="78" hits="0" branch="false"/>
+								<line number="79" hits="0" branch="false"/>
+								<line number="81" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="23" hits="0" branch="false"/>
+						<line number="29" hits="0" branch="false"/>
+						<line number="30" hits="0" branch="false"/>
+						<line number="31" hits="0" branch="false"/>
+						<line number="33" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="34" hits="0" branch="false"/>
+						<line number="36" hits="0" branch="false"/>
+						<line number="37" hits="0" branch="false"/>
+						<line number="38" hits="0" branch="false"/>
+						<line number="39" hits="0" branch="false"/>
+						<line number="40" hits="0" branch="false"/>
+						<line number="41" hits="0" branch="false"/>
+						<line number="43" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="44" hits="0" branch="false"/>
+						<line number="45" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="46" hits="0" branch="false"/>
+						<line number="47" hits="0" branch="false"/>
+						<line number="48" hits="0" branch="false"/>
+						<line number="49" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="50" hits="0" branch="false"/>
+						<line number="51" hits="0" branch="false"/>
+						<line number="52" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="56" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="57" hits="0" branch="false"/>
+						<line number="60" hits="0" branch="false"/>
+						<line number="61" hits="0" branch="false"/>
+						<line number="62" hits="0" branch="false"/>
+						<line number="63" hits="0" branch="false"/>
+						<line number="64" hits="0" branch="false"/>
+						<line number="65" hits="0" branch="true" condition-coverage="0% (0/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+								<condition number="1" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="66" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="68" hits="0" branch="false"/>
+						<line number="72" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="73" hits="0" branch="false"/>
+						<line number="74" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="75" hits="0" branch="false"/>
+						<line number="78" hits="0" branch="false"/>
+						<line number="79" hits="0" branch="false"/>
+						<line number="81" hits="0" branch="false"/>
+						<line number="86" hits="0" branch="false"/>
+						<line number="91" hits="0" branch="false"/>
+						<line number="92" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="93" hits="0" branch="false"/>
+						<line number="96" hits="0" branch="false"/>
+						<line number="101" hits="0" branch="false"/>
+						<line number="102" hits="0" branch="false"/>
+						<line number="106" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.analyzer.CoberturaMethodHandler" filename="hudson/plugins/covcomplplot/analyzer/CoberturaMethodHandler.java" line-rate="0.0" branch-rate="0.0" complexity="3.8">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="23" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="checkBuild" signature="(Lhudson/model/AbstractBuild;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="101" hits="0" branch="false"/>
+								<line number="102" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCustomJavaScript" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="86" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDescription" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="106" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMethodUrlLocation" signature="(Lhudson/model/AbstractBuild;Lhudson/plugins/covcomplplot/model/MethodInfo;)Ljava/lang/String;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="91" hits="0" branch="false"/>
+								<line number="92" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="93" hits="0" branch="false"/>
+								<line number="96" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="process" signature="(Lhudson/model/AbstractBuild;ZLjava/lang/String;Lhudson/plugins/covcomplplot/stub/LoggerWrapper;Lhudson/plugins/covcomplplot/analyzer/Analyzer;)Ljava/util/List;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="29" hits="0" branch="false"/>
+								<line number="30" hits="0" branch="false"/>
+								<line number="31" hits="0" branch="false"/>
+								<line number="33" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="34" hits="0" branch="false"/>
+								<line number="36" hits="0" branch="false"/>
+								<line number="37" hits="0" branch="false"/>
+								<line number="38" hits="0" branch="false"/>
+								<line number="39" hits="0" branch="false"/>
+								<line number="41" hits="0" branch="false"/>
+								<line number="43" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="44" hits="0" branch="false"/>
+								<line number="45" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="46" hits="0" branch="false"/>
+								<line number="47" hits="0" branch="false"/>
+								<line number="48" hits="0" branch="false"/>
+								<line number="49" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="50" hits="0" branch="false"/>
+								<line number="51" hits="0" branch="false"/>
+								<line number="52" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="56" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="57" hits="0" branch="false"/>
+								<line number="60" hits="0" branch="false"/>
+								<line number="61" hits="0" branch="false"/>
+								<line number="62" hits="0" branch="false"/>
+								<line number="63" hits="0" branch="false"/>
+								<line number="64" hits="0" branch="false"/>
+								<line number="65" hits="0" branch="true" condition-coverage="0% (0/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+										<condition number="1" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="66" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="72" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="73" hits="0" branch="false"/>
+								<line number="74" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="75" hits="0" branch="false"/>
+								<line number="81" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="23" hits="0" branch="false"/>
+						<line number="29" hits="0" branch="false"/>
+						<line number="30" hits="0" branch="false"/>
+						<line number="31" hits="0" branch="false"/>
+						<line number="33" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="34" hits="0" branch="false"/>
+						<line number="36" hits="0" branch="false"/>
+						<line number="37" hits="0" branch="false"/>
+						<line number="38" hits="0" branch="false"/>
+						<line number="39" hits="0" branch="false"/>
+						<line number="41" hits="0" branch="false"/>
+						<line number="43" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="44" hits="0" branch="false"/>
+						<line number="45" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="46" hits="0" branch="false"/>
+						<line number="47" hits="0" branch="false"/>
+						<line number="48" hits="0" branch="false"/>
+						<line number="49" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="50" hits="0" branch="false"/>
+						<line number="51" hits="0" branch="false"/>
+						<line number="52" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="56" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="57" hits="0" branch="false"/>
+						<line number="60" hits="0" branch="false"/>
+						<line number="61" hits="0" branch="false"/>
+						<line number="62" hits="0" branch="false"/>
+						<line number="63" hits="0" branch="false"/>
+						<line number="64" hits="0" branch="false"/>
+						<line number="65" hits="0" branch="true" condition-coverage="0% (0/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+								<condition number="1" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="66" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="72" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="73" hits="0" branch="false"/>
+						<line number="74" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="75" hits="0" branch="false"/>
+						<line number="81" hits="0" branch="false"/>
+						<line number="86" hits="0" branch="false"/>
+						<line number="91" hits="0" branch="false"/>
+						<line number="92" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="93" hits="0" branch="false"/>
+						<line number="96" hits="0" branch="false"/>
+						<line number="101" hits="0" branch="false"/>
+						<line number="102" hits="0" branch="false"/>
+						<line number="106" hits="0" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="hudson.plugins.covcomplplot.model" line-rate="0.72" branch-rate="0.5" complexity="2.0">
+			<classes>
+				<class name="hudson.plugins.covcomplplot.model.MethodInfo" filename="hudson/plugins/covcomplplot/model/MethodInfo.java" line-rate="0.72" branch-rate="0.5" complexity="2.0">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="55" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;II)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="37" hits="37334" branch="false"/>
+								<line number="38" hits="37334" branch="false"/>
+								<line number="39" hits="37334" branch="false"/>
+								<line number="40" hits="37334" branch="false"/>
+								<line number="41" hits="37334" branch="false"/>
+								<line number="42" hits="37334" branch="false"/>
+							</lines>
+						</method>
+						<method name="compareTo" signature="(Lhudson/plugins/covcomplplot/model/MethodInfo;)I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="99" hits="50550" branch="false"/>
+								<line number="100" hits="50550" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="101" hits="43942" branch="false"/>
+								<line number="103" hits="50550" branch="false"/>
+							</lines>
+						</method>
+						<method name="compareTo" signature="(Ljava/lang/Object;)I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="10" hits="50550" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCoverageRatio" signature="()F" line-rate="0.6666666666666666" branch-rate="0.5">
+							<lines>
+								<line number="49" hits="18568" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="50" hits="0" branch="false"/>
+								<line number="52" hits="18568" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDisplaySignature" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="71" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="72" hits="0" branch="false"/>
+								<line number="74" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getFormattedCoverageRatio" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="62" hits="0" branch="false"/>
+								<line number="63" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="increaseLine" signature="(Z)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="83" hits="105412" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="84" hits="45864" branch="false"/>
+								<line number="86" hits="105412" branch="false"/>
+								<line number="87" hits="105412" branch="false"/>
+							</lines>
+						</method>
+						<method name="toString" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="91" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="10" hits="50550" branch="false"/>
+						<line number="37" hits="37334" branch="false"/>
+						<line number="38" hits="37334" branch="false"/>
+						<line number="39" hits="37334" branch="false"/>
+						<line number="40" hits="37334" branch="false"/>
+						<line number="41" hits="37334" branch="false"/>
+						<line number="42" hits="37334" branch="false"/>
+						<line number="49" hits="18568" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="50" hits="0" branch="false"/>
+						<line number="52" hits="18568" branch="false"/>
+						<line number="55" hits="2" branch="false"/>
+						<line number="62" hits="0" branch="false"/>
+						<line number="63" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="71" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="72" hits="0" branch="false"/>
+						<line number="74" hits="0" branch="false"/>
+						<line number="83" hits="105412" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="84" hits="45864" branch="false"/>
+						<line number="86" hits="105412" branch="false"/>
+						<line number="87" hits="105412" branch="false"/>
+						<line number="91" hits="0" branch="false"/>
+						<line number="99" hits="50550" branch="false"/>
+						<line number="100" hits="50550" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="101" hits="43942" branch="false"/>
+						<line number="103" hits="50550" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="hudson.plugins.covcomplplot.stub" line-rate="0.5652173913043478" branch-rate="0.0" complexity="1.1578947368421053">
+			<classes>
+				<class name="hudson.plugins.covcomplplot.stub.InvalidHudsonProjectException" filename="hudson/plugins/covcomplplot/stub/InvalidHudsonProjectException.java" line-rate="0.875" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lhudson/plugins/covcomplplot/stub/InvalidHudsonProjectType;Ljava/lang/Throwable;[Ljava/lang/Object;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="40" hits="2" branch="false"/>
+								<line number="41" hits="2" branch="false"/>
+								<line number="42" hits="2" branch="false"/>
+								<line number="43" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Lhudson/plugins/covcomplplot/stub/InvalidHudsonProjectType;[Ljava/lang/Object;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="26" hits="2" branch="false"/>
+								<line number="27" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getInvalidHudsonProjectType" signature="()Lhudson/plugins/covcomplplot/stub/InvalidHudsonProjectType;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="60" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLogMessage" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="51" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="26" hits="2" branch="false"/>
+						<line number="27" hits="2" branch="false"/>
+						<line number="40" hits="2" branch="false"/>
+						<line number="41" hits="2" branch="false"/>
+						<line number="42" hits="2" branch="false"/>
+						<line number="43" hits="2" branch="false"/>
+						<line number="51" hits="2" branch="false"/>
+						<line number="60" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.stub.InvalidHudsonProjectType" filename="hudson/plugins/covcomplplot/stub/InvalidHudsonProjectType.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="10" hits="14" branch="false"/>
+								<line number="14" hits="2" branch="false"/>
+								<line number="23" hits="2" branch="false"/>
+								<line number="32" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;I)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;ILhudson/plugins/covcomplplot/stub/InvalidHudsonProjectType$1;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="getLogMessage" signature="([Ljava/lang/Object;)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="56" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="valueOf" signature="(Ljava/lang/String;)Lhudson/plugins/covcomplplot/stub/InvalidHudsonProjectType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="values" signature="()[Lhudson/plugins/covcomplplot/stub/InvalidHudsonProjectType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="10" hits="14" branch="false"/>
+						<line number="14" hits="2" branch="false"/>
+						<line number="23" hits="2" branch="false"/>
+						<line number="32" hits="2" branch="false"/>
+						<line number="56" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.stub.InvalidHudsonProjectType$1" filename="hudson/plugins/covcomplplot/stub/InvalidHudsonProjectType.java" line-rate="0.5" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;I)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="14" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLogMessageTemplate" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="17" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="14" hits="2" branch="false"/>
+						<line number="17" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.stub.InvalidHudsonProjectType$2" filename="hudson/plugins/covcomplplot/stub/InvalidHudsonProjectType.java" line-rate="0.5" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;I)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="23" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLogMessageTemplate" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="26" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="23" hits="2" branch="false"/>
+						<line number="26" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.stub.InvalidHudsonProjectType$3" filename="hudson/plugins/covcomplplot/stub/InvalidHudsonProjectType.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;I)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="32" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLogMessageTemplate" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="36" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="32" hits="2" branch="false"/>
+						<line number="36" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.stub.LoggerWrapper" filename="hudson/plugins/covcomplplot/stub/LoggerWrapper.java" line-rate="0.37037037037037035" branch-rate="0.0" complexity="1.3">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="21" hits="0" branch="false"/>
+								<line number="22" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/io/PrintStream;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="29" hits="6" branch="false"/>
+								<line number="30" hits="6" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/io/PrintStream;Z)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="38" hits="10" branch="false"/>
+								<line number="39" hits="10" branch="false"/>
+								<line number="40" hits="10" branch="false"/>
+								<line number="41" hits="10" branch="false"/>
+							</lines>
+						</method>
+						<method name="printError" signature="(Ljava/lang/Object;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="85" hits="2" branch="false"/>
+								<line number="86" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="printError" signature="(Ljava/lang/String;[Ljava/lang/Object;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="94" hits="0" branch="false"/>
+								<line number="95" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="printLineSeperation" signature="()V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="48" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="49" hits="0" branch="false"/>
+								<line number="50" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="printStackTrace" signature="(Ljava/lang/Exception;)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="102" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="103" hits="0" branch="false"/>
+								<line number="104" hits="0" branch="false"/>
+								<line number="105" hits="0" branch="false"/>
+								<line number="107" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="println" signature="(Ljava/lang/Object;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="68" hits="8" branch="false"/>
+								<line number="69" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="println" signature="(Ljava/lang/String;[Ljava/lang/Object;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="77" hits="0" branch="false"/>
+								<line number="78" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="printlnVerbose" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="58" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="59" hits="0" branch="false"/>
+								<line number="61" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="21" hits="0" branch="false"/>
+						<line number="22" hits="0" branch="false"/>
+						<line number="29" hits="6" branch="false"/>
+						<line number="30" hits="6" branch="false"/>
+						<line number="38" hits="10" branch="false"/>
+						<line number="39" hits="10" branch="false"/>
+						<line number="40" hits="10" branch="false"/>
+						<line number="41" hits="10" branch="false"/>
+						<line number="48" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="49" hits="0" branch="false"/>
+						<line number="50" hits="0" branch="false"/>
+						<line number="58" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="59" hits="0" branch="false"/>
+						<line number="61" hits="0" branch="false"/>
+						<line number="68" hits="8" branch="false"/>
+						<line number="69" hits="8" branch="false"/>
+						<line number="77" hits="0" branch="false"/>
+						<line number="78" hits="0" branch="false"/>
+						<line number="85" hits="2" branch="false"/>
+						<line number="86" hits="2" branch="false"/>
+						<line number="94" hits="0" branch="false"/>
+						<line number="95" hits="0" branch="false"/>
+						<line number="102" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="103" hits="0" branch="false"/>
+						<line number="104" hits="0" branch="false"/>
+						<line number="105" hits="0" branch="false"/>
+						<line number="107" hits="0" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="hudson.plugins.covcomplplot.util" line-rate="0.7479674796747967" branch-rate="0.6153846153846154" complexity="1.8846153846153846">
+			<classes>
+				<class name="hudson.plugins.covcomplplot.util.CovComplPlotUtil" filename="hudson/plugins/covcomplplot/util/CovComplPlotUtil.java" line-rate="0.6136363636363636" branch-rate="0.5" complexity="1.7272727272727273">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="29" hits="4" branch="false"/>
+								<line number="31" hits="4" branch="false"/>
+								<line number="187" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="26" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="compareVersion" signature="(Ljava/lang/String;Ljava/lang/String;)I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="157" hits="8" branch="false"/>
+								<line number="158" hits="8" branch="false"/>
+								<line number="159" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="findFile" signature="(Lhudson/FilePath;Ljava/lang/String;)[Lhudson/FilePath;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="131" hits="0" branch="false"/>
+								<line number="132" hits="0" branch="false"/>
+								<line number="133" hits="0" branch="false"/>
+								<line number="134" hits="0" branch="false"/>
+								<line number="135" hits="0" branch="false"/>
+								<line number="136" hits="0" branch="false"/>
+								<line number="137" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getClassResourcePath" signature="(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="147" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getFileAsString" signature="(Ljava/lang/String;)Ljava/lang/String;" line-rate="0.8181818181818182" branch-rate="0.5">
+							<lines>
+								<line number="196" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="198" hits="2" branch="false"/>
+								<line number="199" hits="2" branch="false"/>
+								<line number="200" hits="2" branch="false"/>
+								<line number="201" hits="2" branch="false"/>
+								<line number="202" hits="2" branch="false"/>
+								<line number="203" hits="0" branch="false"/>
+								<line number="204" hits="0" branch="false"/>
+								<line number="205" hits="2" branch="false"/>
+								<line number="207" hits="2" branch="false"/>
+								<line number="208" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getXPathNode" signature="(Lorg/dom4j/Node;Ljava/lang/String;)Lorg/dom4j/Element;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="82" hits="0" branch="false"/>
+								<line number="83" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="84" hits="0" branch="false"/>
+								<line number="86" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getXPathNodeList" signature="(Lorg/dom4j/Node;Ljava/lang/String;)Ljava/util/List;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="66" hits="0" branch="false"/>
+								<line number="67" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getXPathNodeText" signature="(Lorg/dom4j/Node;Ljava/lang/String;)Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="52" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getXmlFileDocument" signature="(Ljava/io/InputStream;)Lorg/dom4j/Document;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="117" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="getXmlFileDocument" signature="(Ljava/io/InputStream;Lorg/dom4j/DocumentFactory;)Lorg/dom4j/Document;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="101" hits="8" branch="false"/>
+								<line number="102" hits="8" branch="false"/>
+								<line number="103" hits="8" branch="false"/>
+								<line number="104" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="normalisedVersion" signature="(Ljava/lang/String;)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="168" hits="16" branch="false"/>
+							</lines>
+						</method>
+						<method name="normalisedVersion" signature="(Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="179" hits="16" branch="false"/>
+								<line number="180" hits="16" branch="false"/>
+								<line number="181" hits="64" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="182" hits="48" branch="false"/>
+								<line number="184" hits="16" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="26" hits="0" branch="false"/>
+						<line number="29" hits="4" branch="false"/>
+						<line number="31" hits="4" branch="false"/>
+						<line number="52" hits="0" branch="false"/>
+						<line number="66" hits="0" branch="false"/>
+						<line number="67" hits="0" branch="false"/>
+						<line number="82" hits="0" branch="false"/>
+						<line number="83" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="84" hits="0" branch="false"/>
+						<line number="86" hits="0" branch="false"/>
+						<line number="101" hits="8" branch="false"/>
+						<line number="102" hits="8" branch="false"/>
+						<line number="103" hits="8" branch="false"/>
+						<line number="104" hits="8" branch="false"/>
+						<line number="117" hits="8" branch="false"/>
+						<line number="131" hits="0" branch="false"/>
+						<line number="132" hits="0" branch="false"/>
+						<line number="133" hits="0" branch="false"/>
+						<line number="134" hits="0" branch="false"/>
+						<line number="135" hits="0" branch="false"/>
+						<line number="136" hits="0" branch="false"/>
+						<line number="137" hits="0" branch="false"/>
+						<line number="147" hits="2" branch="false"/>
+						<line number="157" hits="8" branch="false"/>
+						<line number="158" hits="8" branch="false"/>
+						<line number="159" hits="8" branch="false"/>
+						<line number="168" hits="16" branch="false"/>
+						<line number="179" hits="16" branch="false"/>
+						<line number="180" hits="16" branch="false"/>
+						<line number="181" hits="64" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="182" hits="48" branch="false"/>
+						<line number="184" hits="16" branch="false"/>
+						<line number="187" hits="4" branch="false"/>
+						<line number="196" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="198" hits="2" branch="false"/>
+						<line number="199" hits="2" branch="false"/>
+						<line number="200" hits="2" branch="false"/>
+						<line number="201" hits="2" branch="false"/>
+						<line number="202" hits="2" branch="false"/>
+						<line number="203" hits="0" branch="false"/>
+						<line number="204" hits="0" branch="false"/>
+						<line number="205" hits="2" branch="false"/>
+						<line number="207" hits="2" branch="false"/>
+						<line number="208" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.util.CovComplPlotUtil$1" filename="hudson/plugins/covcomplplot/util/CovComplPlotUtil.java" line-rate="1.0" branch-rate="1.0" complexity="1.7272727272727273">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="31" hits="4" branch="false"/>
+								<line number="34" hits="4" branch="false"/>
+								<line number="35" hits="4" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="31" hits="4" branch="false"/>
+						<line number="34" hits="4" branch="false"/>
+						<line number="35" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.util.CustomGraph" filename="hudson/plugins/covcomplplot/util/CustomGraph.java" line-rate="0.7837837837837838" branch-rate="0.6666666666666666" complexity="3.2">
+					<methods>
+						<method name="&lt;init&gt;" signature="(JII)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="41" hits="8" branch="false"/>
+								<line number="42" hits="8" branch="false"/>
+								<line number="43" hits="8" branch="false"/>
+								<line number="44" hits="8" branch="false"/>
+								<line number="45" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/util/Calendar;II)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="58" hits="8" branch="false"/>
+								<line number="59" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="doPng" signature="(Lorg/kohsuke/stapler/StaplerRequest;Lorg/kohsuke/stapler/StaplerResponse;)V" line-rate="0.5" branch-rate="0.25">
+							<lines>
+								<line number="106" hits="4" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="107" hits="0" branch="false"/>
+								<line number="110" hits="4" branch="false"/>
+								<line number="111" hits="4" branch="false"/>
+								<line number="112" hits="4" branch="false"/>
+								<line number="113" hits="4" branch="false"/>
+								<line number="114" hits="4" branch="false"/>
+								<line number="115" hits="0" branch="false"/>
+								<line number="116" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="117" hits="0" branch="false"/>
+								<line number="118" hits="0" branch="false"/>
+								<line number="120" hits="0" branch="false"/>
+								<line number="121" hits="0" branch="false"/>
+								<line number="123" hits="0" branch="false"/>
+								<line number="124" hits="4" branch="false"/>
+								<line number="125" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="render" signature="(Lorg/kohsuke/stapler/StaplerRequest;)Ljava/awt/image/BufferedImage;" line-rate="1.0" branch-rate="0.875">
+							<lines>
+								<line number="76" hits="8" branch="false"/>
+								<line number="77" hits="8" branch="false"/>
+								<line number="78" hits="8" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="79" hits="4" branch="false"/>
+								<line number="80" hits="4" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="81" hits="2" branch="false"/>
+								<line number="82" hits="4" branch="false"/>
+								<line number="83" hits="4" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="84" hits="2" branch="false"/>
+								<line number="86" hits="4" branch="false"/>
+								<line number="87" hits="4" branch="false"/>
+								<line number="89" hits="8" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="90" hits="8" branch="false"/>
+								<line number="91" hits="8" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="41" hits="8" branch="false"/>
+						<line number="42" hits="8" branch="false"/>
+						<line number="43" hits="8" branch="false"/>
+						<line number="44" hits="8" branch="false"/>
+						<line number="45" hits="8" branch="false"/>
+						<line number="58" hits="8" branch="false"/>
+						<line number="59" hits="8" branch="false"/>
+						<line number="76" hits="8" branch="false"/>
+						<line number="77" hits="8" branch="false"/>
+						<line number="78" hits="8" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="79" hits="4" branch="false"/>
+						<line number="80" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="81" hits="2" branch="false"/>
+						<line number="82" hits="4" branch="false"/>
+						<line number="83" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="84" hits="2" branch="false"/>
+						<line number="86" hits="4" branch="false"/>
+						<line number="87" hits="4" branch="false"/>
+						<line number="89" hits="8" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="90" hits="8" branch="false"/>
+						<line number="91" hits="8" branch="false"/>
+						<line number="106" hits="4" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="107" hits="0" branch="false"/>
+						<line number="110" hits="4" branch="false"/>
+						<line number="111" hits="4" branch="false"/>
+						<line number="112" hits="4" branch="false"/>
+						<line number="113" hits="4" branch="false"/>
+						<line number="114" hits="4" branch="false"/>
+						<line number="115" hits="0" branch="false"/>
+						<line number="116" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="117" hits="0" branch="false"/>
+						<line number="118" hits="0" branch="false"/>
+						<line number="120" hits="0" branch="false"/>
+						<line number="121" hits="0" branch="false"/>
+						<line number="123" hits="0" branch="false"/>
+						<line number="124" hits="4" branch="false"/>
+						<line number="125" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.util.NoXPathContentException" filename="hudson/plugins/covcomplplot/util/NoXPathContentException.java" line-rate="0.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="12" hits="0" branch="false"/>
+								<line number="13" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="12" hits="0" branch="false"/>
+						<line number="13" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.util.ScatterPlotPointMapRenderer" filename="hudson/plugins/covcomplplot/util/ScatterPlotPointMapRenderer.java" line-rate="0.6666666666666666" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="24" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="drawAnnotations" signature="(Ljava/awt/Graphics2D;Ljava/awt/geom/Rectangle2D;Lorg/jfree/chart/axis/ValueAxis;Lorg/jfree/chart/axis/ValueAxis;Lorg/jfree/ui/Layer;Lorg/jfree/chart/plot/PlotRenderingInfo;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="54" hits="8" branch="false"/>
+								<line number="55" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="drawDomainGridLine" signature="(Ljava/awt/Graphics2D;Lorg/jfree/chart/plot/XYPlot;Lorg/jfree/chart/axis/ValueAxis;Ljava/awt/geom/Rectangle2D;D)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="113" hits="44" branch="false"/>
+							</lines>
+						</method>
+						<method name="drawDomainMarker" signature="(Ljava/awt/Graphics2D;Lorg/jfree/chart/plot/XYPlot;Lorg/jfree/chart/axis/ValueAxis;Lorg/jfree/chart/plot/Marker;Ljava/awt/geom/Rectangle2D;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="41" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="drawItem" signature="(Ljava/awt/Graphics2D;Lorg/jfree/chart/renderer/xy/XYItemRendererState;Ljava/awt/geom/Rectangle2D;Lorg/jfree/chart/plot/PlotRenderingInfo;Lorg/jfree/chart/plot/XYPlot;Lorg/jfree/chart/axis/ValueAxis;Lorg/jfree/chart/axis/ValueAxis;Lorg/jfree/data/xy/XYDataset;IILorg/jfree/chart/plot/CrosshairState;I)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="72" hits="254" branch="false"/>
+							</lines>
+						</method>
+						<method name="drawItemLabel" signature="(Ljava/awt/Graphics2D;Lorg/jfree/chart/plot/PlotOrientation;Lorg/jfree/data/xy/XYDataset;IIDDZ)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="86" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="drawRangeLine" signature="(Ljava/awt/Graphics2D;Lorg/jfree/chart/plot/XYPlot;Lorg/jfree/chart/axis/ValueAxis;Ljava/awt/geom/Rectangle2D;DLjava/awt/Paint;Ljava/awt/Stroke;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="121" hits="32" branch="false"/>
+							</lines>
+						</method>
+						<method name="drawRangeMarker" signature="(Ljava/awt/Graphics2D;Lorg/jfree/chart/plot/XYPlot;Lorg/jfree/chart/axis/ValueAxis;Lorg/jfree/chart/plot/Marker;Ljava/awt/geom/Rectangle2D;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="100" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="24" hits="4" branch="false"/>
+						<line number="41" hits="0" branch="false"/>
+						<line number="54" hits="8" branch="false"/>
+						<line number="55" hits="8" branch="false"/>
+						<line number="72" hits="254" branch="false"/>
+						<line number="86" hits="0" branch="false"/>
+						<line number="100" hits="0" branch="false"/>
+						<line number="113" hits="44" branch="false"/>
+						<line number="121" hits="32" branch="false"/>
+					</lines>
+				</class>
+				<class name="hudson.plugins.covcomplplot.util.ScatterPlotPointRenderer" filename="hudson/plugins/covcomplplot/util/ScatterPlotPointRenderer.java" line-rate="0.9642857142857143" branch-rate="0.625" complexity="3.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="25" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="drawItem" signature="(Ljava/awt/Graphics2D;Lorg/jfree/chart/renderer/xy/XYItemRendererState;Ljava/awt/geom/Rectangle2D;Lorg/jfree/chart/plot/PlotRenderingInfo;Lorg/jfree/chart/plot/XYPlot;Lorg/jfree/chart/axis/ValueAxis;Lorg/jfree/chart/axis/ValueAxis;Lorg/jfree/data/xy/XYDataset;IILorg/jfree/chart/plot/CrosshairState;I)V" line-rate="0.9615384615384616" branch-rate="0.625">
+							<lines>
+								<line number="43" hits="254" branch="false"/>
+								<line number="44" hits="254" branch="false"/>
+								<line number="45" hits="254" branch="false"/>
+								<line number="46" hits="254" branch="false"/>
+								<line number="47" hits="254" branch="false"/>
+								<line number="48" hits="254" branch="false"/>
+								<line number="49" hits="254" branch="false"/>
+								<line number="50" hits="254" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="51" hits="254" branch="false"/>
+								<line number="52" hits="254" branch="false"/>
+								<line number="53" hits="254" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="54" hits="4" branch="false"/>
+								<line number="55" hits="4" branch="false"/>
+								<line number="56" hits="4" branch="false"/>
+								<line number="58" hits="250" branch="false"/>
+								<line number="60" hits="254" branch="false"/>
+								<line number="61" hits="254" branch="false"/>
+								<line number="63" hits="254" branch="false"/>
+								<line number="64" hits="254" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="65" hits="0" branch="false"/>
+								<line number="66" hits="254" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="67" hits="254" branch="false"/>
+								<line number="70" hits="254" branch="false"/>
+								<line number="71" hits="254" branch="false"/>
+								<line number="72" hits="254" branch="false"/>
+								<line number="74" hits="254" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPointSize" signature="(I)I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="36" hits="254" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="25" hits="4" branch="false"/>
+						<line number="36" hits="254" branch="false"/>
+						<line number="43" hits="254" branch="false"/>
+						<line number="44" hits="254" branch="false"/>
+						<line number="45" hits="254" branch="false"/>
+						<line number="46" hits="254" branch="false"/>
+						<line number="47" hits="254" branch="false"/>
+						<line number="48" hits="254" branch="false"/>
+						<line number="49" hits="254" branch="false"/>
+						<line number="50" hits="254" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="51" hits="254" branch="false"/>
+						<line number="52" hits="254" branch="false"/>
+						<line number="53" hits="254" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="54" hits="4" branch="false"/>
+						<line number="55" hits="4" branch="false"/>
+						<line number="56" hits="4" branch="false"/>
+						<line number="58" hits="250" branch="false"/>
+						<line number="60" hits="254" branch="false"/>
+						<line number="61" hits="254" branch="false"/>
+						<line number="63" hits="254" branch="false"/>
+						<line number="64" hits="254" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="65" hits="0" branch="false"/>
+						<line number="66" hits="254" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="67" hits="254" branch="false"/>
+						<line number="70" hits="254" branch="false"/>
+						<line number="71" hits="254" branch="false"/>
+						<line number="72" hits="254" branch="false"/>
+						<line number="74" hits="254" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>

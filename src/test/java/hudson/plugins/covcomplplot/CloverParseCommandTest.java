@@ -164,7 +164,7 @@ public class CloverParseCommandTest {
 		List<MethodInfo> t = handler.process(mockBuild, false, "", new LoggerWrapper(System.out), Analyzer.Clover);
 		for (MethodInfo each : t) {
 			assertThat(Analyzer.Clover.getHandler().getMethodUrlLocation(mockBuild, each), containsString("http://localhost/test/1/clover-report/"
-					+ each.path.substring(0, each.path.length() - 10)));
+					+ each.getPath().substring(0, each.getPath().length() - 10)));
 		}
 	}
 
@@ -249,9 +249,9 @@ public class CloverParseCommandTest {
 		CloverMethodHandler handler = new CloverMethodHandler();
 		List<MethodInfo> methodInfoList = handler.process(mockBuild, true, "", new LoggerWrapper(System.out), Analyzer.Clover);
 		for (MethodInfo methodInfo : methodInfoList) {
-			if (methodInfo.compl == 1 && methodInfo.st == 1) {
-				assertThat(methodInfo.sig, not(startsWith("get")));
-				assertThat(methodInfo.sig, not(startsWith("set")));
+			if (methodInfo.getCompl() == 1 && methodInfo.st == 1) {
+				assertThat(methodInfo.getSig(), not(startsWith("get")));
+				assertThat(methodInfo.getSig(), not(startsWith("set")));
 			}
 		}
 	}
@@ -263,8 +263,8 @@ public class CloverParseCommandTest {
 		List<MethodInfo> methodInfoList = handler.process(mockBuild, false, "", new LoggerWrapper(System.out), Analyzer.Clover);
 		int count = 0;
 		for (MethodInfo methodInfo : methodInfoList) {
-			if (methodInfo.compl == 1 && methodInfo.st == 1) {
-				if (StringUtils.startsWithIgnoreCase(methodInfo.sig, "get") ||StringUtils.startsWithIgnoreCase(methodInfo.sig, "set")) {
+			if (methodInfo.getCompl() == 1 && methodInfo.st == 1) {
+				if (StringUtils.startsWithIgnoreCase(methodInfo.getSig(), "get") ||StringUtils.startsWithIgnoreCase(methodInfo.getSig(), "set")) {
 					count++;
 				}
 			}

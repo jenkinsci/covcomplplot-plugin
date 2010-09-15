@@ -17,6 +17,7 @@ import org.dom4j.Element;
 import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
 import org.springframework.core.io.ClassPathResource;
+import org.xml.sax.SAXException;
 
 /**
  * Utility Class for various data process
@@ -99,6 +100,13 @@ public class CovComplPlotUtil {
 	 */
 	public static Document getXmlFileDocument(InputStream stream, DocumentFactory factory) throws DocumentException {
 		SAXReader reader = new SAXReader(factory);
+		reader.setValidation(false);
+		try {
+			reader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+		} catch (SAXException e) {
+			e.printStackTrace();
+		}
+      
 		Document doc = reader.read(stream);
 		IOUtils.closeQuietly(stream);
 		return doc;

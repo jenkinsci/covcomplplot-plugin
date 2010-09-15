@@ -10,6 +10,7 @@ import hudson.plugins.covcomplplot.util.CovComplPlotUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.dom4j.Document;
 import org.dom4j.Element;
 
@@ -20,7 +21,7 @@ import org.dom4j.Element;
  * 
  * @author JunHo Yoon
  */
-public class CloverWithBullsHtmlMethodHandler extends AbstractMethodInfoHandler {
+public class CloverBranchCoverageMethodHandler extends AbstractMethodInfoHandler {
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -46,6 +47,7 @@ public class CloverWithBullsHtmlMethodHandler extends AbstractMethodInfoHandler 
 				Element eachFileElement = (Element) eachFileObject;
 				String path = dirPath.replace(".", "/") + "/" + eachFileElement.attributeValue("name");
 				MethodInfo cloverMethod = null;
+				boolean methodCalled = false;
 				for (Object each : eachFileElement.elements("line")) {
 					Element eachLine = (Element) each;
 					String eachType = eachLine.attributeValue("type");
@@ -55,17 +57,25 @@ public class CloverWithBullsHtmlMethodHandler extends AbstractMethodInfoHandler 
 						// array memory reallocation.
 						if (!isMethodValid(cloverMethod, excludeGetterSetter)) {
 							methods.remove(methods.size() - 1);
+						} else {
+							if (cloverMethod != null) {
+								cloverMethod.covered = methodCalled;
+							}
 						}
-
+						methodCalled = !("0".equals(eachLine.attributeValue("count")));
 						String signature = eachLine.attributeValue("signature");
 						int complexity = Integer.parseInt(eachLine.attributeValue("complexity"));
 						int lineno = Integer.parseInt(eachLine.attributeValue("num"));
 						cloverMethod = new MethodInfo(path, signature, complexity, lineno);
+
 						methods.add(cloverMethod);
-					} else if (("stmt").equals(eachType) && cloverMethod != null) {
-						cloverMethod.increaseLine(!"0".equals(eachLine.attributeValue("count")));
+					} else if (("cond").equals(eachType) && cloverMethod != null) {
+						int count = ("0".equals(eachLine.attributeValue("truecount")) ? 0 : 1);
+						count += ("0".equals(eachLine.attributeValue("falsecount")) ? 0 : 1);
+						cloverMethod.increaseSizeAndCovered(2, count);
 					}
 				}
+
 				// Remove last method of this file if it's not valid.
 				// I put this here to minimize the array search and array memory
 				// reallocation.
@@ -81,6 +91,20 @@ public class CloverWithBullsHtmlMethodHandler extends AbstractMethodInfoHandler 
 		return methods;
 	}
 
+	/**
+	 * Check if the give method is valid
+	 * 
+	 * @param method
+	 *            method to be checked
+	 * @return true if given method is valid
+	 */
+	protected boolean isGetterSetter(MethodInfo method) {
+		if (method.getCompl() == 1) {
+			return StringUtils.startsWithIgnoreCase(method.getSig(), "get") || StringUtils.startsWithIgnoreCase(method.getSig(), "set");
+		}
+		return false;
+	}
+
 	@Override
 	public String getCustomJavaScript() {
 		return CovComplPlotUtil.getFileAsString(CovComplPlotUtil.getClassResourcePath(getClass(), "js"));
@@ -88,7 +112,7 @@ public class CloverWithBullsHtmlMethodHandler extends AbstractMethodInfoHandler 
 
 	@Override
 	public String getMethodUrlLocation(AbstractBuild<?, ?> owner, MethodInfo methodInfo) {
-		String cloverPath = methodInfo.path;
+		String cloverPath = methodInfo.getPath();
 		if (cloverPath.endsWith(".java")) {
 			cloverPath = cloverPath.replaceAll("\\.java$", ".html");
 		}

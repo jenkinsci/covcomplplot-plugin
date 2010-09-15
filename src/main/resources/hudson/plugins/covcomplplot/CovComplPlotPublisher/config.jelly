@@ -2,7 +2,7 @@
 
 	<f:entry title="Code coverage plugin used" description="Assgin code coverage plugin from which Cov/Compl scatter plot gets data."
 		field="analyzer">
-		<f:enum>${it.pluginName}</f:enum>
+		<f:enum>${it.name}</f:enum>
 	</f:entry>
 	<f:entry title="Exclude getter/setter" description="Exclude methods which are only 1 line, 1 complexity, and get~/set~ method name"
 		field="excludeGetterSetter">

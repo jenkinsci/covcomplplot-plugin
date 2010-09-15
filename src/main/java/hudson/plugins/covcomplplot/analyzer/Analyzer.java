@@ -7,12 +7,15 @@ package hudson.plugins.covcomplplot.analyzer;
  * @author JunHo Yoon
  */
 public enum Analyzer {
-	Clover("Clover", new CloverMethodHandler());
+	Clover("Clover", "Clover(Statement)", new CloverMethodHandler()), 
+	CloverBranch("Clover", "Clover(Branch)", new CoberturaMethodHandler()),
+	Cobertura("Cobertura", "Cobertura", new CoberturaMethodHandler());
 
 	/** plugin name */
 	private final String pluginName;
 	/** real handler */
 	private final AbstractMethodInfoHandler handler;
+	private final String name;
 
 	/**
 	 * Analyzer Constructor
@@ -23,8 +26,9 @@ public enum Analyzer {
 	 * @param handler
 	 *            Real hudson plugin result hanlder.
 	 */
-	Analyzer(String pluginName, AbstractMethodInfoHandler handler) {
+	Analyzer(String pluginName, String name, AbstractMethodInfoHandler handler) {
 		this.pluginName = pluginName;
+		this.name = name;
 		this.handler = handler;
 	}
 
@@ -44,6 +48,10 @@ public enum Analyzer {
 	 */
 	public AbstractMethodInfoHandler getHandler() {
 		return handler;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 }

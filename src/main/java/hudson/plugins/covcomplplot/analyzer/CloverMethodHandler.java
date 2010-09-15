@@ -88,7 +88,7 @@ public class CloverMethodHandler extends AbstractMethodInfoHandler {
 
 	@Override
 	public String getMethodUrlLocation(AbstractBuild<?, ?> owner, MethodInfo methodInfo) {
-		String cloverPath = methodInfo.path;
+		String cloverPath = methodInfo.getPath();
 		if (cloverPath.endsWith(".java")) {
 			cloverPath = cloverPath.replaceAll("\\.java$", ".html");
 		}

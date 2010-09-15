@@ -2,6 +2,7 @@ package hudson.plugins.covcomplplot;
 
 import hudson.model.AbstractBuild;
 import hudson.model.Action;
+import hudson.util.TextFile;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;

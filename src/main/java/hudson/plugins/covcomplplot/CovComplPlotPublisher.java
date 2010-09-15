@@ -78,6 +78,10 @@ public class CovComplPlotPublisher extends Notifier {
 			// Create BuildAction
 			CovComplPlotBuildAction buildAction = createCovComplScatterPlotBuildAction(build, methods);
 			build.addAction(buildAction);
+			Action customAction = analyzer.getHandler().getCustomSourceViewBuildAction(build);
+			if (customAction != null) {
+				build.addAction(customAction);
+			}
 			logger.println("Complete CovCompPlotPlugIn.");
 		} catch (InvalidHudsonProjectException e) {
 			logger.printError(e.getLogMessage());
