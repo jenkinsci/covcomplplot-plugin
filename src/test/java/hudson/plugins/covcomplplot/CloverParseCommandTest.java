@@ -271,4 +271,5 @@ public class CloverParseCommandTest {
 		}
 		assertThat(count, not(0));
 	}
+
 }

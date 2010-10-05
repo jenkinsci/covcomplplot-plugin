@@ -1,8 +1,5 @@
 package hudson.plugins.covcomplplot;
 
-import java.io.File;
-import java.util.List;
-
 import hudson.model.BuildListener;
 import hudson.model.FreeStyleBuild;
 import hudson.plugins.covcomplplot.analyzer.Analyzer;
@@ -11,9 +8,9 @@ import hudson.plugins.covcomplplot.model.MethodInfo;
 import hudson.plugins.covcomplplot.stub.InvalidHudsonProjectException;
 import hudson.plugins.covcomplplot.stub.LoggerWrapper;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.lang.StringUtils;
+import java.io.File;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -21,14 +18,10 @@ import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.startsWith; 
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
-import static org.powermock.api.mockito.PowerMockito.doAnswer;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)

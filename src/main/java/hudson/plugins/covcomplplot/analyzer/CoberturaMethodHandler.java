@@ -1,7 +1,6 @@
 package hudson.plugins.covcomplplot.analyzer;
 
 import hudson.model.AbstractBuild;
-import hudson.model.Action;
 import hudson.plugins.covcomplplot.model.MethodInfo;
 import hudson.plugins.covcomplplot.stub.InvalidHudsonProjectException;
 import hudson.plugins.covcomplplot.stub.InvalidHudsonProjectType;
@@ -32,9 +31,9 @@ public class CoberturaMethodHandler extends AbstractMethodInfoHandler {
 	@Override
 	public List<MethodInfo> process(AbstractBuild<?, ?> build, boolean excludeGetterSetter, String remoteDir, LoggerWrapper logger, Analyzer analyzer)
 			throws InvalidHudsonProjectException {
-		Document clover = super.getBuildArtifact(build, "coverage.xml", Analyzer.Cobertura);
+		Document cobetura = super.getBuildArtifact(build, "coverage.xml", Analyzer.Cobertura);
 		List<Element> elementList = null;
-		Element rootElement = clover.getRootElement();
+		Element rootElement = cobetura.getRootElement();
 		try {
 			elementList = CovComplPlotUtil.getXPathNodeList(rootElement, "//packages/package/classes/class");
 		} catch (Exception e) {
@@ -214,7 +213,4 @@ public class CoberturaMethodHandler extends AbstractMethodInfoHandler {
 		return "Cobertura hudson plugin result is used for generating this plot.<br/> In this case, the coverage means statement coverage.";
 	}
 
-	public Action getCustomSourceViewBuildAction(AbstractBuild<?, ?> build) {
-		return new CoberturaSourceViewBuildAction(build);
-	}
 }

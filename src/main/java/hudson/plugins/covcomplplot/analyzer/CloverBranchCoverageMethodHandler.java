@@ -47,48 +47,52 @@ public class CloverBranchCoverageMethodHandler extends AbstractMethodInfoHandler
 				Element eachFileElement = (Element) eachFileObject;
 				String path = dirPath.replace(".", "/") + "/" + eachFileElement.attributeValue("name");
 				MethodInfo cloverMethod = null;
-				boolean methodCalled = false;
 				for (Object each : eachFileElement.elements("line")) {
 					Element eachLine = (Element) each;
 					String eachType = eachLine.attributeValue("type");
 					if ("method".equals(eachType)) {
-						// Remove the invalid method
-						// I put this here to minimize the array search and
-						// array memory reallocation.
-						if (!isMethodValid(cloverMethod, excludeGetterSetter)) {
-							methods.remove(methods.size() - 1);
-						} else {
-							if (cloverMethod != null) {
-								cloverMethod.covered = methodCalled;
-							}
-						}
-						methodCalled = !("0".equals(eachLine.attributeValue("count")));
 						String signature = eachLine.attributeValue("signature");
 						int complexity = Integer.parseInt(eachLine.attributeValue("complexity"));
 						int lineno = Integer.parseInt(eachLine.attributeValue("num"));
 						cloverMethod = new MethodInfo(path, signature, complexity, lineno);
-
-						methods.add(cloverMethod);
+						cloverMethod.covered = !("0".equals(eachLine.attributeValue("count")));
+						// Remove the invalid method
+						// I put this here to minimize the array search and
+						// array memory reallocation.
+						if (!isMethodValid(cloverMethod, excludeGetterSetter)) {
+							cloverMethod = null;
+						} else {
+							methods.add(cloverMethod);
+						}
 					} else if (("cond").equals(eachType) && cloverMethod != null) {
 						int count = ("0".equals(eachLine.attributeValue("truecount")) ? 0 : 1);
 						count += ("0".equals(eachLine.attributeValue("falsecount")) ? 0 : 1);
 						cloverMethod.increaseSizeAndCovered(2, count);
 					}
 				}
-
-				// Remove last method of this file if it's not valid.
-				// I put this here to minimize the array search and array memory
-				// reallocation.
-				if (methods.size() > 0) {
-					MethodInfo lastMehodInfo = methods.get(methods.size() - 1);
-					if (!isMethodValid(lastMehodInfo, excludeGetterSetter)) {
-						methods.remove(methods.size() - 1);
-					}
-				}
 			}
 		}
 
 		return methods;
+	}
+
+	/**
+	 * Check if the method is valid.
+	 * 
+	 * @param method
+	 *            method to checked. if it's null, it's valid.
+	 * @param excludeGetterSetter
+	 *            true if the getter/setter should be excluded.
+	 * @return true if the method is valid
+	 */
+	protected boolean isMethodValid(MethodInfo method, boolean excludeGetterSetter) {
+		if (method == null) {
+			return true;
+		}
+		if (excludeGetterSetter) {
+			return !isGetterSetter(method);
+		}
+		return true;
 	}
 
 	/**
@@ -114,10 +118,9 @@ public class CloverBranchCoverageMethodHandler extends AbstractMethodInfoHandler
 	public String getMethodUrlLocation(AbstractBuild<?, ?> owner, MethodInfo methodInfo) {
 		String cloverPath = methodInfo.getPath();
 		if (cloverPath.endsWith(".java")) {
-			cloverPath = cloverPath.replaceAll("\\.java$", ".html");
+			cloverPath = cloverPath.replaceAll("\\.java$", "");
 		}
-
-		return String.format("%s/clover-report/%s#%d", owner.getUrl(), hudson.Functions.encode(cloverPath), methodInfo.line);
+		return String.format("%s/clover-report/%s.html#%d", owner.getUrl(), hudson.Functions.encode(cloverPath), methodInfo.line);
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package hudson.plugins.covcomplplot.analyzer;
 
+
 /**
  * Enum containing each hudson plugin to be used by this plugin. If you want to
  * add more hudson plugins used, Please add enum value.
@@ -8,7 +9,7 @@ package hudson.plugins.covcomplplot.analyzer;
  */
 public enum Analyzer {
 	Clover("Clover", "Clover(Statement)", new CloverMethodHandler()), 
-	CloverBranch("Clover", "Clover(Branch)", new CoberturaMethodHandler()),
+	CloverBranch("Clover", "Clover(Branch)", new CloverBranchCoverageMethodHandler()),
 	Cobertura("Cobertura", "Cobertura", new CoberturaMethodHandler());
 
 	/** plugin name */

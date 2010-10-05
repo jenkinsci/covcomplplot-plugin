@@ -81,7 +81,7 @@ public class MethodInfo implements Comparable<MethodInfo> {
 		if (this.st == 0) {
 			if (this.covered)
 				return 100;
-			return Float.NaN;
+			return 0;
 		}
 		return ((float) cst) / st * 100;
 	}
@@ -95,7 +95,7 @@ public class MethodInfo implements Comparable<MethodInfo> {
 	 */
 	public String getFormattedCoverageRatio() {
 		float ratio = getCoverageRatio();
-		return (ratio == Float.NaN) ? "0" : formatter.format(ratio);
+		return formatter.format(ratio);
 	}
 
 	/**

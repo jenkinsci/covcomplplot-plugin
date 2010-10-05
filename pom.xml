@@ -84,8 +84,6 @@
 				<configuration>
 					<source>1.5</source>
 					<target>1.5</target>
-					<debug>true</debug>
-					<optimize>true</optimize>
 					<encoding>utf-8</encoding>
 					<showDeprecations>true</showDeprecations>
 				</configuration>
