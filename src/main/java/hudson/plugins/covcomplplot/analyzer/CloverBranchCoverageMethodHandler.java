@@ -130,7 +130,7 @@ public class CloverBranchCoverageMethodHandler extends AbstractMethodInfoHandler
 
 	@Override
 	public String getDescription() {
-		return "Clover hudson plugin result is used for generating this plot.<br/> In this case, the coverage means statement coverage.";
+		return "Clover hudson plugin result is used for generating this plot.<br/> In this case, the coverage means branch coverage.";
 	}
 
 }

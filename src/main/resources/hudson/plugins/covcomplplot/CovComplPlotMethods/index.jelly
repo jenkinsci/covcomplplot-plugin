@@ -28,7 +28,7 @@
 						<td class="pane-header">Method</td>
 						<td class="pane-header">Complexity</td>
 						<td class="pane-header">Coverage(%)</td>
-						<td class="pane-header">Size</td>
+						<td class="pane-header">Total</td>
 						<td class="pane-header">Covered</td>
 
 					</tr>
