@@ -200,7 +200,7 @@ public class CoberturaMethodHandler extends AbstractMethodInfoHandler {
 			path = path.substring(0, path.length() - 1);
 		path = urlTransform(path);
 		String name = urlTransform(FilenameUtils.getName(fullPath));
-		return String.format("%s/cobeturasourceview/%s/%s#%d", owner.getUrl(), path, name, methodInfo.line);
+		return String.format("%s/cobertura/%s/%s#%d", owner.getUrl(), path, name, methodInfo.line);
 	}
 
 	@Override
