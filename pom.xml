@@ -109,6 +109,7 @@
 						<artifactId>maven-clover2-plugin</artifactId>
 						<version>3.0.2</version>
 						<configuration>
+							<licenseLocation>${clover.license}</licenseLocation>
 							<excludes>
 								<exclude>hudson/plugins/nsiq/FileExtension.java</exclude>
 							</excludes>
@@ -134,6 +135,7 @@
 						<artifactId>maven-clover2-plugin</artifactId>
 						<version>3.0.2</version>
 						<configuration>
+							<licenseLocation>${clover.license}</licenseLocation>
 							<includesTestSourceRoots>true</includesTestSourceRoots>
 							<encoding>UTF-8</encoding>
 						</configuration>

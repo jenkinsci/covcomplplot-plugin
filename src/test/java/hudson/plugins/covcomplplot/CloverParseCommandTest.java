@@ -49,7 +49,7 @@ import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest( { FreeStyleBuild.class, BuildListener.class })
-@PowerMockIgnore("javax.*")
+@PowerMockIgnore({"javax.*", "org.xml.sax.*"})
 public class CloverParseCommandTest {
 
 	class AddAction implements Answer<CovComplPlotBuildAction> {
