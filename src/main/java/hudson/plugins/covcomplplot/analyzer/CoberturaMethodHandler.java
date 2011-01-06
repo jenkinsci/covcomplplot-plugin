@@ -99,7 +99,7 @@ public class CoberturaMethodHandler extends AbstractMethodInfoHandler {
 			String returnType = signatureMatcher.group(2);
 			Matcher matcher = argMatcher.matcher(returnType);
 			if (matcher.matches()) {
-				methodName.append(parseMethodArg(matcher.group()));
+				methodName.append(parseMethodArg(StringUtils.trimToEmpty(matcher.group())));
 				methodName.append(' ');
 			}
 			methodName.append(name);
@@ -111,7 +111,7 @@ public class CoberturaMethodHandler extends AbstractMethodInfoHandler {
 				if (!first) {
 					methodName.append(',');
 				}
-				methodName.append(parseMethodArg(matcher.group()));
+				methodName.append(parseMethodArg(StringUtils.trimToEmpty(matcher.group())));
 				first = false;
 			}
 			methodName.append(')');
@@ -127,6 +127,9 @@ public class CoberturaMethodHandler extends AbstractMethodInfoHandler {
 	 * @return readable form of method arg
 	 */
 	private String parseMethodArg(String s) {
+		if (StringUtils.isEmpty(s)) {
+			return s;
+		}
 		char c = s.charAt(0);
 		int end;
 		switch (c) {
