@@ -3,7 +3,7 @@ package hudson.plugins.covcomplplot.stub;
 import java.text.MessageFormat;
 
 /**
- * Invalid Hudson Project Error Type.
+ * Invalid Jenkins Project Error Type.
  * 
  * @author JunHo Yoon
  */

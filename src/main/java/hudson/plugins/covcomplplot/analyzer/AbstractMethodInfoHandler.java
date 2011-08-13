@@ -18,14 +18,14 @@ import org.apache.commons.lang.StringUtils;
 import org.dom4j.Document;
 
 /**
- * Abstract handler which is the superclass of Hudson plugin handlers.
+ * Abstract handler which is the superclass of Jenkins plugin handlers.
  * 
  * @author junoyoon@gmail.com
  */
 public abstract class AbstractMethodInfoHandler {
 
 	/**
-	 * Parse the Hudson plugin result and return the {@link MethodInfo} list.
+	 * Parse the plugin result and return the {@link MethodInfo} list.
 	 * 
 	 * @param build
 	 *            build info
@@ -121,12 +121,12 @@ public abstract class AbstractMethodInfoHandler {
 	 *            {@link AbstractBuild} instance against each methodInfo.
 	 * @param methodInfo
 	 *            method.
-	 * @return URL string from each hudson job URL base.
+	 * @return URL string from each Jenkins job URL base.
 	 */
 	abstract public String getMethodUrlLocation(AbstractBuild<?, ?> build, MethodInfo methodInfo);
 
 	/**
-	 * Check if passed {@link AbstractBuild} contains valid hudson plugin result
+	 * Check if passed {@link AbstractBuild} contains valid plugin result
 	 * for this handler processing. This method is invoked before the process
 	 * method is called.
 	 * 
@@ -136,7 +136,7 @@ public abstract class AbstractMethodInfoHandler {
 	abstract public void checkBuild(AbstractBuild<?, ?> build) throws InvalidHudsonProjectException;
 
 	/**
-	 * Get the description of Hudson plugin from which this handler get information
+	 * Get the description of Jenkins plugin from which this handler get information
 	 * 
 	 * @return description string
 	 */

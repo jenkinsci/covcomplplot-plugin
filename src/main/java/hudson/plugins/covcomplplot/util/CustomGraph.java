@@ -15,7 +15,7 @@ import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.StaplerResponse;
 
 /**
- * Reimplementation of {@link Graph} class in hudson lib. lazyMap logic on which
+ * Reimplementation of {@link Graph} class in Jenkins lib. lazyMap logic on which
  * {@link Graph} class is based is not properly working in IE. Related doMap()
  * method in the class is removed.
  * 

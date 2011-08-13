@@ -2,16 +2,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.jvnet.hudson.plugins</groupId>
+		<groupId>org.jenkins-ci.plugins</groupId>
 		<artifactId>plugin</artifactId>
-		<version>1.321</version>
-		<relativePath>../pom.xml</relativePath>
+		<version>1.398</version>
 	</parent>
 	<artifactId>covcomplplot</artifactId>
 	<version>1.1.1-SNAPSHOT</version>
-	<name>Hudson Coverage/Complexity Scatter Plot PlugIn</name>
+	<name>Coverage/Complexity Scatter Plot PlugIn</name>
 	<packaging>hpi</packaging>
-	<url>http://wiki.hudson-ci.org/display/HUDSON/Coverage+Complexity+Scatter+Plot+PlugIn</url>
+	<url>http://wiki.jenkins-ci.org/display/JENKINS/Coverage+Complexity+Scatter+Plot+PlugIn</url>
 
 	<developers>
 		<developer>
@@ -20,6 +19,11 @@
 			<email>junoyoon@gmail.com</email>
 		</developer>
 	</developers>
+	<scm>
+		<connection>scm:git:git://github.com/jenkinsci/covcomplplot-plugin.git</connection>
+		<developerConnection>scm:git:git@github.com:jenkinsci/covcomplplot-plugin.git</developerConnection>
+		<url>https://github.com/jenkinsci/covcomplplot-plugin</url>
+	</scm>
 	<!--
 		get every artifact through maven.glassfish.org, which proxies all the
 		artifacts that we need

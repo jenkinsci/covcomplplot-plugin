@@ -2,8 +2,8 @@ package hudson.plugins.covcomplplot.analyzer;
 
 
 /**
- * Enum containing each hudson plugin to be used by this plugin. If you want to
- * add more hudson plugins used, Please add enum value.
+ * Enum containing each Jenkins plugin to be used by this plugin. If you want to
+ * add more Jenkins plugins used, please add enum value.
  * 
  * @author JunHo Yoon
  */
@@ -22,10 +22,10 @@ public enum Analyzer {
 	 * Analyzer Constructor
 	 * 
 	 * @param pluginName
-	 *            hudson plugin name from which the each handler extracts
+	 *            Jenkins plugin name from which the each handler extracts
 	 *            information.
 	 * @param handler
-	 *            Real hudson plugin result hanlder.
+	 *            Real Jenkins plugin result handler.
 	 */
 	Analyzer(String pluginName, String name, AbstractMethodInfoHandler handler) {
 		this.pluginName = pluginName;
@@ -34,7 +34,7 @@ public enum Analyzer {
 	}
 
 	/**
-	 * Get hudson plugin name from which each analyzer extracts information.
+	 * Get Jenkins plugin name from which each analyzer extracts information.
 	 * 
 	 * @return plugin name
 	 */

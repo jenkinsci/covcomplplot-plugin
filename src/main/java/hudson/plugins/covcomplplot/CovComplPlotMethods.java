@@ -101,7 +101,7 @@ public class CovComplPlotMethods implements Serializable {
 	
 
 	/**
-	 * Return the Hudson URL in which the source code is viewed.
+	 * Return the Jenkins URL in which the source code is viewed.
 	 * 
 	 * @param methodInfo
 	 *            {@link MethodInfo} instance to be resolved
