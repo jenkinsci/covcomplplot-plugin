@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- EMMA v2.1.5320 (stable) report, generated Tue Dec 04 18:59:31 KST 2012 -->
+
+<report>
+  <stats>
+    <packages value="6"/>
+    <classes value="18"/>
+    <methods value="61"/>
+    <srcfiles value="18"/>
+    <srclines value="189"/>
+  </stats>
+  <data>
+    <all name="all classes">
+      <coverage type="class, %" value="72%  (13/18)"/>
+      <coverage type="method, %" value="52%  (32/61)"/>
+      <coverage type="block, %" value="41%  (319/786)"/>
+      <coverage type="line, %" value="41%  (77/189)"/>
+
+      <package name="com.googlecode.goodsamples.springbatch.taskletstep">
+        <coverage type="class, %" value="0%   (0/2)"/>
+        <coverage type="method, %" value="0%   (0/6)"/>
+        <coverage type="block, %" value="0%   (0/46)"/>
+        <coverage type="line, %" value="0%   (0/10)"/>
+
+        <srcfile name="FirstStep.java">
+          <coverage type="class, %" value="0%   (0/1)"/>
+          <coverage type="method, %" value="0%   (0/3)"/>
+          <coverage type="block, %" value="0%   (0/17)"/>
+          <coverage type="line, %" value="0%   (0/4)"/>
+
+          <class name="FirstStep">
+            <coverage type="class, %" value="0%   (0/1)"/>
+            <coverage type="method, %" value="0%   (0/3)"/>
+            <coverage type="block, %" value="0%   (0/17)"/>
+            <coverage type="line, %" value="0%   (0/4)"/>
+
+            <method name="FirstStep (): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="execute (StepContribution, ChunkContext): RepeatStatus">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/8)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="executionContext (ChunkContext): ExecutionContext">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/6)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="SecondStep.java">
+          <coverage type="class, %" value="0%   (0/1)"/>
+          <coverage type="method, %" value="0%   (0/3)"/>
+          <coverage type="block, %" value="0%   (0/29)"/>
+          <coverage type="line, %" value="0%   (0/6)"/>
+
+          <class name="SecondStep">
+            <coverage type="class, %" value="0%   (0/1)"/>
+            <coverage type="method, %" value="0%   (0/3)"/>
+            <coverage type="block, %" value="0%   (0/29)"/>
+            <coverage type="line, %" value="0%   (0/6)"/>
+
+            <method name="SecondStep (NameDAO): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/6)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="execute (StepContribution, ChunkContext): RepeatStatus">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/17)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="executionContext (ChunkContext): ExecutionContext">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/6)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="com.googlecode.goodsamples.springbatch.partition">
+        <coverage type="class, %" value="25%  (1/4)"/>
+        <coverage type="method, %" value="8%   (1/12)"/>
+        <coverage type="block, %" value="2%   (3/199)"/>
+        <coverage type="line, %" value="3%   (1/38)"/>
+
+        <srcfile name="ColumnRangePartitioner.java">
+          <coverage type="class, %" value="0%   (0/1)"/>
+          <coverage type="method, %" value="0%   (0/5)"/>
+          <coverage type="block, %" value="0%   (0/124)"/>
+          <coverage type="line, %" value="0%   (0/26)"/>
+
+          <class name="ColumnRangePartitioner">
+            <coverage type="class, %" value="0%   (0/1)"/>
+            <coverage type="method, %" value="0%   (0/5)"/>
+            <coverage type="block, %" value="0%   (0/124)"/>
+            <coverage type="line, %" value="0%   (0/26)"/>
+
+            <method name="ColumnRangePartitioner (): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="partition (int): Map">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/106)"/>
+              <coverage type="line, %" value="0%   (0/19)"/>
+            </method>
+            <method name="setColumn (String): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/4)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="setDataSource (DataSource): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/7)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="setTable (String): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/4)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="LoggableJdbcCursorItemReader.java">
+          <coverage type="class, %" value="0%   (0/1)"/>
+          <coverage type="method, %" value="0%   (0/3)"/>
+          <coverage type="block, %" value="0%   (0/21)"/>
+          <coverage type="line, %" value="0%   (0/4)"/>
+
+          <class name="LoggableJdbcCursorItemReader">
+            <coverage type="class, %" value="0%   (0/1)"/>
+            <coverage type="method, %" value="0%   (0/3)"/>
+            <coverage type="block, %" value="0%   (0/21)"/>
+            <coverage type="line, %" value="0%   (0/4)"/>
+
+            <method name="&lt;static initializer&gt;">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/4)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="LoggableJdbcCursorItemReader (): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="doRead (): Object">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/14)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="NameRowMapper.java">
+          <coverage type="class, %" value="0%   (0/1)"/>
+          <coverage type="method, %" value="0%   (0/2)"/>
+          <coverage type="block, %" value="0%   (0/14)"/>
+          <coverage type="line, %" value="0%   (0/2)"/>
+
+          <class name="NameRowMapper">
+            <coverage type="class, %" value="0%   (0/1)"/>
+            <coverage type="method, %" value="0%   (0/2)"/>
+            <coverage type="block, %" value="0%   (0/14)"/>
+            <coverage type="line, %" value="0%   (0/2)"/>
+
+            <method name="NameRowMapper (): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="mapRow (ResultSet, int): Name">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/11)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="PartitionWriter.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="50%  (1/2)"/>
+          <coverage type="block, %" value="8%   (3/40)"/>
+          <coverage type="line, %" value="17%  (1/6)"/>
+
+          <class name="PartitionWriter">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="50%  (1/2)"/>
+            <coverage type="block, %" value="8%   (3/40)"/>
+            <coverage type="line, %" value="17%  (1/6)"/>
+
+            <method name="write (List): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/37)"/>
+              <coverage type="line, %" value="0%   (0/5)"/>
+            </method>
+            <method name="PartitionWriter (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="com.googlecode.goodsamples.springbatch.hello">
+        <coverage type="class, %" value="100% (2/2)"/>
+        <coverage type="method, %" value="43%  (3/7)"/>
+        <coverage type="block, %" value="18%  (20/113)"/>
+        <coverage type="line, %" value="15%  (6/41)"/>
+
+        <srcfile name="HelloTasklet2.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="20%  (1/5)"/>
+          <coverage type="block, %" value="7%   (7/100)"/>
+          <coverage type="line, %" value="5%   (2/37)"/>
+
+          <class name="HelloTasklet2">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="20%  (1/5)"/>
+            <coverage type="block, %" value="7%   (7/100)"/>
+            <coverage type="line, %" value="5%   (2/37)"/>
+
+            <method name="duplicateCode (): int">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/29)"/>
+              <coverage type="line, %" value="0%   (0/11)"/>
+            </method>
+            <method name="duplicateCode2 (): int">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/29)"/>
+              <coverage type="line, %" value="0%   (0/11)"/>
+            </method>
+            <method name="duplicateCode3 (): int">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/29)"/>
+              <coverage type="line, %" value="0%   (0/11)"/>
+            </method>
+            <method name="execute (StepContribution, ChunkContext): RepeatStatus">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/6)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="HelloTasklet2 (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (7/7)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="HelloTasklet.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="100% (2/2)"/>
+          <coverage type="block, %" value="100% (13/13)"/>
+          <coverage type="line, %" value="100% (4/4)"/>
+
+          <class name="HelloTasklet">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (2/2)"/>
+            <coverage type="block, %" value="100% (13/13)"/>
+            <coverage type="line, %" value="100% (4/4)"/>
+
+            <method name="HelloTasklet (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (7/7)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="execute (StepContribution, ChunkContext): RepeatStatus">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (6/6)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="com.googlecode.goodsamples.springbatch.continuation">
+        <coverage type="class, %" value="100% (2/2)"/>
+        <coverage type="method, %" value="43%  (3/7)"/>
+        <coverage type="block, %" value="34%  (37/109)"/>
+        <coverage type="line, %" value="46%  (11/24)"/>
+
+        <srcfile name="ContinuationWriter.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="50%  (1/2)"/>
+          <coverage type="block, %" value="15%  (6/41)"/>
+          <coverage type="line, %" value="25%  (2/8)"/>
+
+          <class name="ContinuationWriter">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="50%  (1/2)"/>
+            <coverage type="block, %" value="15%  (6/41)"/>
+            <coverage type="line, %" value="25%  (2/8)"/>
+
+            <method name="write (List): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/35)"/>
+              <coverage type="line, %" value="0%   (0/6)"/>
+            </method>
+            <method name="ContinuationWriter (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (6/6)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="ContinuationStreamItemReader.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="40%  (2/5)"/>
+          <coverage type="block, %" value="46%  (31/68)"/>
+          <coverage type="line, %" value="56%  (9/16)"/>
+
+          <class name="ContinuationStreamItemReader">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="40%  (2/5)"/>
+            <coverage type="block, %" value="46%  (31/68)"/>
+            <coverage type="line, %" value="56%  (9/16)"/>
+
+            <method name="doClose (): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/1)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="doOpen (): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/5)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="doRead (): Integer">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/31)"/>
+              <coverage type="line, %" value="0%   (0/4)"/>
+            </method>
+            <method name="ContinuationStreamItemReader (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (17/17)"/>
+              <coverage type="line, %" value="100% (6/6)"/>
+            </method>
+            <method name="makeTenItems (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (14/14)"/>
+              <coverage type="line, %" value="100% (3/3)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="com.googlecode.goodsamples.springbatch.basic">
+        <coverage type="class, %" value="100% (6/6)"/>
+        <coverage type="method, %" value="84%  (21/25)"/>
+        <coverage type="block, %" value="80%  (242/302)"/>
+        <coverage type="line, %" value="76%  (54/71)"/>
+
+        <srcfile name="NameJobListener.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="33%  (1/3)"/>
+          <coverage type="block, %" value="60%  (3/5)"/>
+          <coverage type="line, %" value="33%  (1/3)"/>
+
+          <class name="NameJobListener">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="33%  (1/3)"/>
+            <coverage type="block, %" value="60%  (3/5)"/>
+            <coverage type="line, %" value="33%  (1/3)"/>
+
+            <method name="afterJob (JobExecution): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/1)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="beforeJob (JobExecution): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/1)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="NameJobListener (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="Name.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="80%  (8/10)"/>
+          <coverage type="block, %" value="62%  (85/138)"/>
+          <coverage type="line, %" value="65%  (26/40)"/>
+
+          <class name="Name">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="80%  (8/10)"/>
+            <coverage type="block, %" value="62%  (85/138)"/>
+            <coverage type="line, %" value="65%  (26/40)"/>
+
+            <method name="hashCode (): int">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/32)"/>
+              <coverage type="line, %" value="0%   (0/5)"/>
+            </method>
+            <method name="name (): String">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="equals (Object): boolean">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="66%  (35/53)"/>
+              <coverage type="line, %" value="56%  (10/18)"/>
+            </method>
+            <method name="Name (Integer): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (6/6)"/>
+              <coverage type="line, %" value="100% (3/3)"/>
+            </method>
+            <method name="Name (Integer, String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (9/9)"/>
+              <coverage type="line, %" value="100% (4/4)"/>
+            </method>
+            <method name="Name (String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (6/6)"/>
+              <coverage type="line, %" value="100% (3/3)"/>
+            </method>
+            <method name="id (): Integer">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="setId (int): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (5/5)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="setName (String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="toString (): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (17/17)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="NameReader.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="100% (2/2)"/>
+          <coverage type="block, %" value="90%  (44/49)"/>
+          <coverage type="line, %" value="86%  (6/7)"/>
+
+          <class name="NameReader">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (2/2)"/>
+            <coverage type="block, %" value="90%  (44/49)"/>
+            <coverage type="line, %" value="86%  (6/7)"/>
+
+            <method name="read (): Name">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="89%  (41/46)"/>
+              <coverage type="line, %" value="83%  (5/6)"/>
+            </method>
+            <method name="NameReader (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="InMemoryNameDAO.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="100% (6/6)"/>
+          <coverage type="block, %" value="100% (72/72)"/>
+          <coverage type="line, %" value="100% (15/15)"/>
+
+          <class name="InMemoryNameDAO">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (6/6)"/>
+            <coverage type="block, %" value="100% (72/72)"/>
+            <coverage type="line, %" value="100% (15/15)"/>
+
+            <method name="InMemoryNameDAO (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="insert (Name): Name">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (18/18)"/>
+              <coverage type="line, %" value="100% (4/4)"/>
+            </method>
+            <method name="select (Name): Name">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (7/7)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="selectAll (): LinkedList">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (26/26)"/>
+              <coverage type="line, %" value="100% (4/4)"/>
+            </method>
+            <method name="truncate (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="update (Name): Name">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (9/9)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="NameProcessor.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="100% (2/2)"/>
+          <coverage type="block, %" value="100% (18/18)"/>
+          <coverage type="line, %" value="100% (2/2)"/>
+
+          <class name="NameProcessor">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (2/2)"/>
+            <coverage type="block, %" value="100% (18/18)"/>
+            <coverage type="line, %" value="100% (2/2)"/>
+
+            <method name="NameProcessor (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="process (Name): Name">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (15/15)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="NameWriter.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="100% (2/2)"/>
+          <coverage type="block, %" value="100% (20/20)"/>
+          <coverage type="line, %" value="100% (4/4)"/>
+
+          <class name="NameWriter">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (2/2)"/>
+            <coverage type="block, %" value="100% (20/20)"/>
+            <coverage type="line, %" value="100% (4/4)"/>
+
+            <method name="NameWriter (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="write (List): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (17/17)"/>
+              <coverage type="line, %" value="100% (3/3)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="com.googlecode.goodsamples.springbatch.retry">
+        <coverage type="class, %" value="100% (2/2)"/>
+        <coverage type="method, %" value="100% (4/4)"/>
+        <coverage type="block, %" value="100% (17/17)"/>
+        <coverage type="line, %" value="100% (5/5)"/>
+
+        <srcfile name="RetryTasklet.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="100% (3/3)"/>
+          <coverage type="block, %" value="100% (14/14)"/>
+          <coverage type="line, %" value="100% (4/4)"/>
+
+          <class name="RetryTasklet">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (3/3)"/>
+            <coverage type="block, %" value="100% (14/14)"/>
+            <coverage type="line, %" value="100% (4/4)"/>
+
+            <method name="&lt;static initializer&gt;">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="RetryTasklet (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="execute (StepContribution, ChunkContext): RepeatStatus">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="SomeBatchRelatedException.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="100% (1/1)"/>
+          <coverage type="block, %" value="100% (3/3)"/>
+          <coverage type="line, %" value="100% (1/1)"/>
+
+          <class name="SomeBatchRelatedException">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (1/1)"/>
+            <coverage type="block, %" value="100% (3/3)"/>
+            <coverage type="line, %" value="100% (1/1)"/>
+
+            <method name="SomeBatchRelatedException (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+    </all>
+  </data>
+</report>

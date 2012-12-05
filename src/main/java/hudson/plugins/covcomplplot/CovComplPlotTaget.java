@@ -42,12 +42,13 @@ import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.StaplerResponse;
 
 /**
- * Target containing coverage and complexity of methods. This class mostly handles graph
- * and map generation. This class also handles detailed method list( {@link CovComplPlotMethods} generation
- * when the detailed view is shown. 
+ * Target containing coverage and complexity of methods. This class mostly
+ * handles graph and map generation. This class also handles detailed method
+ * list( {@link CovComplPlotMethods} generation when the detailed view is shown.
+ * 
  * @author JunHo Yoon
  */
-
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class CovComplPlotTaget implements Serializable {
 
 	/** UID */
@@ -57,7 +58,6 @@ public class CovComplPlotTaget implements Serializable {
 	private transient int[][] methodOccuranceMatrix;
 
 	/** Method list per each cell */
-	@SuppressWarnings("unchecked")
 	private transient List[][] methodMapMatrix;
 
 	/** Cache for graph map shown each build page */
@@ -91,7 +91,7 @@ public class CovComplPlotTaget implements Serializable {
 	}
 
 	/**
-	 * Constructor 
+	 * Constructor
 	 * 
 	 * @param owner
 	 *            {@link AbstractBuild} instance which owns this instance.
@@ -100,7 +100,8 @@ public class CovComplPlotTaget implements Serializable {
 	 * @param ownersTimeStamp
 	 *            timestamp of owner.
 	 */
-	public CovComplPlotTaget(AbstractBuild<?, ?> owner, List<MethodInfo> methodInfoList, Analyzer analyzer, Calendar ownersTimeStamp) {
+	public CovComplPlotTaget(AbstractBuild<?, ?> owner, List<MethodInfo> methodInfoList, Analyzer analyzer,
+			Calendar ownersTimeStamp) {
 		this.owner = owner;
 		this.methodInfoList = methodInfoList;
 		this.analyzer = analyzer;
@@ -109,9 +110,11 @@ public class CovComplPlotTaget implements Serializable {
 
 	/**
 	 * Get graph. This method is called to show a graph from jelly.
+	 * 
 	 * <pre>
-	 * projectName/build/graph/map
+	 * projectName / build / graph / map
 	 * </pre>
+	 * 
 	 * @return GraphImpl object
 	 */
 	public GraphImpl getGraph() {
@@ -136,9 +139,8 @@ public class CovComplPlotTaget implements Serializable {
 	 * @throws ServletException
 	 * @throws IOException
 	 */
-	@SuppressWarnings("unchecked")
-	public void doDynamic(StaplerRequest req, StaplerResponse rsp, String type, @QueryParameter("cov") int cov, @QueryParameter("compl") int compl,
-			@QueryParameter("page") int page) throws ServletException, IOException {
+	public void doDynamic(StaplerRequest req, StaplerResponse rsp, String type, @QueryParameter("cov") int cov,
+			@QueryParameter("compl") int compl, @QueryParameter("page") int page) throws ServletException, IOException {
 		page = Math.max(page, 1);
 		cov = Math.min(cov, Constant.DOMAIN_AXIS_COUNT - 1);
 		compl = Math.min(compl, Constant.RANGE_AXIS_COUNT - 1);
@@ -153,17 +155,22 @@ public class CovComplPlotTaget implements Serializable {
 			int retrieveSize = Math.min(totalSize - ((page - 1) * Constant.PAGING_SIZE), Constant.PAGING_SIZE);
 			obj = obj.subList(startIndex, startIndex + retrieveSize);
 		}
-		req.getView(new CovComplPlotMethods(owner, (List<MethodInfo>) obj, analyzer, cov, compl, page, totalSize), "index.jelly").forward(req, rsp);
+		req.getView(new CovComplPlotMethods(owner, (List<MethodInfo>) obj, analyzer, cov, compl, page, totalSize),
+				"index.jelly").forward(req, rsp);
 	}
 
 	/**
-	 * Create a method occurrence matrix. a method occurrence matrix is
-	 * a 2 dimensional array and each cell represents the corresponding coverage and complexity value.
-	 * The reason why uses array is to save memories and regulate the graph rendering speed.
+	 * Create a method occurrence matrix. a method occurrence matrix is a 2
+	 * dimensional array and each cell represents the corresponding coverage and
+	 * complexity value. The reason why uses array is to save memories and
+	 * regulate the graph rendering speed.
 	 * 
-	 * This method is subject to be synchronized. Because internally it uses a cache not to generate matrix more than once.
+	 * This method is subject to be synchronized. Because internally it uses a
+	 * cache not to generate matrix more than once.
+	 * 
 	 * @param methodInfoList
-	 *            {@link MethodInfo} list from which method occurrence matrix is created
+	 *            {@link MethodInfo} list from which method occurrence matrix is
+	 *            created
 	 * @return method occurrence matrix
 	 */
 	private int[][] createMatrix(List<MethodInfo> methodInfoList) {
@@ -172,7 +179,8 @@ public class CovComplPlotTaget implements Serializable {
 				int[][] matrix = new int[Constant.RANGE_AXIS_UPPERBOUND][Constant.DOMAIN_AXIS_UPPERBOUND];
 				for (MethodInfo methodInfo : methodInfoList) {
 					int complexityIndex = Math.min(methodInfo.getCompl(), Constant.RANGE_AXIS_UPPERBOUND - 1);
-					int coverageIndex = Math.min(Math.round(methodInfo.getCoverageRatio()), Constant.DOMAIN_AXIS_UPPERBOUND - 1);
+					int coverageIndex = Math.min(Math.round(methodInfo.getCoverageRatio()),
+							Constant.DOMAIN_AXIS_UPPERBOUND - 1);
 					matrix[complexityIndex][coverageIndex]++;
 				}
 				this.methodOccuranceMatrix = matrix;
@@ -180,17 +188,21 @@ public class CovComplPlotTaget implements Serializable {
 		}
 		return this.methodOccuranceMatrix;
 	}
-	
+
 	/**
 	 * Get custom java script
+	 * 
 	 * @return custom java script string
 	 */
 	public String getCustomJavaScript() {
 		return analyzer.getHandler().getCustomJavaScript();
 	}
+
 	/**
-	 * Get the description of the graph. The description is different according to which analyzer is used.
-	 * For example, coverage in clover processing means statement coverage.
+	 * Get the description of the graph. The description is different according
+	 * to which analyzer is used. For example, coverage in clover processing
+	 * means statement coverage.
+	 * 
 	 * @return description
 	 */
 	public String getDescription() {
@@ -219,16 +231,17 @@ public class CovComplPlotTaget implements Serializable {
 	 *            all {@link MethodInfo} list to be reorganized/
 	 * @return 2 dimensional array of {@link MethodInfo} instances.
 	 */
-	@SuppressWarnings("unchecked")
+
 	private List[][] createMapGridMatrix(List<MethodInfo> methodInfoList) {
 		synchronized (lock) {
 			if (this.methodMapMatrix == null) {
 				ArrayList[][] matrix = new ArrayList[Constant.RANGE_AXIS_COUNT][Constant.DOMAIN_AXIS_COUNT];
 				for (MethodInfo methodInfo : methodInfoList) {
-					int complexityIndex = Math.min(getSnapValue(methodInfo.getCompl(), Constant.RANGE_AXIS_TICK_UNIT), Constant.RANGE_AXIS_UPPERBOUND
-							- Constant.RANGE_AXIS_TICK_UNIT)
+					int complexityIndex = Math.min(getSnapValue(methodInfo.getCompl(), Constant.RANGE_AXIS_TICK_UNIT),
+							Constant.RANGE_AXIS_UPPERBOUND - Constant.RANGE_AXIS_TICK_UNIT)
 							/ Constant.RANGE_AXIS_TICK_UNIT;
-					int coverageIndex = Math.min(getSnapValue(methodInfo.getCoverageRatio(), Constant.DOMAIN_AXIS_TICK_UNIT),
+					int coverageIndex = Math.min(
+							getSnapValue(methodInfo.getCoverageRatio(), Constant.DOMAIN_AXIS_TICK_UNIT),
 							Constant.DOMAIN_AXIS_UPPERBOUND - Constant.DOMAIN_AXIS_TICK_UNIT)
 							/ Constant.DOMAIN_AXIS_TICK_UNIT;
 					ArrayList<MethodInfo> each = matrix[complexityIndex][coverageIndex];
@@ -377,17 +390,19 @@ public class CovComplPlotTaget implements Serializable {
 						if (valueY == Constant.RANGE_AXIS_UPPERBOUND - 1) {
 							complexityRangeString = String.format("%d~", valueY);
 						} else {
-							complexityRangeString = String.format("%d~%d", valueY, valueY + Constant.RANGE_AXIS_TICK_UNIT - 1);
+							complexityRangeString = String.format("%d~%d", valueY, valueY
+									+ Constant.RANGE_AXIS_TICK_UNIT - 1);
 						}
-						String tooltip = String.format("%d methods - Complexity : %s, Coverage : %d~%d%%", mapGridMatrix[y][x].size(),
-								complexityRangeString, valueX, valueX + Constant.DOMAIN_AXIS_TICK_UNIT - 1);
+						String tooltip = String.format("%d methods - Complexity : %s, Coverage : %d~%d%%",
+								mapGridMatrix[y][x].size(), complexityRangeString, valueX, valueX
+										+ Constant.DOMAIN_AXIS_TICK_UNIT - 1);
 						String url = String.format("%s/?cov=%d&compl=%d", Constant.URL_NAME, x, y);
 						if ("true".equals(withBuildNo)) {
 							url = buildNo + "/" + url;
 						}
 						info.getEntityCollection().add(
-								new ChartEntity(new Rectangle((int) realX, (int) (realY - rangeTickSize), (int) domainTickSize - 1,
-										(int) rangeTickSize - 1), tooltip, url));
+								new ChartEntity(new Rectangle((int) realX, (int) (realY - rangeTickSize),
+										(int) domainTickSize - 1, (int) rangeTickSize - 1), tooltip, url));
 					}
 				}
 			}
@@ -403,22 +418,21 @@ public class CovComplPlotTaget implements Serializable {
 		@Override
 		protected JFreeChart createGraph() {
 			final XYZDataset dataset = generateXYDataset();
-			final JFreeChart chart = ChartFactory.createScatterPlot("", "coverage(%)", "complexity", dataset, PlotOrientation.VERTICAL, false, false,
-					false);
+			final JFreeChart chart = ChartFactory.createScatterPlot("", "coverage(%)", "complexity", dataset,
+					PlotOrientation.VERTICAL, false, false, false);
 			chart.setBackgroundPaint(Color.white);
 			final XYPlot plot = chart.getXYPlot();
 			// set up paint
 			plot.setBackgroundPaint(Color.WHITE);
 			plot.setOutlinePaint(null);
 			plot.setForegroundAlpha(0.4f);
-		
+
 			// set up grid line
 			plot.setRangeGridlinesVisible(true);
 			plot.setRangeGridlinePaint(Color.GRAY);
 			plot.setRangeGridlinesVisible(true);
 			plot.setDomainGridlinePaint(Color.GRAY);
-			
-			
+
 			// Set up axis
 			plot.setAxisOffset(new RectangleInsets(0, 0, 0, 0));
 

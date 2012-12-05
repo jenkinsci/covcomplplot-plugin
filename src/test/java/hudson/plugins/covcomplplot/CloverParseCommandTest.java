@@ -47,8 +47,8 @@ import static org.powermock.api.mockito.PowerMockito.doAnswer;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest( { FreeStyleBuild.class, BuildListener.class })
-@PowerMockIgnore({"javax.*", "org.xml.sax.*"})
+@PrepareForTest({ FreeStyleBuild.class, BuildListener.class })
+@PowerMockIgnore({ "javax.*", "org.xml.sax.*" })
 public class CloverParseCommandTest {
 
 	class AddAction implements Answer<CovComplPlotBuildAction> {
@@ -93,9 +93,10 @@ public class CloverParseCommandTest {
 	 * @throws UnsupportedLookAndFeelException
 	 */
 	@Test
-	@org.junit.Ignore // TODO fix test (jfreechart problem on mac anyway)
-	public void testCloverWithValidProject() throws InterruptedException, IOException, ClassNotFoundException, InstantiationException,
-			IllegalAccessException, UnsupportedLookAndFeelException {
+	@org.junit.Ignore
+	// TODO fix test (jfreechart problem on mac anyway)
+	public void testCloverWithValidProject() throws InterruptedException, IOException, ClassNotFoundException,
+			InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 		CovComplPlotPublisher publisher = new CovComplPlotPublisher(Analyzer.Clover, false, true, false);
 		AddAction addAction = prepareValidSample1("src/test/resources/sample_valid/", 500, 200);
 
@@ -126,6 +127,7 @@ public class CloverParseCommandTest {
 	 * @param height
 	 * @return
 	 */
+	@SuppressWarnings("serial")
 	private AddAction prepareValidSample1(String moduleRoot, int width, int height) {
 		when(mockBuild.getModuleRoot()).thenReturn(new FilePath(new File(moduleRoot)));
 		when(mockBuild.getRootDir()).thenReturn(new File(moduleRoot + "builds/1"));
@@ -159,17 +161,20 @@ public class CloverParseCommandTest {
 
 	@Test
 	public void testCloverLink() throws InvalidHudsonProjectException {
-		AddAction addAction = prepareValidSample1("src/test/resources/sample_valid/", 500, 200);
+		prepareValidSample1("src/test/resources/sample_valid/", 500, 200);
 		CloverMethodHandler handler = new CloverMethodHandler();
 		List<MethodInfo> t = handler.process(mockBuild, false, "", new LoggerWrapper(System.out), Analyzer.Clover);
 		for (MethodInfo each : t) {
-			assertThat(Analyzer.Clover.getHandler().getMethodUrlLocation(mockBuild, each), containsString("http://localhost/test/1/clover-report/"
-					+ each.getPath().substring(0, each.getPath().length() - 10)));
+			assertThat(
+					Analyzer.Clover.getHandler().getMethodUrlLocation(mockBuild, each),
+					containsString("http://localhost/test/1/clover-report/"
+							+ each.getPath().substring(0, each.getPath().length() - 10)));
 		}
 	}
 
 	@Test
-	@org.junit.Ignore // TODO fix test (jfreechart problem on mac anyway)
+	@org.junit.Ignore
+	// TODO fix test (jfreechart problem on mac anyway)
 	public void testPlotWithOneElement() throws IOException {
 		List<MethodInfo> methodInfoList = new ArrayList<MethodInfo>();
 		MethodInfo methodInfo = new MethodInfo("", "test", 1, 10);
@@ -180,7 +185,8 @@ public class CloverParseCommandTest {
 		methodInfoList.add(methodInfo2);
 		methodInfo2.increaseLine(false);
 
-		CovComplPlotTaget cloverScatterPlotTaget = new CovComplPlotTaget(mockBuild, methodInfoList, Analyzer.Clover, Calendar.getInstance());
+		CovComplPlotTaget cloverScatterPlotTaget = new CovComplPlotTaget(mockBuild, methodInfoList, Analyzer.Clover,
+				Calendar.getInstance());
 		GraphImpl graph = cloverScatterPlotTaget.getGraph();
 
 		final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -231,7 +237,8 @@ public class CloverParseCommandTest {
 
 	void preparePrevBuildMock() {
 		when(prevBuildWithoutAction.getAction(CovComplPlotBuildAction.class)).thenReturn(null);
-		when(prevBuildWithAction.getAction(CovComplPlotBuildAction.class)).thenReturn(new CovComplPlotBuildAction(prevBuildWithAction, null));
+		when(prevBuildWithAction.getAction(CovComplPlotBuildAction.class)).thenReturn(
+				new CovComplPlotBuildAction(prevBuildWithAction, null));
 		when(prevBuildWithAction.getId()).thenReturn("33");
 		when(mockProject.getLastCompletedBuild()).thenReturn(prevBuildWithoutAction);
 		when(prevBuildWithoutAction.getPreviousNotFailedBuild()).thenReturn(prevBuildWithAction);
@@ -240,15 +247,17 @@ public class CloverParseCommandTest {
 	@Test
 	public void testCloverPathConversion() {
 		when(mockBuild.getUrl()).thenReturn("wewe");
-		System.out.println(Analyzer.Clover.getHandler().getMethodUrlLocation(mockBuild, new MethodInfo("ewe/ewew/ss.java", "aaa", 1, 1)));
+		System.out.println(Analyzer.Clover.getHandler().getMethodUrlLocation(mockBuild,
+				new MethodInfo("ewe/ewew/ss.java", "aaa", 1, 1)));
 		;
 	}
 
 	@Test
 	public void testExclusionGetterSetter() throws InvalidHudsonProjectException {
-		AddAction addAction = prepareValidSample1("src/test/resources/sample_valid/", 500, 200);
+		prepareValidSample1("src/test/resources/sample_valid/", 500, 200);
 		CloverMethodHandler handler = new CloverMethodHandler();
-		List<MethodInfo> methodInfoList = handler.process(mockBuild, true, "", new LoggerWrapper(System.out), Analyzer.Clover);
+		List<MethodInfo> methodInfoList = handler.process(mockBuild, true, "", new LoggerWrapper(System.out),
+				Analyzer.Clover);
 		for (MethodInfo methodInfo : methodInfoList) {
 			if (methodInfo.getCompl() == 1 && methodInfo.st == 1) {
 				assertThat(methodInfo.getSig(), not(startsWith("get")));
@@ -259,13 +268,15 @@ public class CloverParseCommandTest {
 
 	@Test
 	public void testInclusionGetterSetter() throws InvalidHudsonProjectException {
-		AddAction addAction = prepareValidSample1("src/test/resources/sample_valid/", 500, 200);
+		prepareValidSample1("src/test/resources/sample_valid/", 500, 200);
 		CloverMethodHandler handler = new CloverMethodHandler();
-		List<MethodInfo> methodInfoList = handler.process(mockBuild, false, "", new LoggerWrapper(System.out), Analyzer.Clover);
+		List<MethodInfo> methodInfoList = handler.process(mockBuild, false, "", new LoggerWrapper(System.out),
+				Analyzer.Clover);
 		int count = 0;
 		for (MethodInfo methodInfo : methodInfoList) {
 			if (methodInfo.getCompl() == 1 && methodInfo.st == 1) {
-				if (StringUtils.startsWithIgnoreCase(methodInfo.getSig(), "get") ||StringUtils.startsWithIgnoreCase(methodInfo.getSig(), "set")) {
+				if (StringUtils.startsWithIgnoreCase(methodInfo.getSig(), "get")
+						|| StringUtils.startsWithIgnoreCase(methodInfo.getSig(), "set")) {
 					count++;
 				}
 			}

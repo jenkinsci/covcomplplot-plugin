@@ -10,8 +10,8 @@ package hudson.plugins.covcomplplot.analyzer;
 public enum Analyzer {
 	Clover("Clover", "Clover(Statement)", new CloverMethodHandler()), 
 	CloverBranch("Clover", "Clover(Branch)", new CloverBranchCoverageMethodHandler()),
-	Cobertura("Cobertura", "Cobertura(Statement)", new CoberturaMethodHandler());
-
+	Cobertura("Cobertura", "Cobertura(Statement)", new CoberturaMethodHandler()),
+	Emma("Emma", "Emma(Block)", new EmmaMethodHandler());
 	/** plugin name */
 	private final String pluginName;
 	/** real handler */

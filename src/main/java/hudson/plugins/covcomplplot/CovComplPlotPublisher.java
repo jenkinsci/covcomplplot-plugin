@@ -28,6 +28,7 @@ import org.kohsuke.stapler.DataBoundConstructor;
  * It's a subclass of {@link Notifier} so that {@link CovComplPlotPublisher} should be executed 
  * after corresponding coverage plugin is performed.
  */
+@SuppressWarnings("rawtypes") 
 public class CovComplPlotPublisher extends Notifier {
 	/** Analyzer to be used in this instance. */
 	public final Analyzer analyzer;
@@ -181,7 +182,7 @@ public class CovComplPlotPublisher extends Notifier {
 		/* (non-Javadoc)
 		 * @see hudson.tasks.BuildStepDescriptor#isApplicable(java.lang.Class)
 		 */
-		@SuppressWarnings("unchecked")
+		
 		public boolean isApplicable(Class<? extends AbstractProject> aClass) {
 			return true;
 		}

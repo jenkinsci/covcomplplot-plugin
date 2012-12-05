@@ -1,11 +1,9 @@
 package hudson.plugins.covcomplplot;
 
+import hudson.model.ProminentProjectAction;
 import hudson.model.AbstractBuild;
 import hudson.model.AbstractProject;
 import hudson.model.Actionable;
-import hudson.model.Hudson;
-import hudson.model.ProminentProjectAction;
-import hudson.plugins.covcomplplot.CovComplPlotPublisher.DescriptorImpl;
 
 /**
  * Project Action. This action just passes the request to the latest

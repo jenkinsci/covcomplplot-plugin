@@ -64,7 +64,7 @@ public class CovComplPlotUtil {
 	 */
 	@SuppressWarnings("unchecked")
 	public static List<Element> getXPathNodeList(Node node, String xpathStr) {
-		List selectNodes = node.selectNodes(xpathStr);
+		List<?> selectNodes = node.selectNodes(xpathStr);
 		return (List<Element>) selectNodes;
 	}
 
