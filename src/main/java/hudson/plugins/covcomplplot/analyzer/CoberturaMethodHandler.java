@@ -7,7 +7,10 @@ import hudson.plugins.covcomplplot.stub.InvalidHudsonProjectType;
 import hudson.plugins.covcomplplot.stub.LoggerWrapper;
 import hudson.plugins.covcomplplot.util.CovComplPlotUtil;
 
+import java.io.File;
+import java.io.FilenameFilter;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -31,18 +34,30 @@ public class CoberturaMethodHandler extends AbstractMethodInfoHandler {
 	@Override
 	public List<MethodInfo> process(AbstractBuild<?, ?> build, boolean excludeGetterSetter, String remoteDir, LoggerWrapper logger, Analyzer analyzer)
 			throws InvalidHudsonProjectException {
-		Document cobetura = super.getBuildArtifact(build, "coverage.xml", Analyzer.Cobertura);
-		List<Element> elementList = null;
-		Element rootElement = cobetura.getRootElement();
-		try {
-			elementList = CovComplPlotUtil.getXPathNodeList(rootElement, "//packages/package/classes/class");
-		} catch (Exception e) {
-			throw new InvalidHudsonProjectException(
-					InvalidHudsonProjectType.INTERNAL,
-					"coverage.xml doesn't contain the detailed result. Please check if coverage.xml has method level infomration.");
+		File rootDir = build.getRootDir();
+		File[] rawCoverageReports = rootDir.listFiles(new FilenameFilter() {
+			public boolean accept(File dir, String name) {
+				return name.startsWith("coverage") && name.endsWith(".xml");
+			}
+		});
+		Document[] reportDocuments = new Document[rawCoverageReports.length];
+		for (int i = 0; i < reportDocuments.length; i++) {
+			reportDocuments[i] = super.getBuildArtifact(build, rawCoverageReports[i].getName(), Analyzer.Cobertura);
 		}
-		ArrayList<MethodInfo> methods = new ArrayList<MethodInfo>();
 
+		List<Element> elementList = new LinkedList<Element>();
+		for (Document report : reportDocuments) {
+			Element rootElement = report.getRootElement();
+			try {
+				elementList.addAll(CovComplPlotUtil.getXPathNodeList(rootElement, "//packages/package/classes/class"));
+			} catch (Exception e) {
+				throw new InvalidHudsonProjectException(
+						InvalidHudsonProjectType.INTERNAL,
+						"coverage.xml doesn't contain the detailed result. Please check if coverage.xml has method level infomration.");
+			}
+		}
+
+		ArrayList<MethodInfo> methods = new ArrayList<MethodInfo>();
 		for (Element eachClass : elementList) {
 			String path = eachClass.attributeValue("filename");
 			for (Object eachMethodObject : eachClass.selectNodes("methods/method")) {
@@ -120,7 +135,7 @@ public class CoberturaMethodHandler extends AbstractMethodInfoHandler {
 		}
 		return methodName.toString();
 	}
-	
+
 	/**
 	 * parse cobertura method arg into readable form.
 	 * @param s cobertura method arg
@@ -133,32 +148,32 @@ public class CoberturaMethodHandler extends AbstractMethodInfoHandler {
 		char c = s.charAt(0);
 		int end;
 		switch (c) {
-		case 'Z':
-			return "boolean";
-		case 'C':
-			return "char";
-		case 'B':
-			return "byte";
-		case 'S':
-			return "short";
-		case 'I':
-			return "int";
-		case 'F':
-			return "float";
-		case 'J':
-			return "";
-		case 'D':
-			return "double";
-		case 'V':
-			return "void";
-		case '[':
-			return parseMethodArg(s.substring(1)) + "[]";
-		case 'T':
-		case 'L':
-			end = s.indexOf(';');
-			String eachArg = s.substring(1, end).replace('/', '.');
-			int index = eachArg.lastIndexOf(".") + 1;
-			return eachArg.substring(Math.min(eachArg.length() - 1, index));
+			case 'Z':
+				return "boolean";
+			case 'C':
+				return "char";
+			case 'B':
+				return "byte";
+			case 'S':
+				return "short";
+			case 'I':
+				return "int";
+			case 'F':
+				return "float";
+			case 'J':
+				return "";
+			case 'D':
+				return "double";
+			case 'V':
+				return "void";
+			case '[':
+				return parseMethodArg(s.substring(1)) + "[]";
+			case 'T':
+			case 'L':
+				end = s.indexOf(';');
+				String eachArg = s.substring(1, end).replace('/', '.');
+				int index = eachArg.lastIndexOf(".") + 1;
+				return eachArg.substring(Math.min(eachArg.length() - 1, index));
 
 		}
 		return s;
@@ -176,7 +191,7 @@ public class CoberturaMethodHandler extends AbstractMethodInfoHandler {
 	public String getCustomJavaScript() {
 		return "";
 	}
-	
+
 	/**
 	 * URL Transform 
 	 * @param name 
