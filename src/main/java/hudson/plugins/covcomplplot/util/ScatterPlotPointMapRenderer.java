@@ -97,6 +97,7 @@ public class ScatterPlotPointMapRenderer extends XYDotRenderer {
 	@Override
 	public void drawRangeMarker(Graphics2D g2, XYPlot plot, ValueAxis rangeAxis, Marker marker, Rectangle2D dataArea) {
 		// do nothing
+		
 	}
 
 	/*
