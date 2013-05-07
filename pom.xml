@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.jenkins-ci.plugins</groupId>
@@ -10,7 +11,12 @@
 	<name>Coverage/Complexity Scatter Plot PlugIn</name>
 	<packaging>hpi</packaging>
 	<url>http://wiki.jenkins-ci.org/display/JENKINS/Coverage+Complexity+Scatter+Plot+PlugIn</url>
-
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+	</licenses>
 	<developers>
 		<developer>
 			<id>junoyoon</id>
@@ -23,10 +29,7 @@
 		<developerConnection>scm:git:git@github.com:jenkinsci/covcomplplot-plugin.git</developerConnection>
 		<url>https://github.com/jenkinsci/covcomplplot-plugin</url>
 	</scm>
-	<!--
-		get every artifact through maven.glassfish.org, which proxies all the
-		artifacts that we need
-	-->
+	<!-- get every artifact through maven.glassfish.org, which proxies all the artifacts that we need -->
 	<repositories>
 		<repository>
 			<id>repo.jenkins-ci.org</id>
@@ -183,14 +186,6 @@
 					<target>1.5</target>
 					<encoding>utf-8</encoding>
 					<showDeprecations>true</showDeprecations>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.jvnet.hudson.tools</groupId>
-				<artifactId>maven-hpi-plugin</artifactId>
-				<extensions>true</extensions>
-				<configuration>
-					<encoding>utf-8</encoding>
 				</configuration>
 			</plugin>
 		</plugins>
