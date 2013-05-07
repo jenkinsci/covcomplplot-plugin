@@ -41,8 +41,8 @@ public abstract class AbstractMethodInfoHandler {
 	 * @throws InvalidHudsonProjectException
 	 */
 
-	public abstract List<MethodInfo> process(AbstractBuild<?, ?> build, boolean excludeGetterSetter, String rootDir, LoggerWrapper logger,
-			Analyzer analyzer) throws InvalidHudsonProjectException;
+	public abstract List<MethodInfo> process(AbstractBuild<?, ?> build, boolean excludeGetterSetter, String rootDir,
+					LoggerWrapper logger, Analyzer analyzer) throws InvalidHudsonProjectException;
 
 	/**
 	 * Get build xml artifact
@@ -56,7 +56,8 @@ public abstract class AbstractMethodInfoHandler {
 	 * @return xml document
 	 * @throws InvalidHudsonProjectException
 	 */
-	public Document getBuildArtifact(AbstractBuild<?, ?> build, String fileName, Analyzer forWhat) throws InvalidHudsonProjectException {
+	public Document getBuildArtifact(AbstractBuild<?, ?> build, String fileName, Analyzer forWhat)
+					throws InvalidHudsonProjectException {
 		Document document = null;
 		File artifactFile = new File(build.getRootDir(), fileName);
 		InputStream is = null;
@@ -64,7 +65,8 @@ public abstract class AbstractMethodInfoHandler {
 			is = new FileInputStream(artifactFile);
 			document = CovComplPlotUtil.getXmlFileDocument(is);
 		} catch (Exception e) {
-			throw new InvalidHudsonProjectException(InvalidHudsonProjectType.INVALID_PLUGIN_RESULT, e, forWhat.getPluginName());
+			throw new InvalidHudsonProjectException(InvalidHudsonProjectType.INVALID_PLUGIN_RESULT, e,
+							forWhat.getPluginName());
 		} finally {
 			IOUtils.closeQuietly(is);
 		}
@@ -104,7 +106,8 @@ public abstract class AbstractMethodInfoHandler {
 	 */
 	protected boolean isGetterSetter(MethodInfo method) {
 		if (method.st == 1 && method.getCompl() == 1) {
-			return StringUtils.startsWithIgnoreCase(method.getSig(), "get") || StringUtils.startsWithIgnoreCase(method.getSig(), "set");
+			return StringUtils.startsWithIgnoreCase(method.getSig(), "get")
+							|| StringUtils.startsWithIgnoreCase(method.getSig(), "set");
 		}
 		return false;
 	}
@@ -114,8 +117,8 @@ public abstract class AbstractMethodInfoHandler {
 	}
 
 	/**
-	 * Get method content URL. Each handler should implements this method to get
-	 * the appropriate URL for each method source code.
+	 * Get method content URL. Each handler should implements this method to get the appropriate URL
+	 * for each method source code.
 	 * 
 	 * @param build
 	 *            {@link AbstractBuild} instance against each methodInfo.
@@ -126,9 +129,8 @@ public abstract class AbstractMethodInfoHandler {
 	abstract public String getMethodUrlLocation(AbstractBuild<?, ?> build, MethodInfo methodInfo);
 
 	/**
-	 * Check if passed {@link AbstractBuild} contains valid plugin result
-	 * for this handler processing. This method is invoked before the process
-	 * method is called.
+	 * Check if passed {@link AbstractBuild} contains valid plugin result for this handler
+	 * processing. This method is invoked before the process method is called.
 	 * 
 	 * @param build
 	 * @throws InvalidHudsonProjectException
@@ -142,13 +144,15 @@ public abstract class AbstractMethodInfoHandler {
 	 */
 	abstract public String getDescription();
 
-	protected void checkBuildContainningBuildAction(AbstractBuild<?, ?> build, String buildActionName) throws InvalidHudsonProjectException {
+	protected void checkBuildContainningBuildAction(AbstractBuild<?, ?> build, String buildActionName)
+					throws InvalidHudsonProjectException {
 		for (Action eachAction : build.getActions()) {
 			if (buildActionName.equals(eachAction.getUrlName())) {
 				return;
 			}
 		}
-		throw new InvalidHudsonProjectException(InvalidHudsonProjectType.INVALID_PLUGIN_RESULT, Analyzer.Clover);
+		throw new InvalidHudsonProjectException(InvalidHudsonProjectType.INVALID_PLUGIN_RESULT,
+						Analyzer.getAnalyzerForthisHandler(this));
 	}
 
 	public Action getCustomSourceViewBuildAction(AbstractBuild<?, ?> build) {
