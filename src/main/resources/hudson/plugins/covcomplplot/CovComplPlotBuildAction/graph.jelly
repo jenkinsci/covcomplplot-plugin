@@ -13,7 +13,7 @@
 			<div id='covComplDescription' style="margin-left:45px"></div>
 			<img src="${rootURL}/${it.owner.url}/covcomplplot/graph/png" usemap="#covcomplmap" />
 			<div>
-				${it.target.graph.getMapString(withBuildNo)}
+				${HTML:it.target.graph.getMapString(withBuildNo)}
 			</div>
 			<div style="text-align:right">
 				*
